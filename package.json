@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "es6": "node ./cmd/es6_compile.es6 book",
-    "less": "node ./cmd/less_compile.es6 book",
     "pug":"node ./cmd/pug_compile.es6 book"
   },
   "author": "",

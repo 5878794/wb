@@ -1,0 +1,65 @@
+.top{
+    width: 100%; height: 0.9rem; background: rgb(251,133,92);
+    color: #fff; font-size: 0.3rem; overflow: hidden;
+}
+.top_logo{
+    width: 1.5rem; height: 0.9rem; background: red;
+}
+
+.top_icons{
+    width: 2.8rem; height: 0.9rem;
+}
+.top_icons div{
+    margin: 0 0.15rem;
+}
+.top_home{
+    width: 0.61rem; height: 0.61rem;
+    background:url(../image/top/home.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+.top_my{
+    width: 0.51rem; height: 0.51rem;
+    background: #fff;
+    -webkit-border-radius:0.61rem;
+    -moz-border-radius:0.61rem;
+    border-radius:0.61rem;
+    border: 0.05rem solid #fff;
+    overflow: hidden;
+}
+.top_my img{
+    width: 100%; height: 100%;
+}
+.top_dir{
+    width: 0.61rem; height: 0.61rem;
+    background:url(../image/top/lib.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+.top_coll{
+    width: 0.61rem; height: 0.61rem;
+    background:url(../image/top/bookshelf.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+
+
+.top_back{
+    padding-left:0.3rem; margin-left: 0.06rem;
+    background: url(../image/top/arrow_left.png) no-repeat left center;
+    -webkit-background-size:0.3rem 0.3rem;
+    background-size:0.3rem 0.3rem;
+
+}
+.top_pos{
+    padding-left: 0.4rem;
+}
+.top_pos span{
+    padding-right: 0.3rem;
+    background: url(../image/top/arrow_right.png) no-repeat right center;
+    -webkit-background-size:0.3rem 0.3rem;
+    background-size:0.3rem 0.3rem;
+}
+.top_pos span:last-child{
+    background: none;
+}

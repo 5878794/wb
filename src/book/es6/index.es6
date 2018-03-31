@@ -1,4 +1,2 @@
-
-
-let device = require('./lib/page');
-console.log(device)
+let viewport = require('./lib/ui/setViewport');
+viewport(750);

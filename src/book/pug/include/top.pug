@@ -1,0 +1,30 @@
+mixin top(opt,isIndex)
+    //顶部条开始
+    div(class='top box_h center_s')
+        div(class='boxflex1 box_h')
+            if(isIndex)
+                div(class='top_logo')
+            else
+                div(class='top_back') 返回
+
+                div(class='top_pos diandian')
+                    span 首页
+                    span 目录
+                    span 章节
+
+
+        div(class='top_icons center_s align_right')
+            - for (var x = 0; x < opt.length; x++)
+                if(opt[x] == 'home')
+                    div(class='top_home')
+                if(opt[x] == 'dir')
+                    div(class='top_dir')
+                if(opt[x] == 'my')
+                    div(class='top_my')
+                        img(src='image/temp/icon.jpeg')
+                if(opt[x] == 'coll')
+                    div(class='top_coll')
+
+
+
+    //顶部条结束

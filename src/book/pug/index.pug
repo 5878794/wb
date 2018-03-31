@@ -1,15 +1,16 @@
 doctype html
 html
     head
-        title 预约挂号
+        title 小说
         include ./include/head
 
         link(rel="stylesheet" type="text/css" href="css/index.css")
         script.
-            var text = "<script src='js/dist/index.min.js?_=" + new Date().getTime() + "'><\/script>";
+            var text = "<script src='js/index.js?_=" + new Date().getTime() + "'><\/script>";
             document.write(text);
 
 
+        include ./include/top
     body
 
-        div 123
+        +top(['my','coll'],true)
