@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title 筛选
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/filter.css")
+        script.
+            var text = "<script src='js/filter.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+
+        style.
+            p:last-child{
+                color:red;
+            }
+    body
+
+        +top(['home','coll'],false)
+
+        p 123
+        p 222
+        p 333
+

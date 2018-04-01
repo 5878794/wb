@@ -47,30 +47,34 @@ html
         //本期主打
         div(class='content box_s')
             +title('本期主打',1,true,true)
-            +indexList1('left',false,false)
+            div(class='content_main')
+                +indexList1('left',false,false)
 
 
         //精品好书
         div(class='content box_s')
             +title('精品好书',2,false,false)
-            +indexList1('right',false,false)
-            +indexList2(1)
+            div(class='content_main')
+                +indexList1('right',false,false)
+                +indexList2(1)
 
 
         //热门畅销
         div(class='content box_s')
             +title('热门畅销',3,false,false)
-            +indexList1('left',true,true)
-            +indexList1('left',true,true)
-            +indexList3()
-            +indexList3()
-            +indexList3()
+            div(class='content_main')
+                +indexList1('left',true,true)
+                +indexList1('left',true,true)
+                +indexList3()
+                +indexList3()
+                +indexList3()
 
 
         //惊喜新书
         div(class='content box_s')
             +title('惊喜新书',4,false,false)
-            +indexList2(2)
+            div(class='content_main')
+                +indexList2(2)
 
 
 

@@ -5,7 +5,7 @@ mixin top(opt,isIndex)
             if(isIndex)
                 div(class='top_logo')
             else
-                div(class='top_back') 返回
+                a(class='top_back' href='javascript:history.go(-1);') 返回
 
                 div(class='top_pos diandian')
                     span 首页
@@ -16,14 +16,14 @@ mixin top(opt,isIndex)
         div(class='top_icons center_s align_right')
             - for (var x = 0; x < opt.length; x++)
                 if(opt[x] == 'home')
-                    div(class='top_home')
+                    a(href='#' class='top_home')
                 if(opt[x] == 'dir')
-                    div(class='top_dir')
+                    a(href='#' class='top_dir')
                 if(opt[x] == 'my')
-                    div(class='top_my')
+                    a(href='#' class='top_my')
                         img(src='image/temp/icon.jpeg')
                 if(opt[x] == 'coll')
-                    div(class='top_coll')
+                    a(href='#' class='top_coll')
 
 
 
