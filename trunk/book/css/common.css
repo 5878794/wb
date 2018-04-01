@@ -115,3 +115,35 @@
     -webkit-background-size:0.11rem 0.42rem;
     background-size:0.11rem 0.42rem;
 }
+
+
+
+.all_kh_title{
+    height: 0.9rem; line-height: 0.9rem;
+    font-size: 0.3rem; padding-left: 0.5rem;
+    background: url(../image/kh.png) no-repeat 0.11rem center;
+    -webkit-background-size:0.29rem 0.25rem;
+    background-size:0.29rem 0.25rem;
+}
+.all_kh_main{
+    width: 100%; padding: 0.2rem 0 0.2rem 0;
+}
+.all_kh_main img{
+    display: block; margin: 0 0.2rem;
+    width: 1.55rem; height: 1.55rem;
+}
+.all_kh_row{
+    line-height: 0.55rem; font-size: 0.24rem; color: #333;
+    padding-left: 0.2rem;
+}
+.all_kh_row p{
+    color: #999; padding-right: 0.1rem; display: inline-block;
+}
+
+
+.footer{
+    width: 100%; text-align: center;
+    font-size: 0.24rem; color: rgb(154,154,154);
+    line-height: 0.34rem;
+    padding: 0.2rem 0;
+}

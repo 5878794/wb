@@ -14,6 +14,9 @@ html
         include ./include/title
         include ./include/index_list1
         include ./include/index_list2
+        include ./include/index_list3
+        include ./include/kh
+        include ./include/footer
     body
 
         +top(['my','coll'],true)
@@ -51,3 +54,27 @@ html
         div(class='content box_s')
             +title('精品好书',2,false,false)
             +indexList1('right',false,false)
+            +indexList2(1)
+
+
+        //热门畅销
+        div(class='content box_s')
+            +title('热门畅销',3,false,false)
+            +indexList1('left',true,true)
+            +indexList1('left',true,true)
+            +indexList3()
+            +indexList3()
+            +indexList3()
+
+
+        //惊喜新书
+        div(class='content box_s')
+            +title('惊喜新书',4,false,false)
+            +indexList2(2)
+
+
+
+        //客服
+        div(class='content box_s')
+            +kh()
+            +footer()
