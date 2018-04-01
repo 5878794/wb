@@ -75,7 +75,7 @@ input,button,select,textarea{
 body{
     font-family: "微软雅黑", Arial, "宋体";
     color:#333;
-    /*background: #ebebeb;*/
+    background: rgb(248,248,248);
     /*-ms-touch-action: none;    *//*windowsphone屏蔽滚动*/
 }
 
@@ -84,6 +84,9 @@ a:link,a:visited{
 }
 a:hover{
     text-decoration: none;
+}
+a:active{
+    opacity:0.5;
 }
 
 
@@ -320,4 +323,11 @@ a:hover{
     transition: all 0.2s linear;
 }
 
+
+.content{
+    margin-top: 0.25rem;
+    background: #fff;
+    border-top:1px solid rgb(238,238,238);
+    border-bottom:1px solid rgb(238,238,238);
+}
 

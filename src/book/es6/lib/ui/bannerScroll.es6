@@ -34,8 +34,8 @@ var scrollBanner = function (data) {
 	this.showPoint = $.isBoolean(data.showPoint)? data.showPoint : true;
 	this.leftBtn = data.rightBtn;
 	this.rightBtn = data.leftBtn;
-	this.pointBg = "#ccc";
-	this.pointSelectBg = "#000";
+	this.pointBg = "#fff";
+	this.pointSelectBg = "rgb(32,177,160)";
 	this.changeStartFn = data.changeStartFn || function(){};
 	this.changeEndFn = data.changeEndFn || function(){};
 
@@ -101,7 +101,7 @@ scrollBanner.prototype = {
 			width: width + "px",
 			height: "10px",
 			position: "absolute",
-			bottom: "40px",
+			bottom: "0.2rem",
 			left: "50%",
 			"margin-left": -width / 2 + "px",
 			display:display,
@@ -123,7 +123,7 @@ scrollBanner.prototype = {
 		for (var i = 0, l = this.imgLength; i < l; i++) {
 			var this_item = span.clone().attr({ n: i });
 			if (i == 0) {
-				this_item.css({ background: this.pointSelectBg,"border-color":"#fff" })
+				this_item.css({ background: this.pointSelectBg,"border-color":this.pointSelectBg })
 			}
 			div.append(this_item);
 		}
@@ -264,7 +264,7 @@ scrollBanner.prototype = {
 		this.page = (this.page > this.maxPage) ? 0 : this.page;
 		this.page = (this.page < 0)? this.maxPage : this.page;
 
-		this.points.css({ background: this.pointBg });
+		this.points.css({ background: this.pointBg,'border-color':this.pointSelectBg });
 		this.points.eq(this.page).css({ background: this.pointSelectBg,"border-color":"#fff"  });
 
 		this.body.get(0).style[device._transitionDuration] = "";

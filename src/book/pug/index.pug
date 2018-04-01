@@ -11,6 +11,43 @@ html
 
 
         include ./include/top
+        include ./include/title
+        include ./include/index_list1
+        include ./include/index_list2
     body
 
         +top(['my','coll'],true)
+
+        //搜索条
+        div(class='index_search border_box')
+            div(class='index_search_main border_box box_h center_s')
+                input(class='index_search_input boxflex1' type='search' placeholder='输入关键字' name='search' id='search')
+                div(class='index_search_btn')
+
+        //banner
+        div(class='index_banner' id='banner')
+            div(class='index_banner_main' id='banner_main')
+                a(src='#' style='background:url(./image/temp/1.jpg) no-repeat center center;background-size:100% 100%; -webkit-background-size:100% 100%;')
+                a(src='#' style='background:url(./image/temp/2.jpg) no-repeat center center;background-size:100% 100%; -webkit-background-size:100% 100%;')
+                a(src='#' style='background:url(./image/temp/3.jpg) no-repeat center center;background-size:100% 100%; -webkit-background-size:100% 100%;')
+
+
+        //导航
+        div(class='index_dh box_h content')
+            a(href='#' class='index_dh_cz') 充值
+            a(href='#' class='index_dh_ph') 排行榜
+            a(href='#' class='index_dh_dg') 读过
+            a(href='#' class='index_dh_sk') 书库
+            a(href='#' class='index_dh_mf') 免费
+
+
+        //本期主打
+        div(class='content box_s')
+            +title('本期主打',1,true,true)
+            +indexList1('left',false,false)
+
+
+        //精品好书
+        div(class='content box_s')
+            +title('精品好书',2,false,false)
+            +indexList1('right',false,false)

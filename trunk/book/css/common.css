@@ -24,7 +24,7 @@
     -webkit-border-radius:0.61rem;
     -moz-border-radius:0.61rem;
     border-radius:0.61rem;
-    border: 0.05rem solid #fff;
+    border: 0.02rem solid #fff;
     overflow: hidden;
 }
 .top_my img{
@@ -62,4 +62,56 @@
 }
 .top_pos span:last-child{
     background: none;
+}
+
+
+
+
+.all_title{
+    width: 100%; height: 0.8rem; background: #fff; position: relative;
+}
+.all_title_name{
+    padding:0 0.4rem 0 0.5rem; font-size: 0.3rem; height: 0.8rem;
+    position: relative; line-height: 0.82rem;
+}
+.all_title_icon:after{
+    content: '';
+    position: absolute; right: 0; top: 0;
+    width: 0.24rem; height: 0.8rem;
+    background:url(../image/hot.png) no-repeat center center;
+    -webkit-background-size:0.24rem 0.27rem;
+    background-size:0.24rem 0.27rem;
+}
+.all_title_refresh{
+    position: absolute; right: 0; top: 0;
+    width: 1rem; height: 0.8rem;
+    padding-left: 0.3rem; line-height: 0.8rem;
+    font-size: 0.26rem; color: rgb(154,154,154);
+    background:url(../image/refresh.png) no-repeat left center;
+    -webkit-background-size:0.21rem 0.21rem;
+    background-size:0.21rem 0.21rem;
+}
+.all_title_type1{
+    color: rgb(251,127,86);
+    background: url(../image/title1.png) no-repeat 0.2rem center;
+    -webkit-background-size:0.11rem 0.42rem;
+    background-size:0.11rem 0.42rem;
+}
+.all_title_type2{
+    color: rgb(70,195,127);
+    background: url(../image/title2.png) no-repeat 0.2rem center;
+    -webkit-background-size:0.11rem 0.42rem;
+    background-size:0.11rem 0.42rem;
+}
+.all_title_type3{
+    color: rgb(252,96,57);
+    background: url(../image/title3.png) no-repeat 0.2rem center;
+    -webkit-background-size:0.11rem 0.42rem;
+    background-size:0.11rem 0.42rem;
+}
+.all_title_type4{
+    color: rgb(29,202,206);
+    background: url(../image/title4.png) no-repeat 0.2rem center;
+    -webkit-background-size:0.11rem 0.42rem;
+    background-size:0.11rem 0.42rem;
 }
