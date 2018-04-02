@@ -120,6 +120,13 @@
     -webkit-background-size:0.11rem 0.42rem;
     background-size:0.11rem 0.42rem;
 }
+.all_title_type5{
+    color: #333;
+    padding-left: 0.65rem;
+    background: url(../image/wx_icon.png) no-repeat 0.2rem center;
+    -webkit-background-size:0.3rem 0.25rem;
+    background-size:0.3rem 0.25rem;
+}
 
 
 

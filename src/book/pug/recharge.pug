@@ -1,0 +1,96 @@
+doctype html
+html
+    head
+        title 充值
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/recharge.css")
+        script.
+            var text = "<script src='js/recharge.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+        include ./include/my_center_money
+        include ./include/title
+
+    body
+
+        +top(['home'],false)
+
+        //余额
+        div(class='recharge_money')
+            +myCenterMoney()
+
+
+        //充值
+        div(class='content')
+            +title('微信充值',5,false,false)
+            div(class='recharge_img border_box')
+                div(class='center box_h')
+                    p 365元
+                    span 包年会员
+
+            div(class='recharge_main')
+
+                //金额循环开始
+                //class的书名:
+                //1、选中加class名:select
+                //2、赠送加class名:gift  在下面recharge_main_gift的span中写入金额
+                //3、hot状态添加class名:hot
+                //例:见第一个列表元素
+                div(class='select gift hot recharge_main_money border_box center box_s')
+                    div(class='recharge_main_money1') 30元
+                    div 3000书币
+                    div(class='recharge_main_hot')
+                    div(class='recharge_main_gift center')
+                        span 送5元
+
+                div(class='recharge_main_money border_box center box_s')
+                    div(class='recharge_main_money1') 30元
+                    div 3000书币
+                    div(class='recharge_main_hot')
+                    div(class='recharge_main_gift center')
+                        span 送5元
+
+                div(class='recharge_main_money border_box center box_s')
+                    div(class='recharge_main_money1') 30元
+                    div 3000书币
+                    div(class='recharge_main_hot')
+                    div(class='recharge_main_gift center')
+                        span 送5元
+
+                div(class='recharge_main_money border_box center box_s')
+                    div(class='recharge_main_money1') 30元
+                    div 3000书币
+                    div(class='recharge_main_hot')
+                    div(class='recharge_main_gift center')
+                        span 送5元
+
+                div(class='recharge_main_money border_box center box_s')
+                    div(class='recharge_main_money1') 30元
+                    div 3000书币
+                    div(class='recharge_main_hot')
+                    div(class='recharge_main_gift center')
+                        span 送5元
+
+                div(class='recharge_main_money border_box center box_s')
+                    div(class='recharge_main_money1') 30元
+                    div 3000书币
+                    div(class='recharge_main_hot')
+                    div(class='recharge_main_gift center')
+                        span 送5元
+
+                //金额循环结束
+
+
+            a(href='#' class='recharge_main_btn') 立即充值
+
+
+        //活动规则
+        div(class='content')
+            div(class='recharge_gz')
+                div 活动规则
+                p 1、充值活动开始时间2018-12-12
+                p 2、充值活动仅限微信充值
+                p 3、*****保持最终解释权

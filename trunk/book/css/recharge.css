@@ -1,0 +1,102 @@
+.recharge_money{
+    border-bottom: 1px solid #eee; background: #fff;
+}
+
+.recharge_img{
+    padding: 0 0.17rem 0.2rem 0.17rem;
+}
+.recharge_img div{
+    width: 100%; height: 1.2rem;
+    background: url(../image/365.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+.recharge_img span{
+    font-size: 0.36rem; color: rgb(154,154,154);
+    display: block; padding-left: 0.1rem;
+}
+.recharge_img p{
+    font-size: 0.46rem; color: rgb(218,180,39);
+}
+
+
+.recharge_main{
+    padding: 0 0.1rem;
+    overflow: hidden;
+}
+.recharge_main_money{
+    width: 3.45rem; height: 1.3rem;
+    border:1px solid #eee; font-size: 0.24rem;
+    color: rgb(154,154,154);
+    margin:0.1rem; position: relative;
+    -webkit-border-radius:0.1rem;
+    -moz-border-radius:0.1rem;
+    border-radius:0.1rem;
+    float: left;
+}
+.recharge_main_money1{
+    font-size: 0.32rem; color: #333;
+}
+
+.recharge_main .select{
+    border-color:rgb(251,127,86);
+}
+.recharge_main .gift .recharge_main_gift{
+    display: block;
+}
+.recharge_main .hot .recharge_main_hot{
+    display: block;
+}
+
+.recharge_main_gift{
+    display: none;
+    width: 0.89rem; height: 0.28rem;
+    background: url(../image/flag.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    position: absolute; left:0; top:0.08rem;
+    color: #fff; line-height: 0.28rem;
+    font-size: 0.12rem; text-align: center;
+
+}
+.recharge_main_gift span{
+    display: block;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.recharge_main_hot{
+    display: none;
+    width: 0.7rem; height: 0.4rem;
+    background: url(../image/hot1.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    position: absolute; right: -0.1rem; top:0;
+}
+
+
+.recharge_main_btn{
+    display: block;
+    width: 3.45rem; height: 0.8rem; text-align: center;
+    line-height: 0.8rem; background: rgb(251,127,86);
+    color: #fff; font-size: 0.32rem; margin: 0.25rem auto;
+    -webkit-border-radius:0.1rem;
+    -moz-border-radius:0.1rem;
+    border-radius:0.1rem;
+}
+
+.recharge_gz{
+    padding-bottom: 0.3rem;
+}
+.recharge_gz div{
+    padding: 0 0.2rem;
+    height:1rem; line-height: 1rem;
+    font-size: 0.3rem; color: #333;
+}
+.recharge_gz p{
+    padding: 0 0.2rem;
+    font-size: 0.26rem; color: rgb(154,154,154);
+    line-height: 0.4rem;
+}
