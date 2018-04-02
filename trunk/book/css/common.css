@@ -156,9 +156,10 @@
 
 .all_filter_title{
     padding: 0 0.15rem; height: 0.85rem; font-size: 0.3rem; color: #333;
+    background: #fff;
 }
 .all_filter_title_main{
-    width: 100%; height: 0.84rem;
+    width: 100%; height: 0.83rem;
     border-bottom:1px solid rgb(154,154,154);
 }
 .all_filter_title_name{
@@ -192,7 +193,7 @@
 }
 
 .all_filter_list{
-    padding: 0.2rem; overflow: hidden;
+    padding: 0.2rem; overflow: hidden; background: #fff;
 }
 .all_filter_list_item{
     width: 25%; font-size:0.28rem; color:rgb(154,154,154);
@@ -253,4 +254,36 @@
 }
 .content .all_search_list:last-child .all_search_list_main{
     border-bottom: none;
+}
+
+
+.book_chapter_list{
+    padding: 0 0.25rem;
+    display: block;
+}
+.all_book_chapter_title{
+    font-size: 0.28rem; color: #333;
+    padding: 0.25rem 0;
+    border-top:1px solid rgb(238,238,238);
+}
+.all_book_chapter_time{
+    font-size: 0.28rem; color: rgb(154,154,154);
+    padding-bottom: 0.25rem;
+}
+
+
+
+
+.index_list2_item{
+    width: 33.33333%; height: 3.5rem; padding: 0.2rem 0;
+}
+.index_list2_item_name{
+    font-size: 0.28rem; color: #333;
+    padding:0.3rem 0.4rem 0 0.4rem;
+}
+.index_list2_item img{
+    width: 1.7rem; height: 2.4rem; display: block;
+    -webkit-box-shadow: 0.1rem 0.1rem 0.1rem #ccc;
+    -moz-box-shadow: 0.1rem 0.1rem 0.1rem #ccc;
+    box-shadow: 0 0 0.2rem 0.01rem #ccc;
 }

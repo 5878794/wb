@@ -11,6 +11,9 @@ html
 
 
         include ./include/top
+        include ./include/title
+        include ./include/book_chapter_list
+        include ./include/index_list2
 
     body
 
@@ -35,3 +38,31 @@ html
             a(href='#' class='bookinfo_btns_chas') 追书
 
 
+        //作品简介
+        div(class='content box_s')
+            +title('作品简介',1,false,false)
+            div(class='bookinfo_info')
+                div(class='bookinfo_info_main bookinfo_info_show_zz')
+                    p 阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥阿迪会计法看世界的风啊矢口抵赖风景啊开始的减肥
+                    a(class='bookinfo_info_more' id='bookinfo_info_more') 展开
+            div(class='box_h')
+                div(class='bookinfo_info_state') 已完结
+                div(class='boxflex1')
+                    div(class='bookinfo_info_title diandian') 最新：阿迪时间发空间到风口浪尖阿斯顿风口浪尖阿里卡独家发售看了都放假啦开始的减肥卢卡斯觉得分开了
+                    div(class='bookinfo_info_time') 2018/01/34 17:33
+
+
+        //目录列表
+        div(class='content box_s')
+            +title('目录',4,false,false)
+            +bookChapterList(4)
+            div(class='bookinfo_info_more_btn')
+                div
+                    a(href='#')
+                        span 更多章节
+
+
+        //猜你喜欢
+        div(class='content box_s')
+            +title('猜你喜欢',1,false,true)
+            +indexList2(2)

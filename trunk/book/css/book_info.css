@@ -66,3 +66,73 @@
 .bookinfo_btns_chas{
     background: rgb(32,175,156);
 }
+
+
+.bookinfo_info{
+    position: relative; padding: 0.1rem 0.2rem 0 0.2rem;
+    font-size: 0.24rem;  margin-bottom: 0.2rem;
+}
+.bookinfo_info_main{
+    border-bottom:1px solid rgb(238,238,238);
+    padding-bottom: 0.4rem;
+}
+.bookinfo_info p{
+    padding-bottom: 0.2rem; height: 0.6rem;
+    overflow: hidden; position: relative;
+}
+.bookinfo_info_show_zz p:after{
+    content: '';
+    background:linear-gradient(to top,rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%);
+    width: 100%; height: 0.5rem;
+    position: absolute; left:0; bottom:0;
+}
+.bookinfo_info_more{
+    position: absolute; right: 0.2rem; bottom:-0.15rem;
+    padding:0.3rem; color:rgb(32,175,156);
+    background: url(../image/arrow_down.png) no-repeat right center;
+    -webkit-background-size:0.25rem 0.25rem;
+    background-size:0.25rem 0.25rem;
+}
+.bookinfo_info_state{
+    height: 0.35rem; font-size: 0.22rem; color: #fff; background: rgb(32,175,156);
+    padding: 0 0.15rem;
+    -webkit-border-radius:0.05rem;
+    -moz-border-radius:0.05rem;
+    border-radius:0.05rem;
+    margin: 0 0.2rem;
+}
+.bookinfo_info_title{
+    font-size: 0.26rem; color: #333; padding-right: 0.2rem;
+}
+.bookinfo_info_time{
+    font-size: 0.26rem; color: rgb(154,154,154);
+    padding: 0.2rem 0 0.2rem 0;
+}
+.bookinfo_info_more_btn{
+    height: 1.1rem; padding:0 0.25rem; display: block;
+
+}
+.bookinfo_info_more_btn div{
+    border-top:1px solid rgb(238,238,238);
+    height: 1.1rem; line-height: 1.1rem; text-align: center;
+}
+.bookinfo_info_more_btn a{
+    display: block; width: 100%; height: 1.1rem;
+}
+.bookinfo_info_more_btn span{
+    font-size: 0.26rem; color: rgb(32,175,156);
+    position: relative; top:-0.2rem;
+    padding-right: 0.4rem;
+}
+.bookinfo_info_more_btn span:after{
+    content: '';
+    width: 0.2rem; height: 0.2rem; position: absolute; right: 0; top: 0;
+    background: url(../image/d_arrow.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

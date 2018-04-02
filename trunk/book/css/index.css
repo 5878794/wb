@@ -81,8 +81,7 @@
   padding-top: 0.1rem;
 }
 
-.index_list1_img,
-.index_list2_item img{
+.index_list1_img{
   width: 1.7rem; height: 2.4rem; display: block;
   -webkit-box-shadow: 0.1rem 0.1rem 0.1rem #ccc;
   -moz-box-shadow: 0.1rem 0.1rem 0.1rem #ccc;
@@ -114,13 +113,7 @@
   padding-bottom: 0.3rem;
   border-bottom:1px solid rgb(154,154,154);
 }
-.index_list2_item{
-  width: 33.33333%; height: 3.5rem; padding: 0.2rem 0;
-}
-.index_list2_item_name{
-  font-size: 0.28rem; color: #333;
-  padding:0.3rem 0.4rem 0 0.4rem;
-}
+
 
 
 .index_list3{
