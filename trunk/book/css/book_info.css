@@ -1,0 +1,68 @@
+.bookinfo{
+    padding:0.4rem; background: #fff;
+    /*border-bottom:1px solid rgb(238,238,238);*/
+}
+.bookinfo img{
+    display: block;
+    width: 1.7rem; height: 2.4rem;
+    -webkit-box-shadow: 0.1rem 0.1rem 0.1rem #ccc;
+    -moz-box-shadow: 0.1rem 0.1rem 0.1rem #ccc;
+    box-shadow: 0 0 0.2rem 0.01rem #ccc;
+    margin-right: 0.25rem;
+}
+.bookinfo_tilte{
+    font-size: 0.28rem; color: #333; margin-bottom: 0.18rem;
+    height: 0.4rem; line-height: 0.4rem;
+}
+.bookinfo_tilte p{
+    background: rgb(251,148,59); color: #fff;
+    -webkit-border-radius:0.05rem;
+    -moz-border-radius:0.05rem;
+    border-radius:0.05rem;
+    padding: 0 0.1rem;
+    margin-right: 0.1rem;
+}
+
+.bookinfo_type{
+    font-size: 0.22rem; height: 0.4rem; line-height: 0.4rem;
+    margin-bottom: 0.27rem;
+}
+.bookinfo_type p{
+    color:rgb(251,148,59); border:1px solid rgb(251,148,59);
+    padding:0 0.2rem;
+    -webkit-border-radius:0.05rem;
+    -moz-border-radius:0.05rem;
+    border-radius:0.05rem;
+    margin-right: 0.2rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.bookinfo_type div{
+    color:rgb(32,175,156);
+}
+.bookinfo_text{
+    font-size: 0.22rem; color: rgb(154,154,154);
+    margin-bottom: 0.52rem;
+}
+.bookinfo_auth{
+    font-size: 0.22rem; color: rgb(154,154,154);
+}
+.bookinfo_btns{
+    background: #fff; height: 0.9rem; padding: 0 0.4rem;
+    padding-bottom: 0.3rem;
+}
+.bookinfo_btns a{
+    display: block; width: 3rem; height: 0.6rem;
+    -webkit-border-radius:0.05rem;
+    -moz-border-radius:0.05rem;
+    border-radius:0.05rem;
+    color: #fff; font-size: 0.28rem;
+    text-align: center; line-height: 0.6rem;
+}
+.bookinfo_btns_read{
+    background: rgb(251,148,59);
+}
+.bookinfo_btns_chas{
+    background: rgb(32,175,156);
+}

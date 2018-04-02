@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        title 介绍
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/book_info.css")
+        script.
+            var text = "<script src='js/book_info.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+
+    body
+
+        +top(['my','coll'],false)
+
+
+        //书详情
+        div(class='bookinfo box_h border_box')
+            img(src='./image/temp/1.jpg')
+            div(class='boxflex1')
+                div(class='bookinfo_tilte box_h center_s')
+                    p 限免
+                    div(class='boxflex1 diandian center_s') 书名书名书名书名书名书名书名书名书名书名书名书名书名书名书名书名书名书名
+                div(class='bookinfo_type box_h')
+                    p 完结
+                    div(class='boxflex1 diandian center_s') 穿越／欧美
+                div(class='bookinfo_text') 字数：993.33万字
+                div(class='bookinfo_auth') 文／紫檀
+        div(class='bookinfo_btns box_h border_box')
+            a(href='#' class='bookinfo_btns_read') 开始阅读
+            div(class='boxflex1')
+            a(href='#' class='bookinfo_btns_chas') 追书
+
+
