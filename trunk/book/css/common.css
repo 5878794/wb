@@ -52,7 +52,7 @@
 
 
 .top_back{
-    display: block; color: #fff;
+    display: none; color: #fff;
     padding-left:0.3rem; margin-left: 0.06rem;
     background: url(../image/top/arrow_left.png) no-repeat left center;
     -webkit-background-size:0.3rem 0.3rem;
@@ -60,7 +60,7 @@
 
 }
 .top_pos{
-    padding-left: 0.4rem;
+    padding-left: 0.2rem; display: none;
 }
 .top_pos span{
     padding-right: 0.3rem;
