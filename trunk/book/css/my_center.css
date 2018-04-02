@@ -1,0 +1,60 @@
+.my_center_user{
+    padding: 0.35rem 0.2rem; height: 1.9rem;
+}
+.my_center_user img{
+    display: block; width: 1.2rem; height: 1.2rem;
+    -webkit-border-radius:1.2rem;
+    -moz-border-radius:1.2rem;
+    border-radius:1.2rem;
+    margin-right: 0.25rem;
+}
+.my_center_user_name{
+    width: 100%; height: 0.4rem;
+    font-size: 0.32rem; color: #333;
+    padding:0.1rem 0;
+}
+.my_center_user_info{
+    width: 100%; height: 0.3rem;
+    font-size: 0.26rem; color: rgb(154,154,154);
+    padding:0.1rem 0;
+}
+
+
+
+.my_center_btn_main{
+    padding: 0 0.2rem;
+}
+.my_center_btn{
+    height: 1rem; font-size: 0.3rem; color: #333;
+    border-bottom:1px solid #eee; line-height: 1rem;
+}
+.my_center_btn_info{
+    color: rgb(154,154,154);
+}
+.my_center_icon1{
+    padding-left: 0.8rem;
+    background: url(../image/my_center_icon1.png) no-repeat left center;
+    -webkit-background-size:0.61rem 0.61rem;
+    background-size:0.61rem 0.61rem;
+}
+.my_center_icon2{
+    padding-left: 0.8rem;
+    background: url(../image/my_center_icon2.png) no-repeat left center;
+    -webkit-background-size:0.61rem 0.61rem;
+    background-size:0.61rem 0.61rem;
+}
+.my_center_icon3{
+    padding-left: 0.8rem;
+    background: url(../image/my_center_icon3.png) no-repeat left center;
+    -webkit-background-size:0.61rem 0.61rem;
+    background-size:0.61rem 0.61rem;
+}
+
+.my_center_q{
+    padding: 0.3rem; height: 1.5rem; text-align: right;
+}
+.my_center_q a{
+    display: block;
+    color: rgb(251,148,59);
+    font-size: 0.3rem;
+}

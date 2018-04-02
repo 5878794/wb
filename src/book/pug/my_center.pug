@@ -1,0 +1,58 @@
+doctype html
+html
+    head
+        title 个人中心
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/my_center.css")
+        script.
+            var text = "<script src='js/my_center.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+        include ./include/my_center_money
+        include ./include/kh
+        include ./include/footer
+
+    body
+
+        +top(['home'],false)
+
+
+        //用户信息
+        div(class='content box_h border_box my_center_user')
+            img(src='./image/temp/1.jpg')
+            div(class='boxflex1 box_s center')
+                div(class='my_center_user_name diandian') 火鸦地方就建安费火鸦地方就建安费火鸦地方就建安费火鸦地方就建安费
+                div(class='my_center_user_info diandian') 火鸦地方就建安费火鸦地方就建安费火鸦地方就建安费火鸦地方就建安费
+
+
+        //当前余额
+        div(class='content')
+            +myCenterMoney()
+
+
+        //导航条
+        div(class='content')
+            div(class='my_center_btn_main box_s border_box')
+                a(href='#' class='box_h border_box my_center_btn')
+                    div(class='my_center_icon1 boxflex1') 书架
+                    div(class='my_center_btn_info') 10本书在追
+                a(href='#' class='box_h border_box my_center_btn')
+                    div(class='my_center_icon2 boxflex1') 充值记录
+                    div(class='my_center_btn_info')
+                a(href='#' class='box_h border_box my_center_btn')
+                    div(class='my_center_icon3 boxflex1') 订阅记录
+                    div(class='my_center_btn_info')
+
+
+        //问题
+        div(class='my_center_q')
+            a(href='#') 遇到问题? 获取帮助
+
+
+        //客服
+        div(class='content box_s')
+            +kh()
+            +footer()
