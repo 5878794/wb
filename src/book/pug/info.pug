@@ -1,0 +1,54 @@
+doctype html
+html
+    head
+        title 章节详情
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/info.css")
+        script.
+            var text = "<script src='js/info.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+
+    body
+
+        +top(['coll','dir','my'],false)
+
+        div(class='info_ts box_h border_box center_s')
+            div(class='boxflex1') 是否收藏本书，方便下次阅读？
+            a(class='info_collection') 收藏
+
+
+        div(class='info_main')
+            div(class='info_title') 第一章：我，啊啥的计分卡了世界的风卡拉斯京阿斯顿看了风景撒开了减肥的卡拉斯京地方了
+            div(class='box_h info_times')
+                div(class='boxflex1') 发布：2018／01／33 14:14
+                a(class='info_icon1')
+                a(class='info_icon2')
+                a(class='info_icon3')
+
+            //章节内容
+            div(class='info_body')
+                p 阿迪会计法卡里的减肥卡拉斯京法律框架阿莱克斯的减肥卢卡斯觉得风卡拉斯京地方卢卡斯觉得离开风景阿斯科利的风景阿斯科利都放假克拉风景阿迪会计法卡里的减肥卡拉斯京法律框架阿莱克斯的减肥卢卡斯觉得风卡拉斯京地方卢卡斯觉得离开风景阿斯科利的风景阿斯科利都放假克拉风景阿迪会计法卡里的减肥卡拉斯京法律框架阿莱克斯的减肥卢卡斯觉得风卡拉斯京地方卢卡斯觉得离开风景阿斯科利的风景阿斯科利都放假克拉风景
+                p 阿迪会计法卡里的减肥卡拉斯京法律框架阿莱克斯的减肥卢卡斯觉得风卡拉斯京地方卢卡斯觉得离开风景阿斯科利的风景阿斯科利都放假克拉风景阿迪会计法卡里的减肥卡拉斯京法律框架阿莱克斯的减肥卢卡斯觉得风卡拉斯京地方卢卡斯觉得离开风景阿斯科利的风景阿斯科利都放假克拉风景阿迪会计法卡里的减肥卡拉斯京法律框架阿莱克斯的减肥卢卡斯觉得风卡拉斯京地方卢卡斯觉得离开风景阿斯科利的风景阿斯科利都放假克拉风景
+
+            //作者提示
+            div(class='info_auth_info') [作者提示] 点击追书，方便下次阅读
+
+            //章节按钮
+            div(class='info_btns box_h')
+                a(class='info_pre') 上一章
+                div(class='boxflex1')
+                a(class='info_dir') 目录
+                div(class='boxflex1')
+                a(class='info_next') 下一章
+
+
+        //关注微信
+        div(class='info_wx')
+            div(class='info_wx_title') 关注微信公众号，方便下次阅读
+            img(src='./image/temp/2m.jpeg')
+            div(class='info_wx_info') 长按识别二维码
+
