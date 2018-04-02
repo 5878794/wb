@@ -1,0 +1,8 @@
+mixin filterTitle(name,type,showAll)
+    div(class='all_filter_title')
+        div(class='all_filter_title_main box_h')
+            -var typeClass = 'all_filter_title_icon'+type
+            div(class='all_filter_title_name boxflex1 '+typeClass)=name
+            if(showAll)
+                a(class='all_filter_title_all') 加载全部
+

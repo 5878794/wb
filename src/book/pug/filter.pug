@@ -11,16 +11,34 @@ html
 
 
         include ./include/top
+        include ./include/filter_title
+        include ./include/filter_type_list
+        include ./include/search_list
 
-        style.
-            p:last-child{
-                color:red;
-            }
     body
 
         +top(['home','coll'],false)
 
-        p 123
-        p 222
-        p 333
+        //分类
+        +filterTitle('分类',1,true)
+        +filterTypeList(16)
 
+
+        //字数
+        +filterTitle('字数',2,false)
+        +filterTypeList(4)
+
+
+        //类型
+        +filterTitle('类型',3,false)
+        +filterTypeList(4)
+
+
+        //状态
+        +filterTitle('状态',4,false)
+        +filterTypeList(4)
+
+
+        //推荐列表
+        div(class='content box_s')
+            +searchList(3)
