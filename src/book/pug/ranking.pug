@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title 排行
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/ranking.css")
+        script.
+            var text = "<script src='js/ranking.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+        include ./include/tab
+        include ./include/index_list2
+        include ./include/ranking_list
+
+
+    body
+
+        +top(['my','coll'],false)
+
+        div(class='ranking_tab center')
+            +tab('人气榜','追书榜')
+
+
+        div(class='ranking_main')
+            +indexList2(1,true)
+
+            +rankingList()
+

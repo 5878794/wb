@@ -285,7 +285,28 @@
 
 
 .index_list2_item{
-    width: 33.33333%; height: 3.5rem; padding: 0.2rem 0;
+    width: 33.33333%; height: 3.5rem; padding: 0.2rem 0; position: relative;
+}
+.index_list2_item_rank{
+    position: absolute; top:0; left:0.3rem;
+    width:0.48rem; height: 0.6rem;
+    font-size: 0.26rem; color: #fff;
+    text-align: center; line-height: 0.6rem;
+}
+.index_list2_item_rank_icon1{
+    background: url(../image/mark1.png) no-repeat center center;
+    -webkit-background-size:0.48rem 0.6rem;
+    background-size:0.48rem 0.6rem;
+}
+.index_list2_item_rank_icon2{
+    background: url(../image/mark2.png) no-repeat center center;
+    -webkit-background-size:0.48rem 0.6rem;
+    background-size:0.48rem 0.6rem;
+}
+.index_list2_item_rank_icon3{
+    background: url(../image/mark3.png) no-repeat center center;
+    -webkit-background-size:0.48rem 0.6rem;
+    background-size:0.48rem 0.6rem;
 }
 .index_list2_item_name{
     font-size: 0.28rem; color: #333;
@@ -355,4 +376,41 @@
 }
 .all_library_list:last-of-type .all_library_list_main{
     border-bottom: none;
+}
+
+
+
+.all_ranking_list{
+    padding: 0.15rem 0.15rem 0 0.15rem; height: 0.95rem; display: block;
+}
+.all_ranking_list_main{
+    border-bottom: 1px solid #eee; padding-bottom: 0.15rem;
+    height: 0.65rem;
+}
+.all_ranking_list_main p{
+    font-size: 0.3rem; color: #333;
+    padding-right: 0.4rem;
+    background: url(../image/3j.png) no-repeat right center;
+    -webkit-background-size:0.4rem 0.4rem;
+    background-size:0.4rem 0.4rem;
+}
+.all_ranking_list_main span{
+    display: block; width: 0.56rem; height: 0.56rem; text-align: center;
+    line-height: 0.56rem; color: #fff;
+    -webkit-border-radius:0.56rem;
+    -moz-border-radius:0.56rem;
+    border-radius:0.56rem;
+    font-size: 0.24rem;
+    margin-right: 0.2rem;
+}
+.all_ranking_list_icon4,
+.all_ranking_list_icon5,
+.all_ranking_list_icon6{
+    background: rgb(29,202,206);
+}
+.all_ranking_list_icon7,
+.all_ranking_list_icon8,
+.all_ranking_list_icon9,
+.all_ranking_list_icon10{
+    background:rgb(180,181,182);
 }

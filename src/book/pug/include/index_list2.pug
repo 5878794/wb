@@ -1,10 +1,14 @@
-mixin indexList2(row)
+mixin indexList2(row,showRank)
     div(class='box_s')
         //横向列表循环开始
         -for(var z=0;z<row;z++)
             div(class='box_h')
                 -for(var i=0;i<3;i++)
                     a(href='#' class='index_list2_item box_s center_s')
+                        if(showRank)
+                            -var n = i+1;
+                            -var iconClass = 'index_list2_item_rank_icon'+n
+                            div(class='index_list2_item_rank '+iconClass)=n
                         img(src='image/temp/1.jpg')
                         div(class='index_list2_item_name diandian2') 阿萨德飞机阿斯利康大姐夫卡拉胶啊速度快放假奥斯卡的骄傲克鲁赛德积分卡设计费
         //横向列表循环结束
