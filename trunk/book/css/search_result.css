@@ -1,0 +1,8 @@
+.search_result_main{
+    background: #fff;
+}
+
+
+.search_result_main .all_search_list:last-child .all_search_list_main{
+    border-bottom: none;
+}

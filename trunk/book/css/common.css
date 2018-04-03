@@ -121,6 +121,17 @@
     background-size:0.29rem 0.31rem;
     margin-right: 0.3rem;
 }
+.all_title_search{
+    position: absolute; right: 0; top: 0;
+    height: 0.8rem; display: inline-block;
+    line-height: 0.8rem;
+    font-size: 0.26rem; color: rgb(154,154,154);
+    text-align: right; margin-right: 0.2rem;
+}
+.all_title_search p{
+    display: inline-block; color: rgb(34,177,152);
+    padding-right: 0.05rem;
+}
 .all_title_type1{
     color: rgb(251,127,86);
     background: url(../image/title1.png) no-repeat 0.2rem center;
@@ -237,7 +248,7 @@
 }
 .all_search_list_main{
     padding-bottom: 0.38rem;
-    border-bottom: 1px solid rgb(154,154,154);
+    border-bottom: 1px solid #eee;
 }
 .all_search_list_main img{
     width: 1.7rem; height: 2.4rem; display: block;
@@ -258,20 +269,19 @@
     -webkit-border-radius:0.05rem;
     -moz-border-radius:0.05rem;
     border-radius:0.05rem;
-    border:1px solid rgb(154,154,154);
     margin-right:0.2rem;
 }
 .all_search_type1{
     color:rgb(154,154,154);
-    border-color:rgb(154,154,154);
+    border:1px solid rgb(154,154,154);
 }
 .all_search_type2{
     color:rgb(251,148,59);
-    border-color:rgb(251,148,59);
+    border:1px solid rgb(251,148,59);
 }
 .all_search_type3{
     color:rgb(65,187,119);
-    border-color:rgb(65,187,119);
+    border:1px solid rgb(65,187,119);
 }
 .all_search_last_p{
     font-size: 0.24rem; color: rgb(154,154,154);

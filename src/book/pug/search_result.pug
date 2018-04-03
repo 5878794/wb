@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title 搜索结果
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/search_result.css")
+        script.
+            var text = "<script src='js/search_result.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/search_top
+        include ./include/title
+        include ./include/search_list
+
+    body
+
+        +searchTop()
+
+        div(class='search_result_main')
+            +title('搜索结果',1,false,false,false,false,true)
+
+            +searchList(5)
