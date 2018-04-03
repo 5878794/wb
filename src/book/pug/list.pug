@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title 章节目录
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/list.css")
+        script.
+            var text = "<script src='js/list.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+        include ./include/title
+        include ./include/book_chapter_list
+
+
+    body
+
+        +top(['my','dir'],false)
+
+        +title('目录',4,false,false,true)
+        div(style='background:#fff')
+            +bookChapterList(20)
+
+
