@@ -311,3 +311,48 @@
     -webkit-background-size:0.27rem 0.31rem;
     background-size:0.27rem 0.31rem;
 }
+
+
+
+.all_tab_main{
+    width: 4.6rem; height: 0.7rem;
+    margin: 0 auto; text-align: center; line-height: 0.7rem;
+    border:1px solid rgb(251,148,59);
+    font-size: 0.3rem;
+    overflow: hidden;
+    -webkit-border-radius:0.05rem;
+    -moz-border-radius:0.05rem;
+    border-radius:0.05rem;
+}
+.all_tab_item{
+    width: 50%; display: block; color: rgb(251,148,59);
+    background: #fff;
+}
+.all_tab_main .select{
+    background: rgb(251,148,59); color:#fff;
+}
+
+
+
+.all_library_list{
+    padding: 0.2rem 0.2rem 0 0.2rem; background: #fff; display: block;
+}
+.all_library_list_main{
+    border-bottom: 1px solid #ccc; padding-bottom: 0.2rem;
+}
+.all_library_list_main img{
+    display: block; width: 1.2rem; height: 1.7rem;
+    margin-right: 0.3rem;
+}
+.all_library_list_title{
+    font-size: 0.36rem; color: #333; line-height: 0.7rem;
+}
+.all_library_list_info{
+    font-size: 0.26rem; color: rgb(154,154,154); line-height: 0.6rem;
+}
+.all_library_list_time{
+    font-size: 0.22rem; color: rgb(154,154,154);
+}
+.all_library_list:last-of-type .all_library_list_main{
+    border-bottom: none;
+}

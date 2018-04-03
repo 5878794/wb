@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title 书库
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/library.css")
+        script.
+            var text = "<script src='js/library.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+        include ./include/tab
+        include ./include/library_list
+
+
+    body
+
+        +top(['my','dir'],false)
+
+        div(class='library_tab center')
+            +tab('人气榜','追书榜')
+
+        +libraryList(10)
+
