@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+        title 搜索
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/search.css")
+        script.
+            var text = "<script src='js/search.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/search_top
+        include ./include/title
+        include ./include/index_list2
+
+    body
+
+        +searchTop()
+
+        div(class='search_main')
+            +title('人们搜索',1,false,false)
+            +indexList2(1)
+
+        div(class='content')
+            +title('历史搜索',4,false,false,false,true)
+
+            div(class='search_list breakall')
+                a 装神
+                a 创月
+                a 阿道夫
+                a 创月地方
+                a 阿斯顿发地方
+                a 阿道夫
+                a 装神
+                a 创月
+                a 阿道夫
+                a 创月地方
+                a 阿斯顿发地方
+                a 阿道夫
+

@@ -1,4 +1,4 @@
-mixin title(name,type,showIcon,showRefresh,showOrder)
+mixin title(name,type,showIcon,showRefresh,showOrder,showDel)
     -var typeClass = 'all_title_type'+type;
     -var iconClass = (showIcon)? 'all_title_icon' : '';
     div(class='all_title box_h center_s')
@@ -7,3 +7,5 @@ mixin title(name,type,showIcon,showRefresh,showOrder)
             a(class='all_title_refresh') 换一换
         if(showOrder)
             a(class='all_title_order') 倒序
+        if(showDel)
+            a(class='all_title_del')
