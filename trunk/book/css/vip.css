@@ -1,0 +1,43 @@
+.vip_ts{
+    padding: 0 0.2rem; height: 0.8rem; line-height: 0.8rem;
+    font-size: 0.3rem; color: #333; background: rgb(252,200,152);
+}
+
+.vip_main{
+    padding: 0.4rem 0.2rem; background: #fff;
+}
+.vip_main_title{
+    font-size: 0.36rem; color: #333; margin-bottom: 0.3rem;
+    line-height: 0.5rem;
+}
+.vip_main_title span{
+    padding-right: 0.4rem;
+    background: url(../image/vip.png) no-repeat right center;
+    -webkit-background-size:0.34rem 0.3rem;
+    background-size:0.34rem 0.3rem;
+}
+
+.vip_main_time{
+    font-size: 0.22rem; color: rgb(154,154,154);
+    margin-bottom: 0.4rem;
+}
+.vip_main_text{
+    font-size:0.26rem; color:rgb(251,148,59); margin-bottom: 0.3rem;
+}
+.vip_main_text p{
+    color:#333; display: inline-block;
+}
+
+.vip_not_login{
+    color: red; font-size: 0.26rem; margin-bottom: 0.86rem;
+}
+
+.vip_buy{
+    width: 3.5rem; height: 0.8rem; text-align: center; line-height: 0.8rem;
+    background: rgb(251,148,59); color: #fff; font-size: 0.36rem;
+    margin: 0 auto; display: block;
+    -webkit-border-radius:0.1rem;
+    -moz-border-radius:0.1rem;
+    border-radius:0.1rem;
+    margin-bottom: 0.68rem;
+}
