@@ -50,6 +50,9 @@ $(document).ready(function(){
 	//处理头部显示
 	handlerTopInfo();
 
+	//
+	handlerTouchEvent();
+
 });
 
 
@@ -59,4 +62,10 @@ var handlerTopInfo = function(){
 	}else{
 		$('#top_dom').find('.top_back').css({display:'block'});
 	}
+};
+
+var handlerTouchEvent = function(){
+	$('a').each(function(){
+		this.addEventListener('touchstart',function(){},false)
+	});
 };
