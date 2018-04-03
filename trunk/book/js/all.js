@@ -53,14 +53,21 @@ $(document).ready(function(){
 	//
 	handlerTouchEvent();
 
+
+	addInputClearBtn();
+
 });
 
 
 var handlerTopInfo = function(){
 	if(DEVICE.isIpad || DEVICE.isIphone){
 		$('#top_dom').find('.top_pos').css({display:'block'});
+		$('.top_gg').css({display:'none'});
 	}else{
 		$('#top_dom').find('.top_back').css({display:'block'});
+		if($('.top_logo').length==0){
+			$('#top_left').removeClass('boxflex1').removeClass('box_h');
+		}
 	}
 };
 
@@ -70,6 +77,46 @@ var handlerTouchEvent = function(){
 	});
 };
 
+var addInputClearBtn = function(){
+	$('input').each(function(){
+		var parentDom = $(this).parent(),
+			position = $(this).parent().css('position'),
+			input = this;
+
+		if(position=='fixed' || position=='relative' || position=='absolute'){
+
+		}else{
+			parentDom.css({
+				position:'relative'
+			})
+		}
+
+		var dom = $('<div>x</div>');
+		dom.css({
+			position:'absolute',
+			right:'0.9rem',
+			top:'50%',width:'0.5rem',height:'0.5rem','text-align':'center',
+			'line-height':'0.5rem','font-size':'0.3rem',color:'#333',
+			'margin-top':'-0.25rem',
+			'z-index':8,'display':'none'
+		});
+
+		parentDom.append(dom);
+
+		dom.get(0).addEventListener('touchstart',function(){
+			$(input).val('');
+			dom.css({display:'none'})
+		},false);
+
+		this.addEventListener('input',function(){
+			if($(this).val()==''){
+				dom.css({display:'none'})
+			}else{
+				dom.css({display:'block'})
+			}
+		},false)
+	});
+};
 
 var xInfo = {
 	dom:null,

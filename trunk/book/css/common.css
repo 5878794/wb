@@ -1,26 +1,28 @@
 .top{
     width: 100%; height: 0.9rem; background: rgb(251,133,92);
     color: #fff; font-size: 0.3rem; overflow: hidden;
-    position: fixed; z-index: 99; left:0; top:0;
+    /*position: fixed; z-index: 99; left:0; top:0;*/
 }
-.top_{
-    width: 100%; height: 0.9rem;
-    background-color:#fff;
-    background-image: url(../image/logo.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-background-size:1.9rem 0.5rem;
-    background-size:1.9rem 0.5rem;
-}
+/*.top_{*/
+    /*width: 100%; height: 0.9rem;*/
+    /*background-color:#fff;*/
+    /*background-image: url(../image/logo.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center center;*/
+    /*-webkit-background-size:1.9rem 0.5rem;*/
+    /*background-size:1.9rem 0.5rem;*/
+/*}*/
 .top_logo{
     width: 1.9rem; height: 0.5rem; margin-left: 0.2rem;
     background: url(../image/logo.png) no-repeat center center;
     -webkit-background-size:100% 100%;
     background-size:100% 100%;;
 }
-
+.top_gg{
+    margin: 0 0.2rem;
+}
 .top_icons{
-    width: 2.8rem; height: 0.9rem;
+    width: auto!important; height: 0.9rem;
 }
 .top_icons a{
     margin: 0 0.15rem;
@@ -313,7 +315,14 @@
     font-size: 0.28rem; color: #333;
     padding: 0.25rem 0;
     border-top:1px solid rgb(238,238,238);
+    padding-right:0.4rem;
 }
+.book_chapter_list.vip .all_book_chapter_title{
+    background: url(../image/vip_icon.png) no-repeat right center;
+    -webkit-background-size:0.24rem 0.23rem;
+    background-size:0.24rem 0.23rem;
+}
+
 .all_book_chapter_time{
     font-size: 0.28rem; color: rgb(154,154,154);
     padding-bottom: 0.25rem;
@@ -415,6 +424,29 @@
 .all_library_list:last-of-type .all_library_list_main{
     border-bottom: none;
 }
+.all_library_list_btns{
+    width: 1rem;
+}
+.all_library_list_btn1{
+    background: rgb(29,202,206); color: #fff;
+    width: 0.9rem; height: 0.4rem; font-size: 0.28rem;
+    -webkit-border-radius:0.05rem;
+    -moz-border-radius:0.05rem;
+    border-radius:0.05rem;
+    border:1px solid transparent;
+    text-align: center; line-height: 0.4rem;
+    margin: 0.2rem 0; display: block;
+}
+.all_library_list_btn2{
+    background: #fff; color: rgb(29,202,206);
+    width: 0.9rem; height: 0.4rem; font-size: 0.28rem;
+    -webkit-border-radius:0.05rem;
+    -moz-border-radius:0.05rem;
+    border-radius:0.05rem;
+    border:1px solid rgb(29,202,206);
+    text-align: center; line-height: 0.4rem;
+    margin: 0.2rem 0; display: block;
+}
 
 
 
@@ -454,19 +486,19 @@
 }
 
 
-.all_searchTop_{
-    width: 100%; height: 0.9rem;
-    background-color:#fff;
-    background-image: url(../image/logo.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-background-size:1.9rem 0.5rem;
-    background-size:1.9rem 0.5rem;
-}
+/*.all_searchTop_{*/
+    /*width: 100%; height: 0.9rem;*/
+    /*background-color:#fff;*/
+    /*background-image: url(../image/logo.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center center;*/
+    /*-webkit-background-size:1.9rem 0.5rem;*/
+    /*background-size:1.9rem 0.5rem;*/
+/*}*/
 .all_searchTop{
     width: 100%; height: 0.9rem; background: rgb(251,133,92);
     color: #fff; font-size: 0.28rem; overflow: hidden;
-    position: fixed; z-index: 99; left:0; top:0;
+    /*position: fixed; z-index: 99; left:0; top:0;*/
     padding: 0.15rem;
 }
 .all_searchTop input{

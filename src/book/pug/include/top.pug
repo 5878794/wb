@@ -2,7 +2,7 @@ mixin top(opt,isIndex)
     //顶部条开始
     div(class='top_')
     div(class='top box_h center_s' id='top_dom')
-        div(class='boxflex1 box_h')
+        div(class='boxflex1 box_h' id='top_left')
             if(isIndex)
                 div(class='top_logo')
             else
@@ -13,6 +13,8 @@ mixin top(opt,isIndex)
                     span 目录
                     span 章节
 
+        if(!isIndex)
+            div(class='boxflex1 diandian top_gg') 打发斯蒂芬爱打飞机阿斯蒂芬打发斯蒂芬爱打飞机阿斯蒂芬
 
         div(class='top_icons center_s align_right')
             - for (var x = 0; x < opt.length; x++)
