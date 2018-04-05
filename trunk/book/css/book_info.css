@@ -43,7 +43,10 @@
 }
 .bookinfo_text{
     font-size: 0.22rem; color: rgb(154,154,154);
-    margin-bottom: 0.52rem;
+    margin-bottom: 0.12rem;
+}
+.bookinfo_text1{
+    font-size: 0.22rem; color: #333; margin-bottom: 0.12rem;
 }
 .bookinfo_auth{
     font-size: 0.22rem; color: rgb(154,154,154);

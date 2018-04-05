@@ -1,4 +1,6 @@
-mixin myCenterMoney()
+mixin myCenterMoney(notShowHref)
     div(class='center all_my_center_money')
         p 您当前的余额:
         span 5624
+        if(!notShowHref)
+            a(href='#') 去充值

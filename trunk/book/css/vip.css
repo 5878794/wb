@@ -12,9 +12,9 @@
 }
 .vip_main_title span{
     padding-right: 0.4rem;
-    background: url(../image/vip.png) no-repeat right center;
-    -webkit-background-size:0.34rem 0.3rem;
-    background-size:0.34rem 0.3rem;
+    background: url(../image/vip_icon.png) no-repeat right center;
+    -webkit-background-size:0.24rem 0.23rem;
+    background-size:0.24rem 0.23rem;
 }
 
 .vip_main_time{

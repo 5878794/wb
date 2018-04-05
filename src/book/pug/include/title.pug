@@ -6,7 +6,10 @@ mixin title(name,type,showIcon,showRefresh,showOrder,showDel,showSearchResult)
         if(showRefresh)
             a(class='all_title_refresh') 换一换
         if(showOrder)
-            a(class='all_title_order') 倒序
+            //要隐藏哪个设置  style='display:none';
+            //要显示的取消上面的设置
+            a(class='all_title_order' style='display:none;') 倒序
+            a(class='all_title_order1') 顺序
         if(showDel)
             a(class='all_title_del')
         if(showSearchResult)

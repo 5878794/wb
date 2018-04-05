@@ -11,7 +11,7 @@ html
 
 
         include ./include/top
-
+        include ./include/my_center_money
 
 
     body
@@ -19,6 +19,9 @@ html
         +top(['my','coll'],false)
 
         div(class='vip_ts') 收费章节订阅提醒
+
+        div(class='content' style='margin-bottom:0.2rem;')
+            +myCenterMoney()
 
         div(class='vip_main border_box')
             div(class='vip_main_title breakall')

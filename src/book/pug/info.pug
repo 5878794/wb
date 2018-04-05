@@ -39,11 +39,19 @@ html
 
             //章节按钮
             div(class='info_btns box_h')
-                a(class='info_pre') 上一章
+                //有上一章用这个,
+                //注意去掉样式  style='display:none'
+                a(class='info_pre' style='display:none;') 上一章
+                //没有上一章用这个
+                div(class='info_pre not_click') 上一章
                 div(class='boxflex1')
                 a(class='info_dir') 目录
                 div(class='boxflex1')
+                //有下一章用这个
                 a(class='info_next') 下一章
+                //没有下一章用这个
+                //注意去掉样式  style='display:none'
+                div(class='info_next not_click' style='display:none;') 下一章
 
 
         //关注微信

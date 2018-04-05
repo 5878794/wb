@@ -11,6 +11,8 @@
 }
 .index_search_input{
   display: block; padding: 0 0.2rem; height: 0.78rem;
+  font-size: 0.28rem; line-height: 0.78rem;
+  color: #ccc;
 }
 .index_search_btn{
   width: 0.75rem; height: 0.75rem;
