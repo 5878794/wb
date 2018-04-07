@@ -93,7 +93,7 @@ var page = {
 		this.saveLocalData(lData);
 
 		$('.info_body').css({
-			'cssText':'font-size:'+size+'px!important;line-height:120%;'
+			'cssText':'font-size:'+size+'px!important;line-height:160%;'
 		})
 	}
 };
