@@ -85,3 +85,11 @@ body{
 .login_texts a{
     color: rgb(34,177,152);
 }
+
+
+.login_wx_icon span{
+    padding-left: 0.6rem;
+    background: url(../image/icon_wx1.png) no-repeat left center;
+    -webkit-background-size:0.4rem 0.4rem;
+    background-size:0.4rem 0.4rem;
+}
