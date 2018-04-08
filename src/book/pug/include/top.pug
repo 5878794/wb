@@ -1,4 +1,4 @@
-mixin top(opt,isIndex)
+mixin top(opt,isIndex,rightText)
     //顶部条开始
     div(class='top_')
     div(class='top box_h center_s' id='top_dom')
@@ -16,17 +16,22 @@ mixin top(opt,isIndex)
         if(!isIndex)
             div(class='boxflex1 diandian top_gg') 打发斯蒂芬爱打飞机阿斯蒂芬打发斯蒂芬爱打飞机阿斯蒂芬
 
-        div(class='top_icons center_s align_right')
-            - for (var x = 0; x < opt.length; x++)
-                if(opt[x] == 'home')
-                    a(href='#' class='top_home')
-                if(opt[x] == 'dir')
-                    a(href='#' class='top_dir')
-                if(opt[x] == 'my')
-                    a(href='#' class='top_my')
-                        img(src='image/temp/icon.jpeg')
-                if(opt[x] == 'coll')
-                    a(href='#' class='top_coll')
+        if(opt && opt.length!=0)
+            div(class='top_icons center_s align_right')
+                - for (var x = 0; x < opt.length; x++)
+                    if(opt[x] == 'home')
+                        a(href='#' class='top_home')
+                    if(opt[x] == 'dir')
+                        a(href='#' class='top_dir')
+                    if(opt[x] == 'my')
+                        a(href='#' class='top_my')
+                            img(src='image/temp/icon.jpeg')
+                    if(opt[x] == 'coll')
+                        a(href='#' class='top_coll')
+
+
+        if(rightText)
+            a(href='#' class='top_reg')=rightText
 
 
 

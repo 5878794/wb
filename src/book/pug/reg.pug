@@ -1,0 +1,39 @@
+doctype html
+html
+    head
+        title 登陆
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/login.css")
+        script.
+            var text = "<script src='js/reg.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+
+
+    body
+
+        +top([],false)
+
+        div(class='login_main')
+            div(class='box_s')
+                input(class='login_input login_user_icon border_box' name='user' id='user' type='text' placeholder='个性账号／邮箱／手机号')
+            div(class='box_s')
+                input(class='login_input login_pass_icon border_box' name='pass' id='pass' type='password' placeholder='6至10位数字或字母')
+            div(class='box_s')
+                input(class='login_input login_pass_icon border_box' name='pass1' id='pass1' type='password' placeholder='请再次输入您的密码')
+            div(class='box_h center_s')
+                input(class='login_input boxflex1 login_pass_icon border_box' name='yzm' id='yzm' type='text' placeholder='请输入验证码')
+                //验证码图片宽高比 2：1
+                img(src='./image/temp/1.jpg' class='login_yzm_img')
+            a(href='#' class='login_btn_green') 立即注册
+
+            div(class='login_texts box_h center')
+                label
+                    input(type='checkbox' name='xx' id='xx')
+                p 我已查看并同意协议
+                a(href='#') 《用户使用协议》
+
+

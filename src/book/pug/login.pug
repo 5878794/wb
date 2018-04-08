@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title 登陆
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/login.css")
+        script.
+            var text = "<script src='js/login.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+
+
+    body
+
+        +top([],false,'注册')
+
+        div(class='login_main')
+            a(href='#' class='login_btn_green') 微信登陆
+            div(class='box_s')
+                input(class='login_input login_user_icon border_box' name='user' id='user' type='text' placeholder='请输入您的账号或手机号')
+            div(class='box_s')
+                input(class='login_input login_pass_icon border_box' name='pass' id='pass' type='password' placeholder='请输入您的密码')
+            a(href='#' class='login_btn_red') 立即登陆
+
+            div(class='login_texts')
+                div 登陆遇到问题？
+                p 1、刷新页面重试；
+                p 2、啊快点交罚款的减肥
+
+

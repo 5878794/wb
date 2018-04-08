@@ -1,0 +1,87 @@
+body{
+    background: #fff;
+}
+
+.login_main{
+    padding:0.4rem 0.2rem;
+}
+.login_btn_green{
+    margin: 0.3rem 0; display: block;
+    width: 100%; height: 1rem; line-height: 1rem;
+    background: rgb(65,187,119); color: #fff;
+    font-size: 0.32rem; text-align: center;
+    -webkit-border-radius:0.1rem;
+    -moz-border-radius:0.1rem;
+    border-radius:0.1rem;
+    margin-bottom: 0.6rem;
+}
+.login_input{
+    display: block; width: 100%; height: 0.8rem;
+    background: #eee; margin: 0.2rem 0; padding: 0 0.2rem;
+    -webkit-border-radius:0.1rem;
+    -moz-border-radius:0.1rem;
+    border-radius:0.1rem;
+    font-size: 0.3rem;
+}
+.login_btn_red{
+    margin: 0.3rem 0; display: block;
+    width: 100%; height: 1rem; line-height: 1rem;
+    background: rgb(251,148,59); color: #fff;
+    font-size: 0.32rem; text-align: center;
+    -webkit-border-radius:0.1rem;
+    -moz-border-radius:0.1rem;
+    border-radius:0.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.login_texts{
+    font-size: 0.24rem; line-height: 0.4rem; color:#bbb;
+}
+.login_texts div{
+    font-size: 0.26rem; margin-bottom: 0.2rem;
+}
+
+
+.login_user_icon{
+    padding-left: 0.8rem;
+    background-image: url(../image/icon_user.png);
+    background-repeat:no-repeat;
+    background-position: 0.2rem center;
+    -webkit-background-size:0.4rem 0.4rem;
+    background-size:0.4rem 0.4rem;
+}
+.login_pass_icon{
+    padding-left: 0.8rem;
+    background-image: url(../image/icon_pass.png);
+    background-repeat:no-repeat;
+    background-position: 0.2rem center;
+    -webkit-background-size:0.4rem 0.4rem;
+    background-size:0.4rem 0.4rem;
+}
+.login_yzm_icon{
+    padding-left: 0.8rem;
+    background-image: url(../image/icon_yzm.png);
+    background-repeat:no-repeat;
+    background-position: 0.2rem center;
+    -webkit-background-size:0.4rem 0.4rem;
+    background-size:0.4rem 0.4rem;
+}
+
+
+.login_yzm{
+
+}
+.login_yzm_img{
+    display: block; width: 1.6rem; height: 0.8rem;
+    margin-left: 0.2rem;
+}
+
+.login_texts label{
+    padding: 0.2rem;
+}
+.login_texts input{
+    position: relative; top: 0.04rem;
+}
+.login_texts a{
+    color: rgb(34,177,152);
+}

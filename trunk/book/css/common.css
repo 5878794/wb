@@ -61,7 +61,14 @@
     -webkit-background-size:100% 100%;
     background-size:100% 100%;
 }
-
+.top_reg{
+    display: block;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: right;
+    padding: 0 0.2rem;
+    font-size: 0.28rem; color: #fff;
+}
 
 .top_back{
     display: none; color: #fff;
