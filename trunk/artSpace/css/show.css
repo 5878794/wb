@@ -3,12 +3,14 @@
     text-align: right;
 }
 .show_title{
+    max-width:100%;
     display: inline-block;
     padding: 50px 20px 0 20px;
     font-size: 32px; color: #fff;
     letter-spacing: 3px;
 }
 .show_number{
+    max-width:100%;
     display: inline-block;
     padding: 1px 20px 20px 20px;
     text-align: right;
@@ -82,4 +84,18 @@
     display: inline-block;
     max-width:100%;
     font-size: 18px;
+}
+
+
+.artist_info_number{
+    color: rgb(206,71,74);
+}
+.artist_info_item{
+    width: 100%;
+    max-width:600px;
+    margin:0 auto;
+    margin-bottom: 10px;
+}
+.artist_info_item img{
+    width: 100%;
 }

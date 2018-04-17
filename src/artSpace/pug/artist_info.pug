@@ -1,0 +1,35 @@
+doctype html
+html
+    head
+        title ARTIST
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/show.css")
+        script.
+            var text = "<script src='js/artist.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+
+        +top()
+        +menu()
+
+        div(style='overflow:hidden;')
+            div(class='show_titleM')
+                div(class='show_title diandian') UIL LI
+                br
+                div(class='show_number artist_info_number')
+                    p /
+                    div 26
+                    p paintings
+
+
+        div(class='show_list')
+
+            -for(var i=0;i<3;i++)
+                div(class='artist_info_item')
+                    img(src='./image/temp/t1.png')
