@@ -1,12 +1,18 @@
+.show_titleM{
+    float: left; max-width: 100%; width: auto;
+    text-align: right;
+}
 .show_title{
+    display: inline-block;
     padding: 50px 20px 0 20px;
     font-size: 32px; color: #fff;
     letter-spacing: 3px;
 }
 .show_number{
+    display: inline-block;
     padding: 1px 20px 20px 20px;
     text-align: right;
-    width: 260px; color: rgb(190,141,118);
+    color: rgb(190,141,118);
     font-size: 16px;
 }
 .show_number div{
@@ -65,9 +71,7 @@
 
 
 
-.artist_number{
-    width: 170px;
-}
+
 .artist_item_name{
     width: auto; text-align: right;
     float: left;

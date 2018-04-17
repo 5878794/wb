@@ -84,6 +84,7 @@ body{
     font-family: "微软雅黑", Arial, "宋体";
     color:#333;
     background: #000;
+    min-width: 320px;
     /*-ms-touch-action: none;    *//*windowsphone屏蔽滚动*/
 }
 
