@@ -2,6 +2,7 @@
 
 //new DEVICE.stepAnimate({
 //    dom:$("#test"),           @param:jqdom   要运动的元素的包裹层
+//    children:$('#test').find('span'),     @param:jqobj  要运动的实际元素，默认取dom下的子节点
 //    style:{                   @param:json     运动的方式 classAnimate
 //        "0%":"transform:translateX(100px);",
 //        "100%":"transform:translateX(0);"
@@ -29,11 +30,11 @@ require("./classAnimate");
 class stepAnimate{
 	constructor(opt){
 		this.dom = opt.dom;
-		this.children = this.dom.children();
+		this.children = opt.children || this.dom.children();
 		this.style = opt.style || {};
 		this.runTime = opt.runTime || 500;
 		this.stepTime = opt.stepTime || 10;
-		this.animateType = opt.animateType || "linear";
+		this.animateType = opt.animateType || "easeInOut";
 		this.infinite = opt.infinite || false;
 		this.alternate = opt.alternate || false;
 		this.callback = opt.callback || "";
