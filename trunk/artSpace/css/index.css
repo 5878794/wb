@@ -1,15 +1,34 @@
+body,html{
+    width: 100%; height: 100%; min-height: 500px;
+}
+.index_page{
+    width:100%; height: 100%; position: absolute;
+    left:0; top:0; padding-top: 45px;
+    background: url(../image/index/bg.png) no-repeat bottom center;
+    -webkit-background-size:320px 270px;
+    background-size:324px 277px;
+}
 .index_logo{
-    width: 200px;
-    height: 100px;
-    background: red;
+    width: 177px;
+    height: 91px;
+    background: url(../image/index/title.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .index_open{
-    width: 200px; height: 80px;
-    background: red; color: #fff;
+    width: 159px; height: 37px;
+    color: #ccc;
+    border:1px solid #ccc;
+    font-size: 12px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius:2px;
+    text-align: center; line-height: 35px;
+    letter-spacing: 2px;
     margin: 0 auto;
-    margin-top:40px;
+    margin-top:20px;
 }
 
 
