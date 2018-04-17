@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title art space
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/index.css")
+        script.
+            var text = "<script src='js/index.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+
+        +top()
+        +menu()
+
+
+        div(class='index_logo')
+        div(class='index_open') open menu
+
+        div(class='index_footer')

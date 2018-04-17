@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "es6": "node ./cmd/es6_compile.es6 book",
-    "pug": "node ./cmd/pug_compile.es6 book"
+    "es6": "node ./cmd/es6_compile.es6 artSpace",
+    "pug": "node ./cmd/pug_compile.es6 artSpace"
   },
   "author": "",
   "license": "ISC",

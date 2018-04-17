@@ -1,0 +1,26 @@
+.index_logo{
+    width: 200px;
+    height: 100px;
+    background: red;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.index_open{
+    width: 200px; height: 80px;
+    background: red; color: #fff;
+    margin: 0 auto;
+    margin-top:40px;
+}
+
+
+body{
+    /*background: url();*/
+}
+
+
+
+@media screen and (min-width: 1025px) {
+
+
+
+}
