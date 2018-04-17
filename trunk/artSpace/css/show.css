@@ -1,12 +1,12 @@
 .show_title{
     padding: 50px 20px 0 20px;
     font-size: 32px; color: #fff;
-
+    letter-spacing: 3px;
 }
 .show_number{
     padding: 1px 20px 20px 20px;
     text-align: right;
-    width: 235px; color: rgb(190,141,118);
+    width: 260px; color: rgb(190,141,118);
     font-size: 16px;
 }
 .show_number div{
@@ -26,7 +26,8 @@
 .show_item_time{
     font-size: 12px; color: #555; padding: 1px 0;
 }
-.show_item_title{
+.show_item_title,
+.artist_item_title{
     font-size: 18px; color: #fff; word-break: break-all;
     padding: 1px 0;
 }
@@ -60,4 +61,21 @@
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
+}
+
+
+
+.artist_number{
+    width: 170px;
+}
+.artist_item_name{
+    width: auto; text-align: right;
+    float: left;
+    max-width:100%;
+}
+.artist_item_name div,
+.artist_item_name p{
+    display: inline-block;
+    max-width:100%;
+    font-size: 18px;
 }

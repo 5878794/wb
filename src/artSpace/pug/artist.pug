@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+        title ARTIST
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/show.css")
+        script.
+            var text = "<script src='js/artist.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+
+        +top()
+        +menu()
+
+
+        div(class='show_title') ARTIST
+        div(class='show_number artist_number')
+            p /
+            div 26
+            p peoples
+
+
+        div(class='show_list')
+
+            -for(var i=0;i<3;i++)
+                a(class='show_item ' href='#')
+                    div(style='overflow:hidden;')
+                        div(class='artist_item_name')
+                            div(class='show_item_title diandian') fkajsdklfjasdjf
+                            br
+                            p(class='show_item_info hover_animate diandian') fkajsdklfjasdjffkajsdklfjasdjf
+                    div(class='_artist_item_name')
+                    p(class='show_item_line hover_animate')
+                    div(class='show_img')
+                        img(src='./image/temp/t1.png')

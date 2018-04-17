@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title ARt SPACE
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/show_info.css")
+        script.
+            var text = "<script src='js/show_info.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+
+        +top()
+        +menu()
+
