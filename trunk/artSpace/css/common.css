@@ -36,6 +36,20 @@
     width: 100%; height: 45px;
 }
 
+.isBai{
+    background: rgb(246,245,243);
+}
+.isBai .top_left{
+    background: url(../image/menu_.png) no-repeat center  center;
+    -webkit-background-size:11px 20px;
+    background-size:11px 20px;
+}
+.isBai .top_right{
+    background: url(../image/home_.png) no-repeat center center;
+    -webkit-background-size:15px 15px;
+    background-size:15px 15px;
+}
+
 
 /*菜单*/
 .menu{
@@ -94,10 +108,10 @@
 
 @media screen and (min-width: 1025px) {
     .top{
-        width: 100%; height: 90px; background: green;
+        /*width: 100%; height: 90px; background: green;*/
     }
     ._top{
-        width: 100%; height: 90px;
+        /*width: 100%; height: 90px;*/
     }
 
 

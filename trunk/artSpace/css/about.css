@@ -1,0 +1,156 @@
+body,html{
+    width: 100%; height:100%; position: relative;
+    background: rgb(246,245,243); overflow: hidden;
+}
+
+._top{
+    display: none;
+}
+
+.about_main{
+    position: absolute; width: 100%; height: 100%;
+    padding-top: 45px;
+}
+.about_title{
+    width: 100%; padding: 20px 20px 10px 20px; font-size: 28px;
+    color: rgb(190,141,118); line-height: 120%;
+}
+.about_info{
+    padding: 0 20px; font-size: 12px;
+    color: rgb(203,168,152); line-height: 120%;
+}
+.about_img{
+    padding: 20px 20px 0 20px; width: 320px; height: 368px;
+    background: url(../image/about/img.png) no-repeat 20px 20px;
+    -webkit-background-size:280px 368px;
+    background-size:280px 368px;
+}
+.about_down{
+    position: absolute; bottom:25px; left:50%; margin-left: -75px;
+    width: 150px; height: 30px; line-height: 30px;
+    color: rgb(203,168,152); font-size: 16px; text-align: center;
+    -webkit-animation:jump .5s ease-in-out infinite alternate;
+    -o-animation:jump .5s ease-in-out infinite alternate;
+    animation:jump .5s ease-in-out infinite alternate;
+}
+.about_down:after{
+    content:'';
+    display: block;
+    width: 150px; height: 10px;
+    background: url(../image/about/down.png) no-repeat bottom center;
+    -webkit-background-size:140px 40px;
+    background-size:140px 40px;
+}
+
+@keyframes jump
+{
+    0%   {
+        -webkit-transform: translateY(5px);
+        -moz-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+        -o-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    100% {
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+@-moz-keyframes jump /* Firefox */
+{
+    0%   {
+        -webkit-transform: translateY(5px);
+        -moz-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+        -o-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    100% {
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+@-webkit-keyframes jump /* Safari 和 Chrome */
+{
+    0%   {
+        -webkit-transform: translateY(5px);
+        -moz-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+        -o-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    100% {
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+@-o-keyframes jump /* Opera */
+{
+    0%   {
+        -webkit-transform: translateY(5px);
+        -moz-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+        -o-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    100% {
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+.about_body{
+    position: absolute; left:0; top: 0; width: 100%; height: 100%;
+}
+.page2{
+    top:100%;
+}
+.about_main_p2{
+    padding: 10px 20px 0 20px;
+}
+.about_banner_html{
+    position: relative; width: 100%; min-height: 50px;
+    overflow: hidden;
+}
+.about_banner_body{
+    position: absolute; left:0; top:0; width: 100%; height: 100%;
+}
+.about_banner_body a{
+    display: block; width: 100%; height: 100%;
+}
+.about_text{
+    font-size: 12px; padding-top: 10px; color: rgb(203,168,152);
+    line-height: 110%;
+}
+
+
+.about_bottom{
+    position: absolute; left:0; bottom:0; width: 100%;
+    height: 45px;
+}
+.show_info_bottom_info{
+    padding: 0 5%; color: rgb(203,168,152); font-size: 16px; text-align: center;
+    height: 45px; line-height: 45px;
+}
+.show_info_bottom_info span{
+    display: inline-block; width: 10%;
+}
+
+.about_banner_body a:active{
+    opacity: 1;
+}

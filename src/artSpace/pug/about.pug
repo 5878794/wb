@@ -1,0 +1,55 @@
+doctype html
+html
+    head
+        title ARTIST
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/about.css")
+        script.
+            var text = "<script src='js/about.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+
+        +top(true)
+        +menu()
+
+        div(class='about_body' id='about_body')
+            div(class='about_main')
+                div(class='about_title')
+                    p welcome to
+                    p the world of art
+                div(class='about_info')
+                    p Aura space is located in the global center of
+                    p chengdu.China.
+                div(class='about_img')
+                div(class='about_down') Please slide down
+
+
+            div(class='about_main page2')
+                div(class='about_main_p2')
+                    div(class='about_banner_html' id='about_banner_html')
+                        div(class='about_banner_body' id='about_banner_body')
+                            a(style='background:url(./image/about/p1.png) no-repeat center center; background-size:100% 100%;-webkit-background-size:100% 100%;')
+                            a(style='background:url(./image/about/p2.png) no-repeat center center; background-size:100% 100%;-webkit-background-size:100% 100%;' )
+                            a(style='background:url(./image/about/p3.png) no-repeat center center; background-size:100% 100%;-webkit-background-size:100% 100%;')
+
+                    div(class='about_text')
+                        p Founded in 2014, Aura Art Space is engaging in promoting oversea artists; discovering new artists in China and foreign countries; integrating art resources at both home and abroad; staging diverse exhibitions of paintings and collections; chairing salons of art appreciation.
+                        p AURA SPACE represents famous artists such as,Lin Yue, portrait artist Ming Qin, Russian artist pokidishev Pavel and so on. AURA SPACE has held a series of Chinese and foreign artists' exhibitions since founded: , “Neva Memory Russian Contemporary Masters Exhibition”， “Vero la luce” Italy Giuseppe Carta exhibition,  “Pang Mao Kun individual exhibition”，"Xing Zhe Wu Jiang" Jun Leng Chinese traditional painting, “Qing Min portrait painting exhibition ”，providing unique and classic works for collectors and art lovers.
+
+                div(class='about_bottom')
+                    div(class='show_info_bottom_info')
+                        span A
+                        span U
+                        span R
+                        span A
+                        span S
+                        span P
+                        span A
+                        span C
+                        span E
