@@ -1,0 +1,39 @@
+doctype html
+html
+    head
+        title ART SPACE
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/show.css")
+        script.
+            var text = "<script src='js/contact.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+
+        +top()
+        +menu()
+
+        div(class='contact_title') CONTACT
+
+        div(class='contact_main')
+            div(class='contact_t') -M-
+            p AURA SPACE
+
+            div(class='contact_t') ADDRESS
+            p GLOBAL CENTER W1-11
+
+            div(class='contact_t') CITY
+            p CHENG DU.CHINA
+
+            div(class='contact_t') EMAIL
+            a(href='mailto:linye_helen@163.com') linye_helen@163.com
+
+            div(class='contact_t') PHONE
+            a(href='tel:+8612312312312') +86 12312312312
+
+

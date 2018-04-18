@@ -153,3 +153,20 @@
     -o-transform: scale(0.8);
     transform: scale(0.8);
 }
+
+
+.contact_title{
+    font-size: 36px; color: #eee; text-align: center;
+    padding: 40px 0; letter-spacing: 2px;
+}
+.contact_main{
+    padding-top: 20px; text-align: center; line-height: 150%;
+}
+.contact_t{
+    font-size: 12px; color: #666;
+}
+.contact_main p,
+.contact_main a{
+    display: block;
+    font-size: 16px; color: #eee; padding-bottom: 20px;
+}
