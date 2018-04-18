@@ -2,7 +2,7 @@
 
 
 //var obj = $("#test");
-//new DEVICE.gravitySensor({
+// new DEVICE.gravitySensor({
 //    moveFn:function(x,y){
 //        //x:y轴旋转角度 -90 - 90
 //        //y:x轴旋转角度 -90 - 90
@@ -10,7 +10,7 @@
 //        //手机横向时 x=y  y=x;
 //        obj.css3({transform:"translate3d("+x+"px,"+y+"px,0)"});
 //    }
-//});
+// });
 
 let DEVICE = require("./../device");
 

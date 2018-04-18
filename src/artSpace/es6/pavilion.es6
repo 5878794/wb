@@ -2,6 +2,8 @@ let $$ = require('./lib/event/$$');
 let sensor = require('./lib/h5/gravitySensor'),
 	loading = require('./lib/ui/loading_old');
 require('./lib/all');
+require('./lib/jq/extend');
+require('./lib/all');
 
 
 var loadFn = null;
@@ -16,6 +18,7 @@ var PAGE = {
 	data:DATA.pavilion,
 	n:0,
 	init(){
+		this.addTLYEvent();
 		loadFn.show('极速加载中');
 		this.show(0).then(rs=>{
 			loadFn.hide();
@@ -85,5 +88,17 @@ var PAGE = {
 			'margin-left':-imgWidth/2+'px'
 		});
 
+	},
+	addTLYEvent(){
+		let obj = $('#pavilion_body');
+		new sensor({
+			moveFn:function(x,y){
+				//x:y轴旋转角度 -90 - 90
+				//y:x轴旋转角度 -90 - 90
+				//旋转角度可转换成百分比在转换成实际的移动像素x,y
+				//手机横向时 x=y  y=x;
+				obj.css3({transform:"translate3d("+x+"px,0,0)"});
+			}
+		});
 	}
 };
