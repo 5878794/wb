@@ -1,15 +1,15 @@
 mixin menu()
-    div(class='menu' style='display:none;')
+    div(class='menu' id='menu' style='display:none;')
         div(class='menu_main hover_animate')
-            div(class='menu_close_btn')
+            div(class='menu_close_btn hover_animate')
 
-            div(class='menu_item')
-                a(href='#') HOME PAGE
-                div(href='#') ART SHOW
-                a(href='#') ARTIST
-                a(href='#') GALLERY
+            div(class='menu_item' id='menu_item')
+                a(href='./index.html') HOME PAGE
+                div(href='./show.html') ART SHOW
+                a(href='./artist.html') ARTIST
+                a(href='./pavilion.html') GALLERY
                 a(href='#') ABOUT AURA
-                a(href='#') MAP
+                a(href='./contact.html') CONTACT
 
 
 

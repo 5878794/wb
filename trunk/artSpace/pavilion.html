@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="js/all.js"></script>
+    <script src="js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="css/show.css">
     <script>
       var text = "<script src='js/pavilion.js?_=" + new Date().getTime() + "'><\/script>";
@@ -19,15 +19,15 @@
   </head>
   <body>
         <div class="top">
-          <div class="top_left"></div>
-          <div class="top_right"></div>
+          <div class="top_left hover_animate" id="top_left"></div>
+          <div class="top_right hover_animate" id="top_right"></div>
         </div>
         <div class="_top"></div>
-        <div class="menu" style="display:none;">
+        <div class="menu" id="menu" style="display:none;">
           <div class="menu_main hover_animate">
-            <div class="menu_close_btn"></div>
-            <div class="menu_item"><a href="#">HOME PAGE</a>
-              <div href="#">ART SHOW</div><a href="#">ARTIST</a><a href="#">GALLERY</a><a href="#">ABOUT AURA</a><a href="#">MAP</a>
+            <div class="menu_close_btn hover_animate"></div>
+            <div class="menu_item" id="menu_item"><a href="./index.html">HOME PAGE</a>
+              <div href="./show.html">ART SHOW</div><a href="./artist.html">ARTIST</a><a href="./pavilion.html">GALLERY</a><a href="#">ABOUT AURA</a><a href="./contact.html">CONTACT</a>
             </div>
           </div>
         </div>

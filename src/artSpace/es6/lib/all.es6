@@ -1,0 +1,66 @@
+let $$ = require('./event/$$');
+
+require('./jq/extend');
+require('./jq/cssAnimate');
+require('./jq/text2Span');
+require('./jq/randomShowSpan');
+require('./jq/hoverSpanJump');
+
+$(document).ready(function(){
+	PAGE.init();
+});
+
+
+var PAGE = {
+	init(){
+		$('#menu_item').text2Span();
+		this.homePageBtnEventBind();
+		this.menuBtnEventBind();
+		this.menuBtnHoverEvent();
+
+	},
+	homePageBtnEventBind(){
+		let btn = $('#top_left');
+		$$(btn).myclickok(function(){
+			window.location.href = './index.html';
+		});
+	},
+	menuBtnEventBind(){
+		let btn = $('#top_right'),
+			menu = $('#menu'),
+			menuList = menu.find('.menu_main'),
+			closeBtn = menu.find('.menu_close_btn');
+
+		$$(btn).myclickok(function(){
+			menu.css({display:'block'});
+
+			// menuList.css3({transform:'translateX(100%)'});
+
+			menu.cssAnimate({
+				background:'rgba(0,0,0,0.7)'
+			},500);
+			menuList.cssAnimate({
+				transform:'translateX(-100%)'
+			},500,function(){
+				//随机字显示效果
+				menuList.randomShowSpan();
+			});
+		});
+
+		$$(closeBtn).myclickok(function(){
+			menu.cssAnimate({
+				background:'rgba(0,0,0,0)'
+			},500);
+			menuList.cssAnimate({
+				transform:'translateX(0)'
+			},500,function(){
+				menuList.find('span').css({opacity:0});
+				menu.css({display:'none'});
+			});
+		});
+	},
+	menuBtnHoverEvent(){
+		$('#menu_item').find('a').hoverSpanJump();
+	}
+
+};
