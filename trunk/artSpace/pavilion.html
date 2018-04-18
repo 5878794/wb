@@ -8,7 +8,9 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script src="js/polyfill.js"></script>
     <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="css/show.css">
     <script>
@@ -32,16 +34,18 @@
           </div>
         </div>
     <div class="pavilion_main">
-      <div class="pavilion_body"><img src="./image/temp/t1.png"></div>
+      <div class="pavilion_body" id="pavilion_body">
+        <!--img(src='./image/temp/t1.png')-->
+      </div>
     </div>
     <div class="pavilion_main_btn center">
       <div class="pavilion_main_btns box_h center_s">
-        <div class="pavilion_btns_left"></div>
+        <div class="pavilion_btns_left" id="pavilion_btns_left"></div>
         <div class="pavilion_btns_text boxflex1">
           <div>AURA SPACE</div>
           <p>GALLERY</p>
         </div>
-        <div class="pavilion_btns_right"></div>
+        <div class="pavilion_btns_right" id="pavilion_btns_right"></div>
       </div>
     </div>
   </body>

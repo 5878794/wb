@@ -109,7 +109,7 @@ var a = function(obj,scale){
 };
 a.prototype = {
 	_init:function(){
-		this.win.style.position = "relative";
+		// this.win.style.position = "relative";
 		this._createObj();
 		this._addEven();
 	},
