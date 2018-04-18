@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        title AURA SHOW
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/show.css")
+        script.
+            var text = "<script src='js/pavilion.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+
+        +top()
+        +menu()
+
+        div(class='pavilion_main')
+            div(class='pavilion_body')
+                img(src='./image/temp/t1.png')
+
+        div(class='pavilion_main_btn center')
+            div(class='pavilion_main_btns box_h center_s')
+                div(class='pavilion_btns_left')
+                div(class='pavilion_btns_text boxflex1')
+                    div AURA SPACE
+                    p GALLERY
+                div(class='pavilion_btns_right')
+
