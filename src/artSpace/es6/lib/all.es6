@@ -32,7 +32,8 @@ var PAGE = {
 			menuList = menu.find('.menu_main'),
 			closeBtn = menu.find('.menu_close_btn');
 
-		$$(btn).myclickok(function(){
+
+		let show = function(){
 			menu.css({display:'block'});
 
 			// menuList.css3({transform:'translateX(100%)'});
@@ -46,9 +47,9 @@ var PAGE = {
 				//随机字显示效果
 				menuList.randomShowSpan();
 			});
-		});
+		};
 
-		$$(closeBtn).myclickok(function(){
+		let hide = function(){
 			menu.cssAnimate({
 				background:'rgba(0,0,0,0)'
 			},500);
@@ -58,7 +59,23 @@ var PAGE = {
 				menuList.find('span').css({opacity:0});
 				menu.css({display:'none'});
 			});
+		};
+
+		$$(btn).myclickok(function(){
+			show();
 		});
+
+		$$(closeBtn).myclickok(function(){
+			hide();
+		});
+
+		$$(menu).myclickok(function(){
+			hide();
+		}).myclickdown(function(){}).myclickup(function(){});
+
+		$$($('#menu_main')).myclickok(function(e){e.stopPop();}).myclickdown(function(){}).myclickup(function(){});
+
+
 	},
 	menuBtnHoverEvent(){
 		$('#menu_item').find('a:not(.notSelect)').hoverSpanJump();
