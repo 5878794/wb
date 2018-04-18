@@ -14,6 +14,7 @@ $(document).ready(function(){
 var PAGE = {
 	init(){
 		$('#menu_item').text2Span();
+		this.menuListSelect();
 		this.homePageBtnEventBind();
 		this.menuBtnEventBind();
 		this.menuBtnHoverEvent();
@@ -60,7 +61,19 @@ var PAGE = {
 		});
 	},
 	menuBtnHoverEvent(){
-		$('#menu_item').find('a').hoverSpanJump();
+		$('#menu_item').find('a:not(.notSelect)').hoverSpanJump();
+	},
+	menuListSelect(){
+		let pathName = window.location.pathname,
+			as = $('#menu_item').find('a');
+
+		as.each(function(){
+			if(pathName.indexOf($(this).attr('href'))>-1){
+				$(this).addClass('notSelect');
+			}
+		})
+
+
 	}
 
 };

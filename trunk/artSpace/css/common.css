@@ -70,8 +70,7 @@
 .menu_item{
     min-width: 120px;
 }
-.menu_item a,
-.menu_item div{
+.menu_item a{
     display: block; color: #fff;
     word-break: keep-all;
     height: 26px;
@@ -82,10 +81,11 @@
     margin-top:30px;
     padding: 0 2px;
 }
-.menu_item div{
+.menu_item .notSelect{
     color: rgb(190,141,118);
     /*border-bottom: 2px solid rgb(190,141,118);*/
     display: inline-block;
+    cursor: default;
 }
 
 
