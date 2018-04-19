@@ -1,4 +1,5 @@
 require('./lib/all');
+require('./lib/jq/extend');
 let banner = require('./lib/ui/bannerScroll'),
 	$$ = require('./lib/event/$$');
 
@@ -9,9 +10,35 @@ $(document).ready(function(){
 
 
 var PAGE = {
+	data:DATA.about,
 	init(){
+		this.bindData();
 		this.setBanner();
 		this.addSlideEvent();
+	},
+	bindData(){
+		let banner = $('#about_banner_body'),
+			bannerData = this.data.banner;
+
+		for(let i=0,l=bannerData.length;i<l;i++){
+			let a = $('<a></a>');
+			a.css3({
+				background:'url('+bannerData[i]+') no-repeat center center',
+				'background-size':'100% 100%'
+			});
+			banner.append(a);
+		}
+
+		let text = $('#about_text'),
+			textData = this.data.text;
+
+
+		for(let i=0,l=textData.length;i<l;i++){
+			let p = $('<p>'+textData[i]+'</p>');
+			text.append(p);
+		}
+
+
 	},
 	setBanner(){
 		let html = $('#about_banner_html'),
