@@ -154,7 +154,7 @@ var DATA = {
 			id:5,
 			name1:'Yue Lin',
 			name2:'China',
-			image:'image/artist/5/5.jpg',
+			image:'image/artist/5/5.png',
 			works:[
 				'image/artist/5/5_1.jpg',
 				'image/artist/5/5_2.jpg',
@@ -162,7 +162,8 @@ var DATA = {
 				'image/artist/5/5_4.jpg',
 				'image/artist/5/5_5.jpg',
 				'image/artist/5/5_6.jpg',
-				'image/artist/5/5_7.jpg'
+				'image/artist/5/5_7.jpg',
+				'image/artist/5/5_8.jpg'
 			]
 		}
 		// {

@@ -26,7 +26,7 @@
 }
 
 .show_list{
-    padding: 20px;
+    padding: 20px; padding-bottom: 100px;
 }
 .show_item{
     display: block; line-height: 120%;

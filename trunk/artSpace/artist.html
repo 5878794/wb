@@ -11,7 +11,6 @@
     <script src="js/polyfill.js"></script>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/data.js"></script>
-    <script src="js/common.js"></script>
     <link rel="stylesheet" type="text/css" href="css/show.css">
     <script>
       var text = "<script src='js/artist.js?_=" + new Date().getTime() + "'><\/script>";
@@ -38,39 +37,20 @@
         <div class="show_title">ARTIST</div><br>
         <div class="show_number">
           <p>/</p>
-          <div>26</div>
+          <div id="people_number"></div>
           <p>peoples</p>
         </div>
       </div>
     </div>
-    <div class="show_list"><a class="show_item " href="#">
-        <div style="overflow:hidden;">
-          <div class="artist_item_name">
-            <div class="show_item_title diandian">fkajsdklfjasdjf</div><br>
-            <p class="show_item_info hover_animate diandian">fkajsdklfjasdjffkajsdklfjasdjf</p>
-          </div>
+    <div class="show_list" id="list_main"></div><a class="show_item" id="list" href="#" style="display:none;">
+      <div style="overflow:hidden;">
+        <div class="artist_item_name">
+          <div class="show_item_title diandian"></div><br>
+          <p class="show_item_info hover_animate1 diandian"></p>
         </div>
-        <div class="_artist_item_name"></div>
-        <p class="show_item_line hover_animate"></p>
-        <div class="show_img"><img src="./image/temp/t1.png"></div></a><a class="show_item " href="#">
-        <div style="overflow:hidden;">
-          <div class="artist_item_name">
-            <div class="show_item_title diandian">fkajsdklfjasdjf</div><br>
-            <p class="show_item_info hover_animate diandian">fkajsdklfjasdjffkajsdklfjasdjf</p>
-          </div>
-        </div>
-        <div class="_artist_item_name"></div>
-        <p class="show_item_line hover_animate"></p>
-        <div class="show_img"><img src="./image/temp/t1.png"></div></a><a class="show_item " href="#">
-        <div style="overflow:hidden;">
-          <div class="artist_item_name">
-            <div class="show_item_title diandian">fkajsdklfjasdjf</div><br>
-            <p class="show_item_info hover_animate diandian">fkajsdklfjasdjffkajsdklfjasdjf</p>
-          </div>
-        </div>
-        <div class="_artist_item_name"></div>
-        <p class="show_item_line hover_animate"></p>
-        <div class="show_img"><img src="./image/temp/t1.png"></div></a>
-    </div>
+      </div>
+      <div class="_artist_item_name"></div>
+      <p class="show_item_line hover_animate1"></p>
+      <div class="show_img"><img src="#"></div></a>
   </body>
 </html>
