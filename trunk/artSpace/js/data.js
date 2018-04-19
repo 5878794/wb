@@ -22,6 +22,79 @@ var DATA = {
 			"AURA SPACE represents famous artists such as,Lin Yue, portrait artist Ming Qin, Russian artist pokidishev Pavel and so on. AURA SPACE has held a series of Chinese and foreign artists' exhibitions since founded: , “Neva Memory Russian Contemporary Masters Exhibition”， “Vero la luce” Italy Giuseppe Carta exhibition,  “Pang Mao Kun individual exhibition”，'Xing Zhe Wu Jiang' Jun Leng Chinese traditional painting, “Qing Min portrait painting exhibition ”，providing unique and classic works for collectors and art lovers."
 		]
 	},
+	//活动
+	show:[
+		//id不能重复
+		{
+			id:1,
+			img:'image/show/1.jpg',
+
+			//列表上显示
+			year:2018,
+			name:'Garden of Maria',
+			msg:'Chengdu,April.2018',
+
+			//详情内的属性
+			info:'Anna Silivonchik/Maria Peshkun/Tatyana Borisova',
+					//地址换行显示的
+			address:[
+				'Cheng Du Global Center',
+				'W1.1119'
+			],
+			organizer:'AURA SPACE',
+			time:'(2018.4.22-5.10)',
+			text:[
+				'In 1980, she was born in Gemel, in 2008, joined the Belarus artist union, in 2009 won the international peace artist union "gifts and talents" award,works are on display in each big famous museum, In 2013, 2014 and 2016,she held a painting exhibition at the national contemporary art center of the republic of Belarus, and held a personal exhibition at the "Kunstwerk Winkler" gallery in Berlin in 2017. Her works have been exhibited in Estonia, Latvia, Ukraine, Russia, Germany, the United States and other famous art galleries. Anna Silivonchik is famous for her boundless imagination and distinctive personality to create her own artistic style.',
+				'Her work by children, animals, figures and various roles to convey to all sorts of profound thinking, emotion and interpersonal relationship in life, ordinary things profound meaning, In her traditional painting techniques, the works show us a magical world of lyrical fantasy.'
+			]
+		},
+		{
+			id:1,
+			img:'image/show/1.jpg',
+
+			//列表上显示
+			year:2018,
+			name:'Garden of Maria',
+			msg:'Chengdu,April.2018',
+
+			//详情内的属性
+			info:'Anna Silivonchik/Maria Peshkun/Tatyana Borisova',
+			//地址换行显示的
+			address:[
+				'Cheng Du Global Center',
+				'W1.1119'
+			],
+			organizer:'AURA SPACE',
+			time:'(2018.4.22-5.10)',
+			text:[
+				'In 1980, she was born in Gemel, in 2008, joined the Belarus artist union, in 2009 won the international peace artist union "gifts and talents" award,works are on display in each big famous museum, In 2013, 2014 and 2016,she held a painting exhibition at the national contemporary art center of the republic of Belarus, and held a personal exhibition at the "Kunstwerk Winkler" gallery in Berlin in 2017. Her works have been exhibited in Estonia, Latvia, Ukraine, Russia, Germany, the United States and other famous art galleries. Anna Silivonchik is famous for her boundless imagination and distinctive personality to create her own artistic style.',
+				'Her work by children, animals, figures and various roles to convey to all sorts of profound thinking, emotion and interpersonal relationship in life, ordinary things profound meaning, In her traditional painting techniques, the works show us a magical world of lyrical fantasy.'
+			]
+		},
+		{
+			id:1,
+			img:'image/show/1.jpg',
+
+			//列表上显示
+			year:2018,
+			name:'Garden of Maria',
+			msg:'Chengdu,April.2018',
+
+			//详情内的属性
+			info:'Anna Silivonchik/Maria Peshkun/Tatyana Borisova',
+			//地址换行显示的
+			address:[
+				'Cheng Du Global Center',
+				'W1.1119'
+			],
+			organizer:'AURA SPACE',
+			time:'(2018.4.22-5.10)',
+			text:[
+				'In 1980, she was born in Gemel, in 2008, joined the Belarus artist union, in 2009 won the international peace artist union "gifts and talents" award,works are on display in each big famous museum, In 2013, 2014 and 2016,she held a painting exhibition at the national contemporary art center of the republic of Belarus, and held a personal exhibition at the "Kunstwerk Winkler" gallery in Berlin in 2017. Her works have been exhibited in Estonia, Latvia, Ukraine, Russia, Germany, the United States and other famous art galleries. Anna Silivonchik is famous for her boundless imagination and distinctive personality to create her own artistic style.',
+				'Her work by children, animals, figures and various roles to convey to all sorts of profound thinking, emotion and interpersonal relationship in life, ordinary things profound meaning, In her traditional painting techniques, the works show us a magical world of lyrical fantasy.'
+			]
+		}
+	],
 	//作家
 	artist:[
 		//id不能重复

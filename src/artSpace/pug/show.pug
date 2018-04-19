@@ -24,18 +24,19 @@ html
                 br
                 div(class='show_number')
                     p /
-                    div 26
+                    div(id='show_number')
                     p projects
 
 
-        div(class='show_list')
+        div(class='show_list' id='show_list')
 
-            -for(var i=0;i<3;i++)
-                a(class='show_item ' href='#')
-                    p(class='show_item_time hover_animate') 2018
-                    div(class='show_item_title') djfkajsdklfjaskldjfkajsdklfjaskldjf
-                    p(class='show_item_info hover_animate') kajsdklfjaskldjfkajsdklfjasdjf
-                    p(class='show_item_line hover_animate')
-                    div(class='show_img')
-                        img(src='./image/temp/t1.png')
 
+
+        //clone
+        a(class='show_item ' href='#' id='list' style='display:none;')
+            p(class='show_item_time hover_animate1')
+            div(class='show_item_title')
+            p(class='show_item_info hover_animate1')
+            p(class='show_item_line hover_animate1')
+            div(class='show_img')
+                img(src='#')
