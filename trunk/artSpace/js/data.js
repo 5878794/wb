@@ -26,20 +26,9 @@ var DATA = {
 	artist:[
 		//id不能重复
 		{
-			id:1,
-			name1:'安德烈·布里奥克',
-			name2:'',
-			image:'image/artist/1/1.jpg',
-			works:[
-				'image/artist/1/1_1.jpg',
-				'image/artist/1/1_2.jpg',
-				'image/artist/1/1_3.jpg'
-			]
-		},
-		{
 			id:2,
-			name1:'安娜',
-			name2:'',
+			name1:'Anna Silivonchik',
+			name2:'Belarus',
 			image:'image/artist/2/2.jpg',
 			works:[
 				'image/artist/2/2_1.jpg',
@@ -71,90 +60,20 @@ var DATA = {
 			]
 		},
 		{
-			id:3,
-			name1:'波基德舍夫·巴维尔',
-			name2:'',
-			image:'image/artist/3/3.jpg',
+			id:1,
+			name1:'Andre Briok',
+			name2:'Russia',
+			image:'image/artist/1/1.jpg',
 			works:[
-				'image/artist/3/3_1.jpg',
-				'image/artist/3/3_2.jpg',
-				'image/artist/3/3_3.jpg',
-				'image/artist/3/3_4.jpg',
-				'image/artist/3/3_5.jpg',
-				'image/artist/3/3_6.jpg',
-				'image/artist/3/3_7.jpg',
-				'image/artist/3/3_8.jpg',
-				'image/artist/3/3_9.jpg',
-				'image/artist/3/3_10.jpg',
-				'image/artist/3/3_11.jpg'
-			]
-		},
-		{
-			id:4,
-			name1:'曹卫国',
-			name2:'',
-			image:'image/artist/4/4.jpg',
-			works:[
-				'image/artist/4/4_1.jpg',
-				'image/artist/4/4_2.jpg',
-				'image/artist/4/4_3.jpg',
-				'image/artist/4/4_4.jpg',
-				'image/artist/4/4_5.jpg',
-				'image/artist/4/4_6.jpg',
-				'image/artist/4/4_7.jpg'
-			]
-		},
-		{
-			id:5,
-			name1:'林跃',
-			name2:'',
-			image:'image/artist/5/5.jpg',
-			works:[
-				'image/artist/5/5_1.jpg',
-				'image/artist/5/5_2.jpg',
-				'image/artist/5/5_3.jpg',
-				'image/artist/5/5_4.jpg',
-				'image/artist/5/5_5.jpg',
-				'image/artist/5/5_6.jpg',
-				'image/artist/5/5_7.jpg'
-			]
-		},
-		{
-			id:6,
-			name1:'庞茂琨',
-			name2:'',
-			image:'image/artist/6/6.jpg',
-			works:[
-				'image/artist/6/6_1.jpg',
-				'image/artist/6/6_2.jpg',
-				'image/artist/6/6_3.jpg',
-				'image/artist/6/6_4.jpg',
-				'image/artist/6/6_5.jpg',
-				'image/artist/6/6_6.jpg',
-				'image/artist/6/6_7.jpg'
-			]
-		},
-		{
-			id:7,
-			name1:'秦明',
-			name2:'',
-			image:'image/artist/7/7.jpg',
-			works:[
-				'image/artist/7/7_1.jpg',
-				'image/artist/7/7_2.jpg',
-				'image/artist/7/7_3.jpg',
-				'image/artist/7/7_4.jpg',
-				'image/artist/7/7_5.jpg',
-				'image/artist/7/7_6.jpg',
-				'image/artist/7/7_7.jpg',
-				'image/artist/7/7_8.jpg',
-				'image/artist/7/7_9.jpg'
+				'image/artist/1/1_1.jpg',
+				'image/artist/1/1_2.jpg',
+				'image/artist/1/1_3.jpg'
 			]
 		},
 		{
 			id:8,
-			name1:'朱纸',
-			name2:'',
+			name1:'Giuseppe Carta',
+			name2:'Italy',
 			image:'image/artist/8/8.jpg',
 			works:[
 				'image/artist/8/8_1.jpg',
@@ -179,6 +98,87 @@ var DATA = {
 				'image/artist/8/8_20.jpg',
 				'image/artist/8/8_21.jpg'
 			]
+		},
+		{
+			id:7,
+			name1:'Ming Qin',
+			name2:'China',
+			image:'image/artist/7/7.jpg',
+			works:[
+				'image/artist/7/7_1.jpg',
+				'image/artist/7/7_2.jpg',
+				'image/artist/7/7_3.jpg',
+				'image/artist/7/7_4.jpg',
+				'image/artist/7/7_5.jpg',
+				'image/artist/7/7_6.jpg',
+				'image/artist/7/7_7.jpg',
+				'image/artist/7/7_8.jpg',
+				'image/artist/7/7_9.jpg'
+			]
+		},
+		{
+			id:3,
+			name1:'Pokidyshev Pavel',
+			name2:'Russia',
+			image:'image/artist/3/3.jpg',
+			works:[
+				'image/artist/3/3_1.jpg',
+				'image/artist/3/3_2.jpg',
+				'image/artist/3/3_3.jpg',
+				'image/artist/3/3_4.jpg',
+				'image/artist/3/3_5.jpg',
+				'image/artist/3/3_6.jpg',
+				'image/artist/3/3_7.jpg',
+				'image/artist/3/3_8.jpg',
+				'image/artist/3/3_9.jpg',
+				'image/artist/3/3_10.jpg',
+				'image/artist/3/3_11.jpg'
+			]
+		},
+		{
+			id:4,
+			name1:'Weiguo Cao',
+			name2:'China',
+			image:'image/artist/4/4.jpg',
+			works:[
+				'image/artist/4/4_1.jpg',
+				'image/artist/4/4_2.jpg',
+				'image/artist/4/4_3.jpg',
+				'image/artist/4/4_4.jpg',
+				'image/artist/4/4_5.jpg',
+				'image/artist/4/4_6.jpg',
+				'image/artist/4/4_7.jpg'
+			]
+		},
+		{
+			id:5,
+			name1:'Yue Lin',
+			name2:'China',
+			image:'image/artist/5/5.jpg',
+			works:[
+				'image/artist/5/5_1.jpg',
+				'image/artist/5/5_2.jpg',
+				'image/artist/5/5_3.jpg',
+				'image/artist/5/5_4.jpg',
+				'image/artist/5/5_5.jpg',
+				'image/artist/5/5_6.jpg',
+				'image/artist/5/5_7.jpg'
+			]
 		}
+		// {
+		// 	id:6,
+		// 	name1:'庞茂琨',
+		// 	name2:'',
+		// 	image:'image/artist/6/6.jpg',
+		// 	works:[
+		// 		'image/artist/6/6_1.jpg',
+		// 		'image/artist/6/6_2.jpg',
+		// 		'image/artist/6/6_3.jpg',
+		// 		'image/artist/6/6_4.jpg',
+		// 		'image/artist/6/6_5.jpg',
+		// 		'image/artist/6/6_6.jpg',
+		// 		'image/artist/6/6_7.jpg'
+		// 	]
+		// },
 	]
 };
