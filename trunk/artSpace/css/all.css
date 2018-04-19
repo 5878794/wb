@@ -81,10 +81,12 @@ input,button,select,textarea{
 
 
 body{
-    font-family: "微软雅黑", Arial, "宋体";
+    /*font-family: "微软雅黑", Arial, "宋体";*/
+    font-family: 'Open Sans', sans-serif ;
     color:#333;
     background: #000;
     min-width: 320px;
+    font-weight: 300;
     /*-ms-touch-action: none;    *//*windowsphone屏蔽滚动*/
 }
 
@@ -94,9 +96,9 @@ a:link,a:visited{
 a:hover{
     text-decoration: none;
 }
-a:active{
-    opacity:0.5;
-}
+/*a:active{*/
+    /*opacity:0.5;*/
+/*}*/
 
 
 

@@ -24,16 +24,15 @@ var PAGE = {
 		let btn = $('#map'),
 			dom = $('#map_body');
 
+		dom.get(0).addEventListener('touchstart',function(){
+			dom.css({opacity:0,display:'none'});
+		},false);
+
 		$$(btn).myclickok(function(){
 			dom.css({display:'block'});
 			dom.cssAnimate({
 				opacity:1
 			},500);
-
-			$$(dom).unbind(true);
-			$$(dom).myclickok(function(){
-				dom.css({opacity:0,display:'none'});
-			});
 		});
 
 

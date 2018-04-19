@@ -14,7 +14,7 @@ var PAGE = {
 	init(){
 		this.bindData();
 		this.setBanner();
-		this.addSlideEvent();
+		// this.addSlideEvent();
 	},
 	bindData(){
 		let banner = $('#about_banner_body'),

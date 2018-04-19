@@ -1,6 +1,6 @@
 body,html{
-    width: 100%; height:100%; position: relative;
-    background: rgb(246,245,243); overflow: hidden;
+
+    background: rgb(246,245,243);
 }
 
 ._top{
@@ -115,7 +115,7 @@ body,html{
 }
 
 .about_body{
-    position: absolute; left:0; top: 0; width: 100%; height: 100%;
+    /*position: absolute; left:0; top: 0; width: 100%; height: 100%;*/
 }
 .page2{
     top:100%;
@@ -135,12 +135,13 @@ body,html{
 }
 .about_text{
     font-size: 12px; padding-top: 10px; color: rgb(203,168,152);
-    line-height: 110%;
+    line-height: 24px;
 }
 
 
 .about_bottom{
-    position: absolute; left:0; bottom:0; width: 100%;
+    /*position: absolute; left:0; bottom:0;*/
+    width: 100%; padding-top: 20px;
     height: 45px;
 }
 .show_info_bottom_info{
