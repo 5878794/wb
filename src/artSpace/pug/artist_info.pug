@@ -6,7 +6,7 @@ html
 
         link(rel="stylesheet" type="text/css" href="css/show.css")
         script.
-            var text = "<script src='js/artist.js?_=" + new Date().getTime() + "'><\/script>";
+            var text = "<script src='js/artist_info.js?_=" + new Date().getTime() + "'><\/script>";
             document.write(text);
 
         include ./include/top
@@ -20,16 +20,18 @@ html
 
         div(style='overflow:hidden;')
             div(class='show_titleM')
-                div(class='show_title diandian') UIL LI
+                div(class='show_title diandian' id='name')
                 br
                 div(class='show_number artist_info_number')
                     p /
-                    div 26
+                    div(id='work_number')
                     p paintings
 
 
-        div(class='show_list')
+        div(class='show_list' id='lists')
 
-            -for(var i=0;i<3;i++)
-                div(class='artist_info_item')
-                    img(src='./image/temp/t1.png')
+
+
+        //clone
+        div(class='artist_info_item' id='list' style='display:none;')
+            img(src='#')
