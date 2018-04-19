@@ -103,6 +103,7 @@ var DATA = {
 			name1:'Anna Silivonchik',
 			name2:'Belarus',
 			image:'image/artist/2/2.jpg',
+			bg:'',
 			works:[
 				'image/artist/2/2_1.jpg',
 				'image/artist/2/2_2.jpg',
@@ -124,8 +125,6 @@ var DATA = {
 				'image/artist/2/2_18.jpg',
 				'image/artist/2/2_19.jpg',
 				'image/artist/2/2_20.jpg',
-				'image/artist/2/2_21.jpg',
-				'image/artist/2/2_22.jpg',
 				'image/artist/2/2_23.jpg',
 				'image/artist/2/2_24.jpg',
 				'image/artist/2/2_25.jpg',
@@ -138,7 +137,6 @@ var DATA = {
 			name2:'Russia',
 			image:'image/artist/1/1.jpg',
 			works:[
-				'image/artist/1/1_1.jpg',
 				'image/artist/1/1_2.jpg',
 				'image/artist/1/1_3.jpg'
 			]
@@ -149,7 +147,6 @@ var DATA = {
 			name2:'Italy',
 			image:'image/artist/8/8.jpg',
 			works:[
-				'image/artist/8/8_1.jpg',
 				'image/artist/8/8_2.jpg',
 				'image/artist/8/8_3.jpg',
 				'image/artist/8/8_4.jpg',
@@ -178,15 +175,13 @@ var DATA = {
 			name2:'China',
 			image:'image/artist/7/7.jpg',
 			works:[
-				'image/artist/7/7_1.jpg',
 				'image/artist/7/7_2.jpg',
 				'image/artist/7/7_3.jpg',
 				'image/artist/7/7_4.jpg',
 				'image/artist/7/7_5.jpg',
 				'image/artist/7/7_6.jpg',
 				'image/artist/7/7_7.jpg',
-				'image/artist/7/7_8.jpg',
-				'image/artist/7/7_9.jpg'
+				'image/artist/7/7_8.jpg'
 			]
 		},
 		{
@@ -195,7 +190,6 @@ var DATA = {
 			name2:'Russia',
 			image:'image/artist/3/3.jpg',
 			works:[
-				'image/artist/3/3_1.jpg',
 				'image/artist/3/3_2.jpg',
 				'image/artist/3/3_3.jpg',
 				'image/artist/3/3_4.jpg',
@@ -214,7 +208,6 @@ var DATA = {
 			name2:'China',
 			image:'image/artist/4/4.jpg',
 			works:[
-				'image/artist/4/4_1.jpg',
 				'image/artist/4/4_2.jpg',
 				'image/artist/4/4_3.jpg',
 				'image/artist/4/4_4.jpg',
@@ -229,7 +222,6 @@ var DATA = {
 			name2:'China',
 			image:'image/artist/5/5.png',
 			works:[
-				'image/artist/5/5_1.jpg',
 				'image/artist/5/5_2.jpg',
 				'image/artist/5/5_3.jpg',
 				'image/artist/5/5_4.jpg',
