@@ -85,9 +85,13 @@ var PAGE = {
 			'will-change':'transform'
 		});
 		$(window).scroll(function(){
-			let top = $(window).scrollTop();
+			let top = $(window).scrollTop(),
+				opacity = (300-top)/300;
+
+			opacity = (opacity<0)? 0 : opacity;
 			dom.css3({
-				transform:'translateY('+top/2.5+'px)'
+				transform:'translateY('+top/2.5+'px)',
+				opacity:opacity
 			});
 		});
 

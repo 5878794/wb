@@ -11,7 +11,7 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 	body.css({
 		position:'fixed',
 		left:0,top:0,width:'100%',height:'100%',
-		'z-index':10000,background:'#333'
+		'z-index':10000,background:'#181818'
 	});
 	let main = $('<div></div>');
 	main.css({
@@ -103,10 +103,10 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 
 	if(e-s<1000){
 		setTimeout(function(){
-			// end();
+			end();
 		},1000+s-e)
 	}else{
-		// end();
+		end();
 	}
 
 
