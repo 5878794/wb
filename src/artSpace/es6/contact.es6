@@ -3,9 +3,24 @@ require('./lib/jq/cssAnimate');
 require('./lib/jq/text2Span');
 require('./lib/jq/hoverSpanJump');
 require('./lib/all');
+require('./lib/jq/pageLoading');
+
 
 $(document).ready(function(){
-	PAGE.init();
+	let data = {
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png',
+		j:'./image/map.png'
+	};
+
+	$('body').pageLoading(data,function(){
+		PAGE.init();
+	},function(){
+
+	});
 });
 
 

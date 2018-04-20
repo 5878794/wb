@@ -2,7 +2,7 @@ require('./classAnimate');
 require('./extend');
 let imgLoader = require('../resLoader/image');
 
-$.fn.pageLoading = async function(imgs){
+$.fn.pageLoading = async function(imgs,callback,callback1){
 	//隐藏原始的
 	$('body').children().css({opacity:0});
 
@@ -76,13 +76,22 @@ $.fn.pageLoading = async function(imgs){
 			opacity:0
 		},500,function(){
 			body.remove();
+			callback();
 			setTimeout(function(){
+				let isRunCallBack = false;
 				$('body').children().each(function(){
 					$(this).cssAnimate({
 						opacity:1
-					},1000,function(){},true,'','opacity');
+					},1000,function(){
+						if(!isRunCallBack){
+							isRunCallBack = true;
+							setTimeout(function(){
+								callback1();
+							},100)
+						}
+					},true,'','opacity');
 				})
-			},300)
+			},200)
 		})
 	};
 

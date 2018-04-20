@@ -1,17 +1,34 @@
 let $$ = require('./lib/event/$$');
-let sensor = require('./lib/h5/gravitySensor'),
-	loading = require('./lib/ui/loading_old');
+let sensor = require('./lib/h5/gravitySensor');
+	// loading = require('./lib/ui/loading_old');
 require('./lib/all');
 require('./lib/jq/extend');
 require('./lib/all');
+require('./lib/jq/pageLoading');
 
 
-var loadFn = null;
-window.load = loading;
+// var loadFn = null;
+// window.load = loading;
 
 $(document).ready(function(){
-	loadFn = new loading();
-	PAGE.init();
+	let data = {
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png',
+		a:'./image/pavilion/p1.jpg',
+		b:'./image/pavilion/p2.jpg',
+		h:'./image/pavilion/p3.jpg',
+		i:'./image/pavilion/p4.jpg',
+		j:'./image/arrow.png'
+	};
+
+	$('body').pageLoading(data,function(){
+		PAGE.init();
+	},function(){
+
+	});
 });
 
 var PAGE = {
@@ -19,11 +36,10 @@ var PAGE = {
 	n:0,
 	init(){
 		this.addTLYEvent();
-		loadFn.show('极速加载中');
 		this.show(0).then(rs=>{
-			loadFn.hide();
+			// loadFn.hide();
 		}).catch(rs=>{
-			loadFn.hide();
+			// loadFn.hide();
 			alert(rs);
 		});
 		this.btnEventBind();
@@ -51,11 +67,11 @@ var PAGE = {
 		this.n = (this.n > max)? 0 : this.n;
 		this.n = (this.n < 0)? max : this.n;
 
-		loadFn.show('极速加载中');
+		// loadFn.show('极速加载中');
 		this.show(this.n).then(rs=>{
-			loadFn.hide();
+			// loadFn.hide();
 		}).catch(rs=>{
-			loadFn.hide();
+			// loadFn.hide();
 			alert(rs);
 		});
 	},

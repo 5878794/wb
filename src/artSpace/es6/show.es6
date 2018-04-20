@@ -1,8 +1,25 @@
 require('./lib/all');
 require('./lib/jq/autoShow');
+require('./lib/jq/pageLoading');
 
 $(document).ready(function(){
-	PAGE.init();
+	let dataImg = DATA.show;
+	let data = {
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png'
+	};
+	dataImg.map((rs,i)=>{
+		data['a'+i] = rs.img;
+	});
+
+	$('body').pageLoading(data,function(){
+		PAGE.init();
+	},function(){
+		$('#show_list').autoShow('a');
+	});
 });
 
 
@@ -12,8 +29,6 @@ var PAGE = {
 	init(){
 		this.bindData();
 		this.addEffect();
-		$('#show_list').autoShow('a');
-
 	},
 	bindData(){
 		$('#show_number').text(this.data.length);

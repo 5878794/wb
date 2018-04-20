@@ -1,10 +1,36 @@
 require('./lib/all');
+require('./lib/jq/pageLoading');
+require('./lib/jq/autoShow');
+
 let getUrlData = require('./lib/fn/getParamFromUrl');
 
 
 
 $(document).ready(function(){
-	PAGE.init();
+	let id = getUrlData().id;
+	let dataImg = DATA.artist;
+	let data = {
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png'
+	};
+	dataImg.map((rs,i)=>{
+		if(rs.id == id){
+			let imgs = rs.works;
+			imgs.map((r,a)=>{
+				data['a'+a] = r;
+			});
+
+		}
+	});
+
+	$('body').pageLoading(data,function(){
+		PAGE.init();
+	},function(){
+		$('#lists').autoShow('div');
+	});
 });
 
 

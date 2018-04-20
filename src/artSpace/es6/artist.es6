@@ -1,10 +1,28 @@
 
 require('./lib/all');
 require('./lib/jq/autoShow');
+require('./lib/jq/pageLoading');
 
 
 $(document).ready(function(){
-	PAGE.init();
+	let dataImg = DATA.artist;
+	let data = {
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png'
+	};
+	dataImg.map((rs,i)=>{
+		data['a'+i] = rs.image;
+	});
+
+	$('body').pageLoading(data,function(){
+		PAGE.init();
+	},function(){
+		$('#list_main').autoShow('a');
+	});
+
 });
 
 
@@ -14,7 +32,7 @@ var PAGE = {
 		this.bindData();
 		this.bindList();
 		this.addEffect();
-		$('#list_main').autoShow('a');
+
 	},
 	bindData(){
 		let people_number = $('#people_number');

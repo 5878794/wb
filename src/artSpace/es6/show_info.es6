@@ -1,10 +1,31 @@
 require('./lib/all');
+require('./lib/jq/pageLoading');
+
 let getUrlData = require('./lib/fn/getParamFromUrl');
 
 
 
 $(document).ready(function(){
-	PAGE.init();
+	let id = getUrlData().id;
+	let dataImg = DATA.show;
+	let data = {
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png'
+	};
+	dataImg.map((rs,i)=>{
+		if(rs.id == id){
+			data['a1'] = rs.img;
+		}
+	});
+
+	$('body').pageLoading(data,function(){
+		PAGE.init();
+	},function(){
+
+	});
 });
 
 

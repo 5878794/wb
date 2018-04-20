@@ -1,11 +1,30 @@
 require('./lib/all');
 require('./lib/jq/extend');
+require('./lib/jq/pageLoading');
+
+
 let banner = require('./lib/ui/bannerScroll'),
 	$$ = require('./lib/event/$$');
 
 
 $(document).ready(function(){
-	PAGE.init();
+	let data = {
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png',
+		a:'./image/about/p1.png',
+		b:'./image/about/p2.png',
+		h:'./image/about/p3.png',
+		i:'./image/about/img.png'
+	};
+
+	$('body').pageLoading(data,function(){
+		PAGE.init();
+	},function(){
+
+	});
 });
 
 

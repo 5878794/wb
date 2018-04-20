@@ -8,22 +8,23 @@ require('./lib/jq/pageLoading');
 
 
 $(document).ready(function(){
-
-	PAGE.init();
+	$('body').pageLoading({
+		a:'./image/index/bg.png',
+		b:'./image/index/title.png',
+		c:'./image/close.png',
+		d:'./image/home.png',
+		e:'./image/home_.png',
+		f:'./image/menu.png',
+		g:'./image/menu_.png'
+	},function(){
+		PAGE.init();
+	});
 });
 
 
 var PAGE = {
 	init(){
-		$('body').pageLoading({
-			a:'./image/index/bg.png',
-			b:'./image/index/title.png',
-			c:'./image/close.png',
-			d:'./image/home.png',
-			e:'./image/home_.png',
-			f:'./image/menu.png',
-			g:'./image/menu_.png'
-		});
+
 		this.btnEventBind();
 	},
 	btnEventBind(){
