@@ -246,5 +246,7 @@ var DATA = {
 		// 		'image/artist/6/6_7.jpg'
 		// 	]
 		// },
-	]
+	],
+	//窗口
+	winSize:800
 };

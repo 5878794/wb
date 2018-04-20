@@ -8,6 +8,8 @@ let getN = function(length){
 
 
 $.fn.hoverSpanJump = function(){
+	let winSize = (DATA && DATA.winSize)? DATA.winSize : 800;
+
 	$(this).each(function(){
 		let text = $(this).text();
 		$(this).data({text:text});
@@ -19,7 +21,7 @@ $.fn.hoverSpanJump = function(){
 				span = dom.find('span');
 
 			intervalFn = setInterval(function(){
-				if(window.innerWidth>800){
+				if(window.innerWidth>winSize){
 					dom.prepend(span.eq(getN(l)));
 				}
 			},50)
@@ -27,7 +29,7 @@ $.fn.hoverSpanJump = function(){
 		},function(){
 			clearInterval(intervalFn);
 			let span = $(this).find('span');
-			if(window.innerWidth>800){
+			if(window.innerWidth>winSize){
 				for(let i=0,l=text.length;i<l;i++){
 					let val = (text[i] == '')? '$nbsp;' : text[i];
 					span.eq(i).html(val);
