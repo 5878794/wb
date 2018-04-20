@@ -37,10 +37,76 @@ body{
     /*background: url();*/
 }
 
+.index_slide,
+.index_img{
+    display: none;
+}
 
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 800px) {
+    .index_page{
+        position: relative; background: none;
+    }
+    .index_logo{
+        width: 354px; height: 282px;
+        -webkit-background-size:100% 182px;
+        background-size:100% 182px;
+        background-position: top center;
+        position: absolute;
+        left:50%; top:50%; margin-top: -141px;
+    }
+    .index_open{
+        display: none;
+    }
+
+    .index_slide{
+        display: block;
+        position: absolute; bottom: 40px; left:10px;
+        width: 180px; height: 1px;
+        background: -moz-linear-gradient(left, #eee 0%, rgba(24, 24, 24, 0.5) 100%);
+        background: -webkit-linear-gradient(left, #eee 0%, rgba(24, 24, 24, 0.5) 100%);
+        background: linear-gradient(to left, #eee 0%, rgba(24, 24, 24, 0.5) 100%);
+    }
+    .index_slide:after{
+        content: '';
+        width: 100%; height: 0; position: absolute; left:0; top:0;
+        border-top:1px dashed #000;
+    }
+    .index_slide_y{
+        width: 20px; height: 20px;
+        background: #fff;
+        position: absolute; left:-10px; top:-10px; z-index: 10;
+        -webkit-border-radius:20px;
+        -moz-border-radius:20px;
+        border-radius:20px;
+    }
+    .index_slide_y:after{
+        content: ''; display: block;
+        position: absolute; left:-10px; top:-10px;
+        width: 40px;
+        height: 40px;
+        -webkit-border-radius:100%;
+        -moz-border-radius:100%;
+        border-radius:100%;
+        background-color: rgba(255,255,255,0.1);
+        /*-webkit-box-shadow: 0 1px 6px 0 rgba(255, 255, 255, 0.5);*/
+        /*-moz-box-shadow: 0 1px 6px 0 rgba(255, 255, 255, 0.5);*/
+        /*box-shadow: 0 1px 6px 0 rgba(255, 255, 255, 0.5);*/
+
+    }
+    .index_slide_text{
+        position: absolute; right: -164px; top:-12px;
+        color: #999;
+    }
 
 
+    .index_img{
+        display: block;
+        position: absolute; left:5%; top:50%;
+        width: 40%;
+    }
+    .index_img img{
+        width: 100%;
+    }
 
 }
