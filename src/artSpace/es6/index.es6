@@ -18,7 +18,7 @@ $(document).ready(function(){
 		g:'./image/menu_.png'
 	},function(){
 		PAGE.init();
-	});
+	},function(){});
 });
 
 

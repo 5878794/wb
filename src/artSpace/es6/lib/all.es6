@@ -84,13 +84,15 @@ var PAGE = {
 		let pathName = window.location.pathname,
 			as = $('#menu_item').find('a');
 
-		as.each(function(){
-			if(pathName.indexOf($(this).attr('href'))>-1){
-				$(this).addClass('notSelect');
-			}
-		})
-
-
+		if(pathName.substr(pathName.length-1) == '\/'){
+			as.eq(0).addClass('notSelect');
+		}else{
+			as.each(function(){
+				if(pathName.indexOf($(this).attr('href'))>-1){
+					$(this).addClass('notSelect');
+				}
+			})
+		}
 	}
 
 };
