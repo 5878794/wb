@@ -1,5 +1,6 @@
 
 require('./lib/all');
+require('./lib/jq/autoShow');
 
 
 $(document).ready(function(){
@@ -13,6 +14,7 @@ var PAGE = {
 		this.bindData();
 		this.bindList();
 		this.addEffect();
+		$('#list_main').autoShow('a');
 	},
 	bindData(){
 		let people_number = $('#people_number');

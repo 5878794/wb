@@ -19,15 +19,19 @@ $.fn.hoverSpanJump = function(){
 				span = dom.find('span');
 
 			intervalFn = setInterval(function(){
-				dom.prepend(span.eq(getN(l)));
+				if(window.innerWidth>800){
+					dom.prepend(span.eq(getN(l)));
+				}
 			},50)
 
 		},function(){
 			clearInterval(intervalFn);
 			let span = $(this).find('span');
-			for(let i=0,l=text.length;i<l;i++){
-				let val = (text[i] == '')? '$nbsp;' : text[i];
-				span.eq(i).html(val);
+			if(window.innerWidth>800){
+				for(let i=0,l=text.length;i<l;i++){
+					let val = (text[i] == '')? '$nbsp;' : text[i];
+					span.eq(i).html(val);
+				}
 			}
 		})
 	});
