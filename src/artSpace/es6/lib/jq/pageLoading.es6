@@ -16,11 +16,12 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 	let main = $('<div></div>');
 	main.css({
 		position:'absolute', color:'#fff',
-		left:'50%',top:'50%',width:'300px',height:'200px',
-		'margin-top':'-100px',
+		left:'50%',top:'50%',width:'300px',height:'240px',
+		'margin-top':'-120px',
 		'margin-left':'-150px',
 		'text-align':'center',
-		'font-size':'32px'
+		'font-size':'25px',
+		'letter-spacing':'4px'
 	});
 	let logo = $('<div></div>');
 	logo.css({
@@ -30,20 +31,22 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 		'background-repeat': 'no-repeat',
 		'background-position': 'center center',
 		'-webkit-background-size':'17px 30px',
-		'background-size':'17px 30px'
+		'background-size':'17px 30px',
+		'margin-bottom':'40px'
 	});
 	let text = $('<div>AURA SPACE</div>');
 	text.css({
-		width:'100%','line-height':'60px'
+		width:'100%','line-height':'30px'
 	});
 	let text1 = $('<div>THE WORLD OF ART</div>');
 	text1.css({
-		'font-size':'14px',
-		'letter-spacing':'4px'
+		'font-size':'10px',
+		'letter-spacing':'5px'
 	});
 	let pre = $('<div>0</div>');
 	pre.css({
-		width:'100%','line-height':'100px'
+		width:'100%',
+		'margin-top':'40px'
 	});
 
 	main.append(logo).append(text).append(text1).append(pre);
