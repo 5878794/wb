@@ -130,7 +130,7 @@
     .top_center{
         width: 200px; height: 45px; position: absolute;
         left:-77px; top:50%; margin-top: -22px; display: block;
-        line-height: 60px;
+        line-height: 60px; text-align: center;
         -webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
         -ms-transform: rotate(-90deg);
