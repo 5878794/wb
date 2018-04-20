@@ -81,6 +81,9 @@ var PAGE = {
 	},
 	bindEffect(){
 		let dom = $('#msg');
+		dom.css3({
+			'will-change':'transform'
+		});
 		$(window).scroll(function(){
 			let top = $(window).scrollTop();
 			dom.css3({

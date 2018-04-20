@@ -34,6 +34,7 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 		'background-size':'17px 30px',
 		'margin-bottom':'40px'
 	});
+	let logoDiv = $('<div></div>');
 	let text = $('<div>AURA SPACE</div>');
 	text.css({
 		width:'100%','line-height':'30px'
@@ -49,17 +50,18 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 		'margin-top':'40px'
 	});
 
-	main.append(logo).append(text).append(text1).append(pre);
+	logoDiv.append(logo);
+	main.append(logoDiv).append(text).append(text1).append(pre);
 	body.append(main);
 
 	$('body').append(body);
 
-	main.set3dDom();
+	logoDiv.set3dDom();
 	logo.classAnimate({
-		'0%':'transform:rotateY(0deg) rotateX(0deg)',
-		'50%':'transform:rotateY(180deg) rotateX(0deg)',
-		'100%':'transform:rotateY(180deg) rotateX(180deg)'
-	},2000,'linear',true,false,function(){},0,'transform')
+		'0%':'transform:rotate3d(0,0,0，0)',
+		'50%':'transform:rotate3d(0,0.5,0,180deg)',
+		'100%':'transform:rotate3d(0,0,0.5,180deg)'
+	},2000,'linear',true,false,function(){},0,'transform');
 
 
 	let s = new Date().getTime();
@@ -101,10 +103,10 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 
 	if(e-s<1000){
 		setTimeout(function(){
-			end();
+			// end();
 		},1000+s-e)
 	}else{
-		end();
+		// end();
 	}
 
 
