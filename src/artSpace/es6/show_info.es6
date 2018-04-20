@@ -1,4 +1,5 @@
 require('./lib/all');
+require('./lib/jq/extend');
 require('./lib/jq/pageLoading');
 
 let getUrlData = require('./lib/fn/getParamFromUrl');
@@ -48,6 +49,7 @@ var PAGE = {
 		}
 
 		this.bindData(data);
+		this.bindEffect();
 	},
 	getData(id){
 		let data = null;
@@ -76,5 +78,15 @@ var PAGE = {
 		data.text.map(rs=>{
 			texts.append('<p>'+rs+'</p>');
 		})
+	},
+	bindEffect(){
+		let dom = $('#msg');
+		$(window).scroll(function(){
+			let top = $(window).scrollTop();
+			dom.css3({
+				transform:'translateY('+top/2.5+'px)'
+			});
+		});
+
 	}
 };

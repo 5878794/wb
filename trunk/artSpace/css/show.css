@@ -229,6 +229,7 @@
 
 .show_info_top_img{
     padding: 10px; min-height: 50px;
+    position: relative; z-index: 30;
 
 }
 .show_info_top_img img{
