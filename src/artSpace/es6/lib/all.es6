@@ -29,10 +29,12 @@ var PAGE = {
 	menuBtnEventBind(){
 		let btn = $('#top_right'),
 			menu = $('#menu'),
+			top_pc_menu = $('#top_pc_menu'),
+			top_pc_close = $('#top_pc_close'),
 			menuList = menu.find('.menu_main'),
 			closeBtn = menu.find('.menu_close_btn');
 
-
+		//TODO 菜单初始设置有问题
 		let show = function(){
 			if(window.innerWidth<DATA.winSize){
 				menu.css({display:'block'});
@@ -51,9 +53,9 @@ var PAGE = {
 			}else{
 				menu.css3({
 					display:'block',
-					background:'rgba(0,0,0,0.7)',
+					background:'#181818',
 					opacity:0,
-					transform:'scale(0.1)'
+					transform:'scale(0.5)'
 				});
 				menuList.css3({transform:'translateX(-100%)'});
 
@@ -79,7 +81,12 @@ var PAGE = {
 					menu.css({display:'none'});
 				});
 			}else{
-
+				menu.cssAnimate({
+					transform:'scale(0.5)',
+					opacity:0
+				},500,function(){
+					menu.css({display:'none'});
+				});
 			}
 		};
 
@@ -89,6 +96,18 @@ var PAGE = {
 
 		$$(closeBtn).myclickok(function(){
 			hide();
+		});
+
+		$$(top_pc_close).myclickok(function(){
+			$(this).hide().css({display:'none'});
+			hide();
+			top_pc_menu.show();
+		});
+
+		$$(top_pc_menu).myclickok(function(){
+			$(this).hide();
+			show();
+			top_pc_close.css({display:'block'}).show();
 		});
 
 		$$(menu).myclickok(function(){

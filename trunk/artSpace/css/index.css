@@ -112,4 +112,10 @@ body{
         width: 100%;
     }
 
+    .top_pc_menu{
+        display: none !important;
+    }
+    .menu_padding{
+        right: 0;
+    }
 }

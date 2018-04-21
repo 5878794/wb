@@ -53,7 +53,7 @@ var PAGE = {
 
 		btn.mousedown(function(e){
 			p = e.pageX;
-			bodyWidth = parseInt(body.width())-10;
+			bodyWidth = parseInt(body.width())-10
 			isMouseDown = true;
 		});
 
