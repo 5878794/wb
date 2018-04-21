@@ -43,7 +43,7 @@ body{
 }
 
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1024px) {
     .index_page{
         position: relative; background: none;
     }

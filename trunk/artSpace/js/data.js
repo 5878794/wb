@@ -248,5 +248,5 @@ var DATA = {
 		// },
 	],
 	//窗口
-	winSize:800
+	winSize:1024
 };

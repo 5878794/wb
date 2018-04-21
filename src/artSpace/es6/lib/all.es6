@@ -65,6 +65,7 @@ var PAGE = {
 					transform:'scale(0.5)'
 				});
 				menuList.css3({transform:'translateX(-100%)'});
+				menuList.find('span').css({opacity:0});
 
 				menu.cssAnimate({
 					transform:'scale(1)',
