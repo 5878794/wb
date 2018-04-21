@@ -76,12 +76,19 @@ var PAGE = {
 				m = left + (np-p);
 			if(m+10>=bodyWidth){
 				$$(menu).trigger('myclickok');
-			}else{
 				//退回起点
+				setTimeout(function(){
+					btn.cssAnimate({
+						left:'-10px'
+					},500)
+				},1000)
+			}else{
 				btn.cssAnimate({
 					left:'-10px'
 				},500)
 			}
+
+
 		});
 
 

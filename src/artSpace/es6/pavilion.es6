@@ -43,6 +43,7 @@ var PAGE = {
 			alert(rs);
 		});
 		this.btnEventBind();
+		this.resizeFn();
 	},
 	btnEventBind(){
 		let left = $('#pavilion_btns_left'),
@@ -94,6 +95,8 @@ var PAGE = {
 		let imgBody = $('#pavilion_body');
 
 		let img = await this.loadImg(src);
+		this.img = img;
+		this.imgAutoSize();
 		imgBody.find('img').remove();
 
 		imgBody.append(img);
@@ -115,6 +118,40 @@ var PAGE = {
 				//手机横向时 x=y  y=x;
 				x = x*4;
 				obj.css3({transform:"translate3d("+x+"px,0,0)"});
+			}
+		});
+	},
+	imgAutoSize(){
+		if(!this.img){return;}
+		if(!(window.innerWidth>DATA.winSize)){return;}
+		let winWidth = window.innerWidth,
+			winHeight = window.innerHeight,
+			imgWidth = this.img.width,
+			imgHeight = this.img.height;
+
+		if(winWidth/winHeight >= imgWidth/imgHeight){
+			this.img.height = winHeight;
+			this.img.width = winHeight*imgWidth/imgHeight;
+		}else{
+			this.img.width = winWidth;
+			this.img.height = winWidth*imgHeight/imgWidth;
+		}
+
+		let dom = $('#pavilion_body');
+		dom.find('img').css({
+			width:this.img.width+'px',
+			height:this.img.height+'px'
+		});
+		dom.css({
+			left:'50%',top:0,
+			'margin-left':-this.img.width/2+'px'
+		});
+	},
+	resizeFn(){
+		let _this = this;
+		$(window).resize(function(){
+			if(window.innerWidth>DATA.winSize){
+				_this.imgAutoSize();
 			}
 		});
 	}

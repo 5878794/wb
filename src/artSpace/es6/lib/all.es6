@@ -34,12 +34,19 @@ var PAGE = {
 			menuList = menu.find('.menu_main'),
 			closeBtn = menu.find('.menu_close_btn');
 
-		//TODO 菜单初始设置有问题
 		let show = function(){
 			if(window.innerWidth<DATA.winSize){
-				menu.css({display:'block'});
+				menu.css3({
+					display:'block',
+					background:'rgba(0,0,0,0)',
+					transform:'scale(1)',
+					opacity:1
+				});
+				menuList.css3({
+					transform:'translateX(0)'
+				});
+				menuList.find('span').css({opacity:0});
 
-				// menuList.css3({transform:'translateX(100%)'});
 
 				menu.cssAnimate({
 					background:'rgba(0,0,0,0.7)'
