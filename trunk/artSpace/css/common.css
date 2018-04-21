@@ -204,7 +204,7 @@
         display: block; position: absolute; left:75%; top: 50%;
         width: 25%; height: 40px; margin-top: -20px;
         color: #666; font-size: 10px;
-        text-align: left; padding-left: 40px;
+        text-align: left; padding-left: 15px;
         line-height: 20px; letter-spacing: 4px;
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
@@ -274,5 +274,36 @@
 }
 
 
-
+@-webkit-keyframes show_hide {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@-moz-keyframes show_hide {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@-o-keyframes show_hide {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@keyframes show_hide {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
 

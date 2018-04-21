@@ -96,7 +96,10 @@ body{
     }
     .index_slide_text{
         position: absolute; right: -164px; top:-12px;
-        color: #999;
+        color: #fff;
+        -webkit-animation:show_hide 1s linear 0s infinite alternate;
+        -o-animation:show_hide 1s linear 0s infinite alternate;
+        animation:show_hide 1s linear 0s infinite alternate;
     }
 
 
