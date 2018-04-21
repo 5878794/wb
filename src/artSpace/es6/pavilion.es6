@@ -130,11 +130,12 @@ var PAGE = {
 			imgHeight = this.img.height;
 
 		if(winWidth/winHeight >= imgWidth/imgHeight){
-			this.img.height = winHeight;
-			this.img.width = winHeight*imgWidth/imgHeight;
-		}else{
 			this.img.width = winWidth;
 			this.img.height = winWidth*imgHeight/imgWidth;
+
+		}else{
+			this.img.height = winHeight;
+			this.img.width = winHeight*imgWidth/imgHeight;
 		}
 
 		let dom = $('#pavilion_body');
