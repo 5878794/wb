@@ -74,6 +74,7 @@ showPicture.prototype = {
 			closeBtn = $("<div></div>");
 
 		rightBtn.css3({
+			display:'none',
 			position:"absolute",
 			right:"10px",
 			top:"50%",
@@ -90,6 +91,7 @@ showPicture.prototype = {
 			transform:"rotate(180deg)"
 		});
 		closeBtn.css({
+			display:'none',
 			position:"absolute",
 			right:"10px",
 			top:"10px",
@@ -181,8 +183,13 @@ showPicture.prototype = {
 			div.find("div").remove();
 			//添加图片
 			div.append(this);
+			$(this).click(function(e){
+				e.stopPropagation();
+			})
 		};
 		img.src = src;
+
+
 
 		var __left = (this.isPc)? "2.5%" : "0";
 
@@ -254,6 +261,10 @@ showPicture.prototype = {
 		this.closeBtn.click(function(){
 			_this.destroy();
 		});
+
+		this.main.click(function(){
+			_this.destroy();
+		})
 	},
 	eventBindPhone:function(){
 		var _this = this;

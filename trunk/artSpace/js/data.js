@@ -106,9 +106,9 @@ var DATA = {
 			bg:'',
 			works:[
 				'image/artist/2/2_1.jpg',
-				'image/artist/2/2_2.jpg',
-				'image/artist/2/2_3.jpg',
 				'image/artist/2/2_4.jpg',
+				'image/artist/2/2_3.jpg',
+				'image/artist/2/2_2.jpg',
 				'image/artist/2/2_5.jpg',
 				'image/artist/2/2_6.jpg',
 				'image/artist/2/2_7.jpg',
@@ -148,9 +148,7 @@ var DATA = {
 			image:'image/artist/8/8.jpg',
 			works:[
 				'image/artist/8/8_2.jpg',
-				'image/artist/8/8_3.jpg',
 				'image/artist/8/8_4.jpg',
-				'image/artist/8/8_5.jpg',
 				'image/artist/8/8_6.jpg',
 				'image/artist/8/8_7.jpg',
 				'image/artist/8/8_8.jpg',
@@ -158,15 +156,18 @@ var DATA = {
 				'image/artist/8/8_10.jpg',
 				'image/artist/8/8_11.jpg',
 				'image/artist/8/8_12.jpg',
+				'image/artist/8/8_3.jpg',
 				'image/artist/8/8_13.jpg',
+				'image/artist/8/8_19.jpg',
 				'image/artist/8/8_14.jpg',
 				'image/artist/8/8_15.jpg',
 				'image/artist/8/8_16.jpg',
-				'image/artist/8/8_17.jpg',
 				'image/artist/8/8_18.jpg',
-				'image/artist/8/8_19.jpg',
 				'image/artist/8/8_20.jpg',
-				'image/artist/8/8_21.jpg'
+				'image/artist/8/8_17.jpg',
+				'image/artist/8/8_21.jpg',
+				'image/artist/8/8_5.jpg'
+
 			]
 		},
 		{
@@ -193,9 +194,9 @@ var DATA = {
 				'image/artist/3/3_2.jpg',
 				'image/artist/3/3_3.jpg',
 				'image/artist/3/3_4.jpg',
-				'image/artist/3/3_5.jpg',
-				'image/artist/3/3_6.jpg',
 				'image/artist/3/3_7.jpg',
+				'image/artist/3/3_6.jpg',
+				'image/artist/3/3_5.jpg',
 				'image/artist/3/3_8.jpg',
 				'image/artist/3/3_9.jpg',
 				'image/artist/3/3_10.jpg',
@@ -208,12 +209,15 @@ var DATA = {
 			name2:'China',
 			image:'image/artist/4/4.jpg',
 			works:[
-				'image/artist/4/4_2.jpg',
-				'image/artist/4/4_3.jpg',
+
 				'image/artist/4/4_4.jpg',
 				'image/artist/4/4_5.jpg',
+
+				'image/artist/4/4_7.jpg',
+				'image/artist/4/4_2.jpg',
 				'image/artist/4/4_6.jpg',
-				'image/artist/4/4_7.jpg'
+				'image/artist/4/4_3.jpg'
+
 			]
 		},
 		{
@@ -224,10 +228,10 @@ var DATA = {
 			works:[
 				'image/artist/5/5_2.jpg',
 				'image/artist/5/5_3.jpg',
-				'image/artist/5/5_4.jpg',
+				'image/artist/5/5_7.jpg',
 				'image/artist/5/5_5.jpg',
 				'image/artist/5/5_6.jpg',
-				'image/artist/5/5_7.jpg',
+				'image/artist/5/5_4.jpg',
 				'image/artist/5/5_8.jpg'
 			]
 		}
