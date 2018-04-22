@@ -32,6 +32,7 @@ var PAGE = {
 		this.bindData();
 		this.bindList();
 		this.addEffect();
+		this.bindScrollEffect();
 
 	},
 	bindData(){
@@ -62,12 +63,14 @@ var PAGE = {
 		}
 
 		list.eq(0).addClass('active');
+		this.setBg(list.eq(0));
 
-		let line = window.innerHeight/2,
-			_this = this;
+		let _this = this;
 
 		$(window).scroll(function(){
-			let top = $(window).scrollTop();
+			let top = $(window).scrollTop(),
+				line = window.innerHeight/2;
+
 			_this.handleScroll(position,top,line,list);
 		})
 
@@ -95,7 +98,38 @@ var PAGE = {
 		}else{
 			list.removeClass('active');
 			dom.addClass('active');
+			this.setBg(dom);
 		}
+
+	},
+	bindScrollEffect(){
+		let scroller = $('#show_scroll_main');
+		$(window).scroll(function(){
+			let winHeight = window.innerHeight,
+				bodyHeight = parseInt($('body').height()),
+				scrollTop = $(window).scrollTop(),
+				height = scrollTop*100 / (bodyHeight-winHeight);
+			height = (height == 0)? 0.1 : height;
+			height = (!height || height<0)? '100%' : height+'%';
+
+			scroller.css({
+				height:height
+			})
+		});
+	},
+	setBg(dom){
+		if(DATA.winSize>window.innerWidth){return;}
+		let src = dom.find('img').attr('src');
+		$('#show_pc_bg').css3({
+			opacity:0.2,
+			background:'url('+src+') no-repeat top center',
+			'background-size':'cover'
+		});
+		setTimeout(function(){
+			$('#show_pc_bg').cssAnimate({
+				opacity:0.6
+			},500)
+		},100)
 
 	}
 

@@ -60,11 +60,12 @@ var PAGE = {
 		list.eq(0).addClass('active');
 		this.setBg(list.eq(0));
 
-		let line = window.innerHeight/2,
-			_this = this;
+		let _this = this;
 
 		$(window).scroll(function(){
-			let top = $(window).scrollTop();
+			let top = $(window).scrollTop(),
+				line = window.innerHeight/2;
+
 			_this.handleScroll(position,top,line,list);
 		})
 
