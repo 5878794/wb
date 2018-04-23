@@ -149,12 +149,21 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
         background-size:15px 15px;
         cursor: pointer;
     }
+
     .top_pc_menu:hover{
         -webkit-transform:  scale(0.8);
         -moz-transform:  scale(0.8);
         -ms-transform:  scale(0.8);
         -o-transform:  scale(0.8);
         transform:  scale(0.8);
+    }
+    .isBai .top_pc_menu{
+        background: url(../image/home_.png) no-repeat center center;
+        -webkit-background-size:15px 15px;
+        background-size:15px 15px;
+    }
+    .isBai .top_center{
+        color: rgb(190,141,118);
     }
     .top_pc_close{
         display: none;
@@ -277,7 +286,17 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
         display: block;
         width: 50%; height: 100%;
         position: absolute; left:0; top:0;
-        /*background: red;*/
+        background: url(../image/map.png) no-repeat center center;
+        -webkit-background-size:contain;
+        background-size:contain;
+        -webkit-transform: scale(0.5);
+        -moz-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        -o-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    .isBai{
+        background: none;
     }
 
 }

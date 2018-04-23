@@ -33,6 +33,12 @@ var PAGE = {
 	init(){
 		this.bindData();
 		this.setBanner();
+		this.setHeight();
+
+		var _this = this;
+		$(window).resize(function(){
+			_this.setHeight();
+		});
 		// this.addSlideEvent();
 	},
 	bindData(){
@@ -93,5 +99,17 @@ var PAGE = {
 				transform:'translateY(0)'
 			},500)
 		}).myclickdown(function(){}).myclickup(function(){});
+	},
+	setHeight(){
+		let dom1 = $('#about_main_pc'),
+			dom2 = $('#about_main_pc2');
+
+		if(window.innerWidth>DATA.winSize){
+			if(window.innerHeight>=700){
+				dom1.css({height:window.innerHeight+"px"});
+			}else{
+				dom1.css({height:"700px"});
+			}
+		}
 	}
 };

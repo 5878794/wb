@@ -155,3 +155,47 @@ body,html{
 .about_banner_body a:active{
     opacity: 1;
 }
+
+.about_img img{
+    display: none;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .about_main_pc{
+        position: relative;
+        height: 700px;
+        width: 80%; left:10%;
+    }
+    .about_main_pc .about_main{
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        top: 40%; margin-top: -100px;
+        left: 0;
+        padding-left: 8%;
+    }
+    .about_img{
+        position: absolute;
+        left:50%; top:-30%; width: 40%;
+        background: none;
+    }
+    .about_img img{
+        display: block; width: 100%; height: auto;
+    }
+    .about_main_pc2{
+        position: relative; left:10%;
+        width:80%;
+    }
+    .about_main_pc2 .about_main{
+        top:0; height: auto;
+    }
+    .about_main_p2{
+        position: relative; padding-right: 50%;
+        height: 400px;
+    }
+    .about_text{
+        position: absolute; right: 0; top:5px;
+        width: 50%; padding: 0 5%;
+    }
+}
