@@ -110,16 +110,18 @@ var PAGE = {
 	},
 	addTLYEvent(){
 		let obj = $('#pavilion_body');
-		new sensor({
-			moveFn:function(x,y){
-				//x:y轴旋转角度 -90 - 90
-				//y:x轴旋转角度 -90 - 90
-				//旋转角度可转换成百分比在转换成实际的移动像素x,y
-				//手机横向时 x=y  y=x;
-				x = x*4;
-				obj.css3({transform:"translate3d("+x+"px,0,0)"});
-			}
-		});
+		if(window.innerWidth<DATA.winSize){
+			new sensor({
+				moveFn:function(x,y){
+					//x:y轴旋转角度 -90 - 90
+					//y:x轴旋转角度 -90 - 90
+					//旋转角度可转换成百分比在转换成实际的移动像素x,y
+					//手机横向时 x=y  y=x;
+					x = x*4;
+					obj.css3({transform:"translate3d("+x+"px,0,0)"});
+				}
+			});
+		}
 	},
 	imgAutoSize(){
 		if(!this.img){return;}
