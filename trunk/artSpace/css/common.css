@@ -17,7 +17,7 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     -webkit-background-size:11px 20px;
     background-size:11px 20px;
     cursor: pointer;
-    background-color: #181818;
+    background-color: #191919;
 }
 .top_center{
     display: none;
@@ -35,7 +35,7 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     background-image: url(../image/menu.png);
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: #181818;
+    background-color: #191919;
     -webkit-background-size:15px 15px;
     background-size:15px 15px;
     cursor: pointer;
@@ -73,7 +73,7 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
 }
 .menu_main{
     position: absolute; left: 100%; width: auto; top:0;
-    padding: 65px 40px; background: #181818;
+    padding: 65px 40px; background: #191919;
     color: #fff; height: 100%;
     /*-webkit-transform: translateX(-100%);*/
     /*-moz-transform: translateX(-100%);*/
@@ -102,13 +102,12 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
 .menu_item a{
     display: block; color: #fff;
     word-break: keep-all;
-    height: 26px;
+    height: 56px;
     text-align: left;
     font-size: 14px;
     line-height: 26px;
     letter-spacing: 2px;
-    margin-top:30px;
-    padding: 0 2px;
+    padding: 15px 2px;
 }
 .menu_item .notSelect{
     color: rgb(190,141,118);
@@ -202,7 +201,7 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     .menu{
         left:0; right:0; width:auto;
         padding: 0 60px 0 60px;
-        background-color: #181818;
+        background-color: #191919;
     }
     .menu_padding{
         position: absolute; left:60px; right:60px;
@@ -286,14 +285,14 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
         display: block;
         width: 50%; height: 100%;
         position: absolute; left:0; top:0;
-        background: url(../image/map.png) no-repeat center center;
+        background: url(../image/meun_bg2.png) no-repeat center center;
         -webkit-background-size:contain;
         background-size:contain;
-        -webkit-transform: scale(0.5);
-        -moz-transform: scale(0.5);
-        -ms-transform: scale(0.5);
-        -o-transform: scale(0.5);
-        transform: scale(0.5);
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        transform: scale(0.8);
     }
     .isBai{
         background: none;
