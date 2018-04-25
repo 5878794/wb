@@ -11,6 +11,8 @@ let device = require('./lib/device');
 
 $(document).ready(function(){
 	$('body').pageLoading({
+		z:'./image/menu_bg1.png',
+		x:'./image/meun_bg2.png',
 		a:'./image/index/bg.png',
 		b:'./image/index/title.png',
 		c:'./image/close.png',

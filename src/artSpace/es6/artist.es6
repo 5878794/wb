@@ -7,6 +7,8 @@ require('./lib/jq/pageLoading');
 $(document).ready(function(){
 	let dataImg = DATA.artist;
 	let data = {
+		z:'./image/menu_bg1.png',
+		x:'./image/meun_bg2.png',
 		c:'./image/close.png',
 		d:'./image/home.png',
 		e:'./image/home_.png',
