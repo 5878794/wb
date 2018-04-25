@@ -59,9 +59,11 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 	logoDiv.set3dDom();
 	logo.classAnimate({
 		'0%':'transform:rotate3d(0,0,0，0)',
-		'50%':'transform:rotate3d(0,0.5,0,180deg)',
-		'100%':'transform:rotate3d(0,0,0.5,180deg)'
-	},2000,'linear',true,false,function(){},0,'transform');
+		'25%':'transform:rotate3d(0,0.5,0,180deg)',
+		'50%':'transform:rotate3d(0,0,0.5,180deg)',
+		'75%':'transform:rotate3d(0.5,0,0,180deg)',
+		'100%':'transform:rotate3d(0,0,0,180deg)'
+	},4000,'linear',true,false,function(){},0,'transform');
 
 
 	let s = new Date().getTime();
@@ -76,10 +78,10 @@ $.fn.pageLoading = async function(imgs,callback,callback1){
 
 
 	let end = function(){
-		logo.removeClassAnimate();
 		body.cssAnimate({
 			opacity:0
 		},500,function(){
+			logo.removeClassAnimate();
 			body.remove();
 			callback();
 			setTimeout(function(){
