@@ -269,23 +269,28 @@ showPicture.prototype = {
 	eventBindPhone:function(){
 		var _this = this;
 
-		$$$(this.main).myslideleft(function(e){
-			e.stopPop();
-			if(!_this.canClick){return;}
-			var n = _this.nowShowNumber + 1;
-			_this.showImg(n);
-		});
-		$$$(this.main).myslideright(function(e){
-			e.stopPop();
-			if(!_this.canClick){return;}
-			var n = _this.nowShowNumber - 1;
-			_this.showImg(n);
+		// $$$(this.main).myslideleft(function(e){
+		// 	e.stopPop();
+		// 	if(!_this.canClick){return;}
+		// 	var n = _this.nowShowNumber + 1;
+		// 	_this.showImg(n);
+		// });
+		// $$$(this.main).myslideright(function(e){
+		// 	e.stopPop();
+		// 	if(!_this.canClick){return;}
+		// 	var n = _this.nowShowNumber - 1;
+		// 	_this.showImg(n);
+		//
+		// });
+		//
+		// this.closeBtn.click(function(){
+		// 	_this.destroy();
+		// });
 
-		});
 
-		this.closeBtn.click(function(){
+		this.main.click(function(){
 			_this.destroy();
-		});
+		})
 	},
 	destroy:function(){
 		if(this.isPc){

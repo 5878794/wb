@@ -6,6 +6,7 @@ require('./lib/jq/hoverSpanJump');
 require('./lib/jq/extend');
 let $$ = require('./lib/event/$$');
 require('./lib/jq/pageLoading');
+let device = require('./lib/device');
 
 
 $(document).ready(function(){
@@ -51,13 +52,14 @@ var PAGE = {
 			left=-10,
 			p = 0;
 
-		btn.mousedown(function(e){
-			p = e.pageX;
-			bodyWidth = parseInt(body.width())-10
-			isMouseDown = true;
-		});
 
-		$(window).mousemove(function(e){
+		btn.get(0).addEventListener(device.START_EV,function(e){
+			p = e.pageX;
+			bodyWidth = parseInt(body.width())-10;
+			isMouseDown = true;
+		},false);
+
+		window.addEventListener(device.MOVE_EV,function(e){
 			if(!isMouseDown){return;}
 			let np = e.pageX,
 				m = left+(np-p);
@@ -66,9 +68,9 @@ var PAGE = {
 			btn.css({
 				left:m+"px"
 			})
-		});
+		},false);
 
-		$(window).mouseup(function(e){
+		window.addEventListener(device.END_EV,function(e){
 			if(!isMouseDown){return;}
 			let menu = $('#top_right');
 			isMouseDown = false;
@@ -87,10 +89,6 @@ var PAGE = {
 					left:'-10px'
 				},500)
 			}
-
-
-		});
-
-
+		},false);
 	}
 };
