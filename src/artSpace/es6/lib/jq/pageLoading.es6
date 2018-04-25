@@ -3,7 +3,7 @@ require('./extend');
 let imgLoader = require('../resLoader/image');
 
 $.fn.pageLoading = async function(imgs,callback,callback1){
-	//隐藏原始的
+	//隐藏 原始的
 	$('body').children().css({opacity:0});
 
 
