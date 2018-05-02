@@ -103,7 +103,6 @@ var DATA = {
 			name1:'Anna Silivonchik',
 			name2:'Belarus',
 			image:'image/artist/2/2.jpg',
-			bg:'',
 			works:[
 				'image/artist/2/2_1.jpg',
 				'image/artist/2/2_4.jpg',
