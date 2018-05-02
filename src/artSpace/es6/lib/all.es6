@@ -62,7 +62,7 @@ var PAGE = {
 					display:'block',
 					background:'#181818',
 					opacity:0,
-					transform:'scale(0.5)'
+					transform:'scale(0.95)'
 				});
 				menuList.css3({transform:'translateX(-100%)'});
 				menuList.find('span').css({opacity:0});
@@ -70,9 +70,9 @@ var PAGE = {
 				menu.cssAnimate({
 					transform:'scale(1)',
 					opacity:1
-				},500,function(){
+				},1000,function(){
 					menuList.randomShowSpan();
-				});
+				},true,'ease');
 			}
 
 		};
@@ -90,11 +90,11 @@ var PAGE = {
 				});
 			}else{
 				menu.cssAnimate({
-					transform:'scale(0.5)',
+					transform:'scale(0.95)',
 					opacity:0
-				},500,function(){
+				},1000,function(){
 					menu.css({display:'none'});
-				});
+				},true,'ease');
 			}
 		};
 

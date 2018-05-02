@@ -9,6 +9,8 @@ let banner = require('./lib/ui/bannerScroll'),
 
 $(document).ready(function(){
 	let data = {
+		z:'./image/menu_bg1.png',
+		x:'./image/meun_bg2.png',
 		c:'./image/close.png',
 		d:'./image/home.png',
 		e:'./image/home_.png',

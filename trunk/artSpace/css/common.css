@@ -219,13 +219,17 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     }
     .menu_item{
         position: absolute;
-        left: 50%;
+        left: 51%;
         top: 50%;
-        width: 25%;
-        height: 350px;
-        margin-top: -175px;
+        width: 23%;
+        height: 450px;
+        margin-top: -225px;
         text-align: center;
         z-index: 10;
+        background: url(../image/menu_bg1.png) no-repeat center center;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
+        padding: 50px 0;
     }
 
     .menu_border{
@@ -299,6 +303,13 @@ html ::-webkit-scrollbar, body ::-webkit-scrollbar {
     }
 
 }
+
+
+
+
+
+
+
 
 
 @-webkit-keyframes top_down {

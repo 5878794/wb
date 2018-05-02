@@ -173,11 +173,11 @@ body,html{
         position: absolute;
         top: 40%; margin-top: -100px;
         left: 0;
-        padding-left: 8%;
+        padding-left: 12%;
     }
     .about_img{
         position: absolute;
-        left:50%; top:-30%; width: 40%;
+        left:55%; top:-30%; width: 40%;
         background: none;
     }
     .about_img img{
@@ -192,7 +192,7 @@ body,html{
     }
     .about_main_p2{
         position: relative; padding-right: 50%;
-        height: 400px;
+        height: 600px;
     }
     .about_text{
         position: absolute; right: 0; top:5px;

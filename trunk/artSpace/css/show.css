@@ -483,3 +483,24 @@
         height: 520px;
     }
 }
+
+
+
+@media screen and (min-width: 1260px) {
+    .show_list_center{
+        width: 760px;
+    }
+    .show_img{
+        max-width: 400px;
+        height: 225px;
+    }
+    .show_pc_infos{
+        padding-top: 82px;
+    }
+    .show_item_line{
+        margin-top: 115px;
+    }
+    .artist_item_name{
+        padding-top:10px;
+    }
+}
