@@ -2,8 +2,9 @@
 
 require('./extend');
 require('./cssAnimate');
+let $$ = require('../event/$$');
 
-$.fn.autoShow = function(tag){
+$.fn.autoShow = function(tag,id){
 	$(this).css({overflow:'hidden'});
 	let list = $(this).find(tag);
 
@@ -44,6 +45,33 @@ $.fn.autoShow = function(tag){
 	});
 
 	show();
+
+
+	if(!id){return;}
+	let arrow = $('#'+id),
+		arrow_height = parseInt(arrow.parent().height());
+
+	$$(arrow).myclickok(function(){
+		$(this).parent().toggleClass('__back__');
+		setTimeout(function(){
+			let now_arrow_div_height = parseInt(arrow.parent().height()),
+				ll = now_arrow_div_height - arrow_height,
+				newPos = [];
+
+			if(ll > arrow_height){
+				pos.map(rs=>{
+					newPos.push(rs+ll);
+				})
+			}else{
+				pos.map(rs=>{
+					newPos.push(rs-ll);
+				})
+			}
+			pos = newPos;
+
+			show();
+		},100);
+	});
 
 };
 

@@ -32,7 +32,7 @@ $(document).ready(function(){
 	$('body').pageLoading(data,function(){
 		PAGE.init();
 	},function(){
-		$('#lists').autoShow('div');
+		$('#lists').autoShow('div','show_add_info_texts_arrow');
 	});
 });
 
@@ -77,6 +77,19 @@ var PAGE = {
 		let body = $('#lists'),
 			list = $('#list');
 
+
+		let infos = $('#show_add_info_texts');
+		data.text.map(rs=>{
+			infos.append('<p>'+rs+'</p>');
+		});
+		let clone_info = infos.clone().attr({id:''})
+			.removeClass('show_add_info_texts')
+			.addClass('show_add_info_texts1');
+		clone_info.find('p').css({height:'0','overflow':'hidden',opacity:0}).addClass('hover_animate2');
+		clone_info.append('<span class="show_add_info_texts_arrow" id="show_add_info_texts_arrow"></span>');
+		body.append(clone_info);
+
+
 		data.works.map((src,i)=>{
 			let dom = list.clone().attr({id:''}).css({display:'block'});
 			dom.find('img').attr({src:src}).data({n:i});
@@ -85,14 +98,7 @@ var PAGE = {
 		});
 
 
-		let infos = $('#show_add_info_texts');
-		data.text.map(rs=>{
-			infos.append('<p>'+rs+'</p>');
-		});
-		let clone_info = infos.clone().attr({id:''})
-				.removeClass('show_add_info_texts')
-				.addClass('show_add_info_texts1');
-		body.append(clone_info);
+
 
 
 
