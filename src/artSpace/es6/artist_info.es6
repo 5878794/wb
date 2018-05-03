@@ -73,6 +73,7 @@ var PAGE = {
 		$('#name').text(data.name1);
 		$('#work_number').text(data.works.length);
 
+
 		let body = $('#lists'),
 			list = $('#list');
 
@@ -82,6 +83,18 @@ var PAGE = {
 			dom.data({n:i});
 			body.append(dom);
 		});
+
+
+		let infos = $('#show_add_info_texts');
+		data.text.map(rs=>{
+			infos.append('<p>'+rs+'</p>');
+		});
+		let clone_info = infos.clone().attr({id:''})
+				.removeClass('show_add_info_texts')
+				.addClass('show_add_info_texts1');
+		body.append(clone_info);
+
+
 
 		list.remove();
 	},

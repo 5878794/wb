@@ -100,9 +100,17 @@ var DATA = {
 		//id不能重复
 		{
 			id:2,
+			//名字   安娜
 			name1:'Anna Silivonchik',
 			name2:'Belarus',
+			//列表图片地址
 			image:'image/artist/2/2.jpg',
+			//介绍
+			text:[
+				'西里沃契克 安娜 德米特里耶夫娜',
+				'1980年生于戈梅利市，2008年，加入了白俄罗斯艺术家联盟，2009年荣获国际和平艺术家联盟“天赋与才能”奖，作品在各大著名博物馆均有展出，2013年，2014，2016年在白俄罗斯共和国国家当代艺术中心举办画展、2017年在柏林“Kunstwerk Winkler”画廊举办个人画展等。其作品走出国外，在爱沙尼亚、拉脱维亚、乌克兰、俄罗斯、德国、美国等著名画展画廊均有所展出。Anna Silivonchik凭借无限的想象力和鲜明的个性打造专属于自己的艺术风格而备受瞩目，其作品通过儿童、动物、人物以等各种角色来传达对各种人生、情感和人际关系的深刻思考，赋予平凡事物深刻的意义，在其传统油画技法所绘制的作品中为我们展现出极具抒情梦幻色彩的魔法世界。'
+			],
+			//作品图片地址
 			works:[
 				'image/artist/2/2_1.jpg',
 				'image/artist/2/2_4.jpg',
@@ -135,6 +143,9 @@ var DATA = {
 			name1:'Andre Briok',
 			name2:'Russia',
 			image:'image/artist/1/1.jpg',
+			text:[
+				''
+			],
 			works:[
 				'image/artist/1/1_2.jpg',
 				'image/artist/1/1_3.jpg'
@@ -145,6 +156,7 @@ var DATA = {
 			name1:'Giuseppe Carta',
 			name2:'Italy',
 			image:'image/artist/8/8.jpg',
+			text:[],
 			works:[
 				'image/artist/8/8_2.jpg',
 				'image/artist/8/8_4.jpg',
@@ -174,6 +186,7 @@ var DATA = {
 			name1:'Ming Qin',
 			name2:'China',
 			image:'image/artist/7/7.jpg',
+			text:[],
 			works:[
 				'image/artist/7/7_2.jpg',
 				'image/artist/7/7_3.jpg',
@@ -189,6 +202,7 @@ var DATA = {
 			name1:'Pokidyshev Pavel',
 			name2:'Russia',
 			image:'image/artist/3/3.jpg',
+			text:[],
 			works:[
 				'image/artist/3/3_2.jpg',
 				'image/artist/3/3_3.jpg',
@@ -207,6 +221,7 @@ var DATA = {
 			name1:'Weiguo Cao',
 			name2:'China',
 			image:'image/artist/4/4.jpg',
+			text:[],
 			works:[
 
 				'image/artist/4/4_4.jpg',
@@ -224,6 +239,7 @@ var DATA = {
 			name1:'Yue Lin',
 			name2:'China',
 			image:'image/artist/5/5.png',
+			text:[],
 			works:[
 				'image/artist/5/5_2.jpg',
 				'image/artist/5/5_3.jpg',
