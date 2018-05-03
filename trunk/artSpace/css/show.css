@@ -315,11 +315,11 @@
     background: url(../image/arrow.png) no-repeat center center;
     -webkit-background-size:36px 32px;
     background-size:36px 32px;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg) scale(0.5);
+    -moz-transform: rotate(90deg) scale(0.5);
+    -ms-transform: rotate(90deg) scale(0.5);
+    -o-transform: rotate(90deg) scale(0.5);
+    transform: rotate(90deg) scale(0.5);
 }
 
 .__back__ p{
@@ -327,11 +327,11 @@
     opacity:1 !important;
 }
 .__back__ .show_add_info_texts_arrow{
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg) scale(0.5);
+    -moz-transform: rotate(-90deg) scale(0.5);
+    -ms-transform: rotate(-90deg) scale(0.5);
+    -o-transform: rotate(-90deg) scale(0.5);
+    transform: rotate(-90deg) scale(0.5);
 }
 
 @media screen and (min-width: 1024px) {
