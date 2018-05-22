@@ -81,12 +81,12 @@ input,button,select,textarea{
 
 
 body{
-    /*font-family: "微软雅黑", Arial, "宋体";*/
-    font-family: 'Open Sans', sans-serif ;
+    font-family: "微软雅黑", Arial, "宋体";
+    /*font-family: 'Open Sans', sans-serif ;*/
     color:#333;
-    background: #191919;
+    /*background: #191919;*/
     min-width: 320px;
-    font-weight: 300;
+    /*font-weight: 300;*/
     /*-ms-touch-action: none;    *//*windowsphone屏蔽滚动*/
 }
 
@@ -343,13 +343,6 @@ a:hover{
 }
 
 
-.content{
-    margin-top: 0.25rem;
-    background: #fff;
-    border-top:1px solid rgb(238,238,238);
-    border-bottom:1px solid rgb(238,238,238);
-}
-
 
 .position_center{
     position: absolute;
@@ -361,3 +354,66 @@ a:hover{
     overflow: auto;
 }
 
+
+/*添加字体*/
+@font-face {
+    font-family: "pertibd";
+    src:url('./../font/PERTIBD.TTF?t=1526994860275') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+@font-face {
+    font-family: "pertili";
+    src:url('./../font/PERTILI.TTF?t=1526994860273') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+
+
+.pertibd {
+    font-family:"pertibd" !important;
+}
+.pertili {
+    font-family:"pertili" !important;
+}
+.helvetica{
+    font-family: "Helvetica" !important;
+}
+
+@-webkit-keyframes mymove {
+    0% {
+        -webkit-transform: translateY(0%) scaleY(0)
+    }
+    10% {
+        -webkit-transform: translateY(0%) scaleY(0.5)
+    }
+    30% {
+        -webkit-transform: translateY(50%) scaleY(1)
+    }
+    45% {
+        -webkit-transform: translateY(200%) scaleY(0.5)
+    }
+    55% {
+        -webkit-transform: translateY(200%) scaleY(0)
+    }
+    100% {
+        -webkit-transform: translateY(200%) scaleY(0)
+    }
+}
+
+@keyframes mymove {
+    0% {
+        -webkit-transform: translateY(0%) scaleY(0)
+    }
+    10% {
+        -webkit-transform: translateY(0%) scaleY(0.5)
+    }
+    30% {
+        -webkit-transform: translateY(50%) scaleY(1)
+    }
+    45% {
+        -webkit-transform: translateY(200%) scaleY(0.5)
+    }
+    55% {
+        -webkit-transform: translateY(200%) scaleY(0)
+    }
+    100% {
+        -webkit-transform: translateY(200%) scaleY(0)
+    }
+}

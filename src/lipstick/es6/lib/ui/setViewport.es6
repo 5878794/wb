@@ -11,7 +11,7 @@
 
 //改变viewport大小
 
-let setFn = function(psdWidth){
+let setFn = function(psdWidth,maxUseRemWidth = 1024){
 	var psd_width = psdWidth,
 		win_width = window.innerWidth,
 		viewport = document.querySelector('meta[name="viewport"]'),
@@ -29,8 +29,13 @@ let setFn = function(psdWidth){
 
 	//设置页面字体,可使用rem
 	var style = document.createElement('style');
-	win_width = window.innerWidth;
-	rem = win_width/psd_width*100;
+
+	if(win_width>maxUseRemWidth){
+		rem = 100;
+	}else{
+		rem = win_width/psd_width*100;
+	}
+
 
 	style.innerHTML = "html{font-size:"+rem+"px!important;}";
 	document.querySelector("head").appendChild(style);
@@ -40,7 +45,13 @@ let setFn = function(psdWidth){
 	let temp_interval = setInterval(function () {
 
 		win_width = window.innerWidth;
-		let _rem = win_width/psd_width*100;
+		let _rem;
+		if(win_width>maxUseRemWidth){
+			_rem = 100;
+		}else{
+			_rem = win_width/psd_width*100;
+		}
+
 		console.log(win_width,psd_width,rem)
 		if(rem != _rem){
 			rem = _rem;
@@ -56,7 +67,11 @@ let setFn = function(psdWidth){
 	//页面大小变化刷新
 	$(window).resize(function(){
 		win_width = window.innerWidth;
-		rem = win_width/psd_width*100;
+		if(win_width>maxUseRemWidth){
+			rem = 100;
+		}else{
+			rem = win_width/psd_width*100;
+		}
 		style.innerHTML = "html{font-size:"+rem+"px!important;}";
 	});
 };
