@@ -335,11 +335,11 @@ a:hover{
     transition: all 0.2s linear;
 }
 .hover_animate1{
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -ms-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -ms-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 
@@ -353,6 +353,14 @@ a:hover{
     margin: auto;
     overflow: auto;
 }
+
+
+.not_use{
+    opacity: 0.5;
+}
+
+
+
 
 
 /*添加字体*/

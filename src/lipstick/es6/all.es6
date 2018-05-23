@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 
 const ALL = {
+	menuIsAnimate:false,
 	init(){
 		this.addLogoEffect();
 		this.addMenuEffect();
@@ -39,18 +40,67 @@ const ALL = {
 	},
 
 	addMenuEffect(){
-		let btn = $('#all_top_menu');
+		let btn = $('#all_top_menu'),
+			_this = this,
+			body = $('#all_menu'),
+			main = $('#all_menu_body');
+
+
+		let showMenu = function(){
+			body.css({display:'block'});
+			setTimeout(function(){
+				body.css({background:'rgba(0,0,0,0.5)'});
+				main.css3({
+					transform:'translateX(0)',
+					opacity:1
+				})
+			},0);
+		};
+		let closeMenu = function(){
+			body.css({background:'rgba(0,0,0,0)'});
+			main.css3({
+				transform:'translateX(100%)',
+				opacity:0
+			});
+			setTimeout(function(){
+				body.css({display:'none'});
+			},500)
+		};
+
+		$$(body).myclickok(function(){
+			if(_this.menuIsAnimate){return;}
+			_this.menuIsAnimate = true;
+			setTimeout(function(){
+				_this.menuIsAnimate = false;
+			},600);
+			if(btn.hasClass('select')){
+				btn.removeClass('select');
+			}else{
+				btn.addClass('select');
+			}
+			closeMenu();
+		}).myclickup(function(){}).myclickdown(function(){});
+
+		$$(main).myclickok(function(e){
+			e.stopPop();
+		}).myclickup(function(){}).myclickdown(function(){});
 
 		$$(btn).myclickok(function(){
-			console.log(123)
+			if(_this.menuIsAnimate){return;}
+			_this.menuIsAnimate = true;
+			setTimeout(function(){
+				_this.menuIsAnimate = false;
+			},600);
+
+
 			if($(this).hasClass('select')){
 				//关闭
 				$(this).removeClass('select');
-
+				closeMenu();
 			}else{
 				//打开
 				$(this).addClass('select');
-
+				showMenu();
 			}
 		}).myclickdown(function(){
 
