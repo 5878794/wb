@@ -1,0 +1,138 @@
+.info_banner{
+    width: 100%; height: 121.7vw; overflow: hidden; position: relative;
+}
+.info_banner_main{
+    width: 100%; height: 100%;
+}
+.info_banner_main a{
+    display: block; width: 100%; height: 100%;
+}
+.info_banner_main img{
+    display: block; width: 100%; height: 100%;
+}
+
+
+.info_name{
+    position: absolute; left:0; bottom: 0; z-index: 10;
+    width: 100%; height: 6.25vw; font-size: 16px;
+    color: #333; line-height: 6.25vw;
+    padding: 0 6.25vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.info_number{
+    position: absolute; top:0; right: 6.25vw;
+    color: #a68579;
+}
+.info_name_text{
+    color: #999;
+}
+.info_colors{
+    width: 100%; height: 12.5vw; font-size: 16px;
+    color: #333; line-height: 6.25vw;
+    padding: 3.125vw 6.25vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.info_colors_div{
+    padding: 0 6.25vw; width: 100%;
+    height: 8.4vw; overflow: hidden;
+}
+.info_colors_div p{
+    padding: 0.47vw; width: 8.4vw; height: 8.4vw; float: left;
+    margin-right: 2.3vw;
+}
+.info_colors_div img{
+    width: 100%; height: 100%; display: block;
+}
+.info_colors_div .select{
+    background: url(../image/product/color_border.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+
+
+.info_title{
+    padding: 0 6.25vw;
+    padding-top: 2.66vw; width: 100%; height: 12.2vw;
+    line-height: 10vw; font-size: 16px; color: #999;
+}
+
+
+.info_buy_number{
+    display: inline-block;
+    margin-left: 6.25vw; margin-bottom: 7.1vw;
+    min-width: 39vw; height: 8.3vw;
+    border: 1px solid #999;
+    padding: 0 9.66vw 0 2.66vw; line-height: 8.3vw;
+    font-size: 16px; color: #333;
+    position: relative;
+}
+.info_buy_number:after{
+    content: '';
+    position: absolute; right: 2vw; top:50%;
+    margin-top: -2.5vw;
+    width: 5vw; height: 5vw;
+    background: url(../image/product/arrow_down.png) no-repeat center center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+}
+
+.info_buy_number select{
+    opacity: 0; display: block; width: 100%; height: 100%;
+    position: absolute; left:0; top:0;
+    z-index: 10;
+}
+
+
+.info_info{
+    width: 100%;
+    height:12vw; line-height: 12vw;
+    padding: 0 6.25vw;
+    border-top:1px solid #a68579;
+    overflow: hidden;
+}
+.info_info_body{
+    border-bottom:1px solid #a68579;
+}
+.info_info_title{
+    font-size: 16px; color: rgb(51,51,51); position: relative;
+    padding-right: 10.25vw;
+}
+.info_info_icon{
+    position: absolute; width: 4vw; height: 4vw;
+    right: 0; top: 50%; margin-top: -2vw;
+    background: red;
+}
+
+
+.info_logo{
+    padding-top: 39.7vw; width: 43.75vw; margin: 0 auto;
+    padding-bottom: 7.5vw;
+}
+.info_logo img{
+    width: 100%;
+}
+
+.info_url{
+    width: 63.75vw; margin: 0 auto; overflow: hidden;
+    padding-bottom: 20.3vw;
+}
+.info_url a{
+    display: block; float: left;
+    width: 33.3333%;
+}
+.info_url img{
+    display: block; width: 9.8vw; margin: 0 auto;
+}
+
+.info_add{
+    position: fixed;  width: 90vw; height: 10vw;
+    left:5vw; bottom:6.1vw;
+}
+.info_add img{
+    width: 100%;
+}

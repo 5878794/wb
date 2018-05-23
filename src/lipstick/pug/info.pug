@@ -1,0 +1,112 @@
+doctype html
+html
+    head
+        title B/B
+        include ./include/head
+
+        link(rel="stylesheet" type="text/css" href="css/info.css")
+        script.
+            var text = "<script src='js/info.js?_=" + new Date().getTime() + "'><\/script>";
+            document.write(text);
+
+
+        include ./include/top
+        include ./include/menu
+
+    body
+
+        +top()
+        +menu()
+
+        div(class='info_banner')
+            div(class='info_banner_main')
+                a
+                    img(src='image/product/1/color_product_1.png')
+
+            div(class='info_name')
+                p
+                    span(class='info_name_price') $49
+                    span /
+                    span(class='info_name_text') JANICE 068
+                p(class='info_number') 1/1
+
+        div(class='info_colors')
+            span(class='info_name_text') COLOR :
+            span(class='info_colors_name') JANICE 068
+
+        div(class='info_colors_div')
+            p(class='select')
+                img(src='./image/product/1/color_ys_1.png')
+            p
+                img(src='./image/product/1/color_ys_1.png')
+            p
+                img(src='./image/product/1/color_ys_1.png')
+            p
+                img(src='./image/product/1/color_ys_1.png')
+
+
+        div(class='info_title') QTY
+        div(class='info_buy_number') 1
+            select
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+                option(value='4') 4
+                option(value='5') 5
+
+        div(class='info_info_body')
+            div(class='info_info')
+                div(class='info_info_title diandian')
+                    span QUERY DELIVERY TIME
+                    div(class='info_info_icon')
+                        span(class='hover_animate1')
+                        span(class='hover_animate1')
+                p dafjajfkjaslkjf aslkjfdklasjdf akldfjlaksdf aslkdfjaskldfj asldkfjaslkdfja aslkdjfkal;sdjfa asdflkjalskjdf asldfjasljd asdfjasldfkja
+            div(class='info_info')
+                div(class='info_info_title diandian')
+                    span GOODS DESCRIPTION
+                    div(class='info_info_icon')
+                        span(class='hover_animate1')
+                        span(class='hover_animate1')
+                p dafjajfkjaslkjf aslkjfdklasjdf akldfjlaksdf aslkdfjaskldfj asldkfjaslkdfja aslkdjfkal;sdjfa asdflkjalskjdf asldfjasljd asdfjasldfkja
+            div(class='info_info')
+                div(class='info_info_title diandian')
+                    span PRODUCT FORMULA
+                    div(class='info_info_icon')
+                        span(class='hover_animate1')
+                        span(class='hover_animate1')
+                p dafjajfkjaslkjf aslkjfdklasjdf akldfjlaksdf aslkdfjaskldfj asldkfjaslkdfja aslkdjfkal;sdjfa asdflkjalskjdf asldfjasljd asdfjasldfkja
+            div(class='info_info')
+                div(class='info_info_title diandian')
+                    span FINAL MAKEUP EFFECT
+                    div(class='info_info_icon')
+                        span(class='hover_animate1')
+                        span(class='hover_animate1')
+                p dafjajfkjaslkjf aslkjfdklasjdf akldfjlaksdf aslkdfjaskldfj asldkfjaslkdfja aslkdjfkal;sdjfa asdflkjalskjdf asldfjasljd asdfjasldfkja
+            div(class='info_info')
+                div(class='info_info_title diandian')
+                    span COLOR
+                    div(class='info_info_icon')
+                        span(class='hover_animate1')
+                        span(class='hover_animate1')
+                p dafjajfkjaslkjf aslkjfdklasjdf akldfjlaksdf aslkdfjaskldfj asldkfjaslkdfja aslkdjfkal;sdjfa asdflkjalskjdf asldfjasljd asdfjasldfkja
+
+
+
+        div(class='info_logo')
+            img(src='./image/product/logo.png')
+
+
+        div(class='info_url')
+            a(href='#')
+                img(src='./image/product/inslogo.png')
+            a(href='#')
+                img(src='./image/product/facebooklogo.png')
+            a(href='#')
+                img(src='./image/product/weibologo.png')
+
+
+        div(class='info_add not_use')
+            img(src='./image/product/add.png')
+
+
