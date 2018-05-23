@@ -1,0 +1,125 @@
+body{
+    background: #f4f1ed;
+}
+
+.page1{
+    width: 100%;
+    height: 100vh;
+    background: url(../image/index/bg.jpg) no-repeat center center;
+    background-size:100% 100%;
+    position: relative;
+}
+
+.page1_logo{
+    position: absolute; left:17.5%; top:30%;
+    width: 65%;
+}
+.page1_logo img{
+    width: 100%;
+}
+.page1_line{
+    position: absolute; width: 1px; height: 45px;
+    bottom: 40px; left:50%; background: #a68676; overflow: hidden;
+}
+.page1_line:after{
+    content: '';
+    width: inherit; height: 50%; background: #fff;
+    position: absolute; left:0; top:0; display: block;
+    -webkit-transform: translateY(0%) scaleY(0);
+    -moz-transform: translateY(0%) scaleY(0);
+    -ms-transform: translateY(0%) scaleY(0);
+    -o-transform: translateY(0%) scaleY(0);
+    transform: translateY(0%) scaleY(0);
+    transform-origin:top center;
+    -webkit-transform-origin:top center;
+    animation:lineAnimate 1.5s infinite linear;
+    -webkit-animation:lineAnimate 1.5s infinite linear;
+}
+
+
+
+
+.page2{
+    width: 100%; position: relative; min-height: 400px;
+    background: #f4f1ed;
+}
+.page2_img{
+    width: 61%; margin: 0 auto; padding-top: 23vw;
+}
+.page2_text{
+    width: 77%; margin: 0 auto;
+    padding: 11vw 0 48vw 0;
+}
+.page2_info{
+    width: 95%; position: absolute;
+    left:2.5%; bottom: -14vw;
+}
+.page2 img{
+    width: 100%; display: block;
+}
+
+
+.page3{
+    width: 100%; background: #f4f1ed;
+}
+.page3 img{
+    width: 100%; display: block;
+}
+.page3_info{
+    width: 86%; display: block; margin: 0 auto;
+    padding: 12.5vw 0 15.6vw 0;
+}
+.page3_title{
+    padding: 23.5vw 8vw 8vw 8vw; font-size: 30px; color: #333;
+    line-height: 42px; letter-spacing: 1vw;
+}
+.page3_text{
+    padding: 0 8vw; font-size: 12px; color:rgb(178,157,148);
+    line-height: 34px;
+}
+
+
+
+.page4{
+    background: #000; width: 100%;
+}
+.page4 img{
+    width: 100%; display: block;
+}
+.page4_img1{
+    padding: 9vw 0 8vw 11vw; width: 43vw;
+}
+.page4_img5{
+    padding-bottom: 15vw;
+}
+
+
+
+.page5{
+    width: 100%; background: #f4f1ed;
+}
+.page5 img{
+    display: block; width: 100%;
+}
+.page5_img1{
+    width: 85%; margin: 0 auto;
+}
+.page5_img2{
+    width:2.5%; margin: 0 auto;
+    padding-bottom: 4vw;
+}
+.page5_img3{
+    width: 60vw; margin: 0 auto; padding-bottom: 22vw;
+}
+.page5_img4{
+    width: 68vw; margin: 0 auto; padding-bottom: 8.4vw;
+}
+.page5_img5{
+    width: 59vw; margin: 0 auto; padding-bottom: 27vw;
+}
+.page5_img6{
+    width: 22.6vw; margin: 0 auto; padding-bottom: 30vw;
+}
+.page5_img7{
+    width: 19vw; margin: 0 auto; padding-bottom: 11vw;
+}

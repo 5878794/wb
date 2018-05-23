@@ -376,7 +376,7 @@ a:hover{
     font-family: "Helvetica" !important;
 }
 
-@-webkit-keyframes mymove {
+@-webkit-keyframes lineAnimate {
     0% {
         -webkit-transform: translateY(0%) scaleY(0)
     }
@@ -397,7 +397,7 @@ a:hover{
     }
 }
 
-@keyframes mymove {
+@keyframes lineAnimate {
     0% {
         -webkit-transform: translateY(0%) scaleY(0)
     }
