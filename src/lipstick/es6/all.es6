@@ -47,6 +47,7 @@ const ALL = {
 
 
 		let showMenu = function(){
+			$.bodyNotScroll();
 			body.css({display:'block'});
 			setTimeout(function(){
 				body.css({background:'rgba(0,0,0,0.5)'});
@@ -57,6 +58,7 @@ const ALL = {
 			},0);
 		};
 		let closeMenu = function(){
+			$.bodyCanScroll();
 			body.css({background:'rgba(0,0,0,0)'});
 			main.css3({
 				transform:'translateX(100%)',
