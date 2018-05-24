@@ -12,6 +12,7 @@ const ALL = {
 	init(){
 		this.addLogoEffect();
 		this.addMenuEffect();
+		this.addHomeBtnEvent();
 	},
 
 	addLogoEffect(){
@@ -113,5 +114,12 @@ const ALL = {
 
 
 
+	},
+
+	addHomeBtnEvent(){
+		let home = $('#all_top_logo');
+		$$(home).myclickok(function(){
+			window.location.href = 'index.html';
+		}).myclickdown(function(){}).myclickup(function(){});
 	}
 };
