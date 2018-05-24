@@ -90,22 +90,46 @@
 
 .info_info{
     width: 100%;
-    height:12vw; line-height: 12vw;
+    height:auto; line-height: 12vw;
     padding: 0 6.25vw;
     border-top:1px solid #a68579;
-    overflow: hidden;
 }
 .info_info_body{
     border-bottom:1px solid #a68579;
 }
 .info_info_title{
     font-size: 16px; color: rgb(51,51,51); position: relative;
-    padding-right: 10.25vw;
+    padding-right: 10.25vw; background: #fff;
 }
 .info_info_icon{
     position: absolute; width: 4vw; height: 4vw;
     right: 0; top: 50%; margin-top: -2vw;
-    background: red;
+}
+.info_info_icon span{
+    display: block; position: absolute; left:0; top:50%;
+    width: 100%; height: 2px; margin-top: -1px;
+    background: #a68579;
+}
+.info_info_icon span:first-child{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.info_info_body .select .info_info_icon span{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.info_info_body .select .info_info_icon span:last-child{
+    opacity:0; width: 0;
+}
+.info_info p{
+    line-height: 26px; padding-bottom: 15px;
+    word-break: break-all; word-wrap:break-word;
 }
 
 
