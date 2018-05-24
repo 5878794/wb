@@ -1,3 +1,7 @@
+body{
+    font-family: pertili;
+}
+
 .info_banner{
     width: 100%; height: 121.7vw; overflow: hidden; position: relative;
 }
@@ -26,7 +30,7 @@
     color: #a68579;
 }
 .info_name_text{
-    color: #999;
+    color: #999; padding-right: 5px;
 }
 .info_colors{
     width: 100%; height: 12.5vw; font-size: 16px;
@@ -98,16 +102,16 @@
     border-bottom:1px solid #a68579;
 }
 .info_info_title{
-    font-size: 16px; color: rgb(51,51,51); position: relative;
+    font-size: 16px; color: #a68579; position: relative;
     padding-right: 10.25vw; background: #fff;
 }
 .info_info_icon{
-    position: absolute; width: 4vw; height: 4vw;
+    position: absolute; width: 3vw; height: 3vw;
     right: 0; top: 50%; margin-top: -2vw;
 }
 .info_info_icon span{
     display: block; position: absolute; left:0; top:50%;
-    width: 100%; height: 2px; margin-top: -1px;
+    width: 100%; height: 1px;
     background: #a68579;
 }
 .info_info_icon span:first-child{
@@ -128,8 +132,9 @@
     opacity:0; width: 0;
 }
 .info_info p{
-    line-height: 26px; padding-bottom: 15px;
+    line-height: 20px; padding-bottom: 15px;
     word-break: break-all; word-wrap:break-word;
+    font-size: 12px;
 }
 
 
