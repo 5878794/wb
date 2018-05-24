@@ -23,8 +23,8 @@
 
 /*右菜单*/
 .all_top_menu{
-    position:absolute; right:7vw; bottom: 0;
-    width: 9.375vw; height: 9.375vw;
+    position:absolute; right:7vw; bottom: 3vw;
+    width: 8.5vw; height: 8.5vw;
 }
 .all_top_menu span{
     display: block; height: 8px; width: 100%;
