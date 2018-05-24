@@ -9,13 +9,13 @@
     position:absolute; left:7vw; bottom: 0;
 }
 .all_top_logo_bg{
-    width: 14vw; height: 14vw;
+    width: 18vw; height: 18vw;
 }
 .all_top_logo_bg img{
     width: 100%;
 }
 .all_top_logo_img{
-    width:14vw; height: 14vw;  z-index: 10; left:0; top:0; position: absolute;
+    width:18vw; height: 18vw;  z-index: 10; left:0; top:0; position: absolute;
 }
 .all_top_logo_img img{
     width: 100%;
@@ -113,4 +113,20 @@
 }
 .all_menu_lan .select{
     background: #a4877a; color: #fff;
+}
+
+
+
+
+
+.all_info_url{
+    width: 63.75vw; margin: 0 auto; overflow: hidden;
+    padding-bottom: 20.3vw;
+}
+.all_info_url a{
+    display: block; float: left;
+    width: 33.3333%;
+}
+.all_info_url img{
+    display: block; width: 9.8vw; margin: 0 auto;
 }

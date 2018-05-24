@@ -134,24 +134,13 @@
 
 
 .info_logo{
-    padding-top: 39.7vw; width: 43.75vw; margin: 0 auto;
+    padding-top: 39.7vw; width: 26.25vw; margin: 0 auto;
     padding-bottom: 7.5vw;
 }
 .info_logo img{
     width: 100%;
 }
 
-.info_url{
-    width: 63.75vw; margin: 0 auto; overflow: hidden;
-    padding-bottom: 20.3vw;
-}
-.info_url a{
-    display: block; float: left;
-    width: 33.3333%;
-}
-.info_url img{
-    display: block; width: 9.8vw; margin: 0 auto;
-}
 
 .info_add{
     position: fixed;  width: 90vw; height: 10vw;

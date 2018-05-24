@@ -12,6 +12,7 @@ html
 
         include ./include/top
         include ./include/menu
+        include ./include/urls
 
     body
 
@@ -98,13 +99,7 @@ html
             img(src='./image/product/logo.png')
 
 
-        div(class='info_url')
-            a(href='#')
-                //img(src='./image/product/inslogo.png')
-            a(href='#')
-                //img(src='./image/product/facebooklogo.png')
-            a(href='#')
-                //img(src='./image/product/weibologo.png')
+        +urls()
 
 
         div(class='info_add not_use')
