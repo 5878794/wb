@@ -1,336 +1,362 @@
+
 $(document).ready(function(){
-	window.aa = new createInputs({
-		inputs:[
-			{
-				id:1,
-				name:'aa',
-				type:'number',
-				rule:'min:1,max:10,must',
-				val:'1',
-				placeholder:'test',
-				data:''
-			},
-			{
-				id:2,
-				name:'bb',
-				type:'text',
-				rule:'min:1,max:10,must',
-				val:'阿什顿发',
-				placeholder:'test1',
-				data:''
-			},
-			{
-				id:3,
-				name:'ccc',
-				type:'select',
-				title:'请选中性别',
-				multiple:false,
-				rule:'must',
-				val:'2',
-				placeholder:'test1',
-				data:[
-					{key:'1',val:'男'},
-					{key:'2',val:'女'}
-				]
-			},
-			{
-				id:4,
-				name:'dd',
-				type:'textArea',
-				rule:'min:1,max:10,must',
-				val:'阿什顿发',
-				placeholder:'test1',
-				data:''
-			},
-			{
-				id:5,
-				name:'ee',
-				type:'date',
-				rule:'must',
-				val:'2016-12-12',
-				title:'请选择时间',
-				minDate:'1950-1-1',
-				maxDate:'2050-12-12',
-				isShowDay:true,
-				placeholder:'test1',
-				data:''
-			},
-			{
-				id:6,
-				name:'ff',
-				type:'cascade',
-				rule:'must',
-				val:'2,3924,3',
-				title:'请选择地区',
-				placeholder:'test1123',
-				startParentId:1,
-				data:require('./lib/code/areaCode')
-			}
-		],
-		submitBtn:{
-			val:'submit',
-			name:'submit',
-			url:'http://www.baidu.com'
-		},
-		callback(dom){
-			$('body').append(dom);
-			console.log(dom)
-		}
+	window.a = new numberChange({
+		dom:$('#aa'),
+		fontColor:'rgb(51,51,51)',
+		bg:'rgb(255,255,255)'
 	});
+	console.log(new Date().getTime())
+	window.a.show(2);
+	console.log(new Date().getTime())
 });
 
 
 
-let createInput = Symbol(),
-	createNumber = Symbol.for('createNumber'),
-	createText = Symbol.for('createText'),
-	createSelect = Symbol.for('createSelect'),
-	createTextArea = Symbol.for('createTextArea'),
-	createDate = Symbol.for('createDate'),
-	createCascade = Symbol.for('createCascade'),
-	createHideInput = Symbol.for('createHideInput');
 
-let selectObj = require('./lib/input/select'),
-	dateObj = require('./lib/input/date'),
-	cascadeObj = require('./lib/input/cascade'),
-	$$ = require('./lib/event/$$');
-
-require('./lib/jq/check_from');
+let createCanvas = Symbol(),
+	textToImageData = Symbol(),
+	getTextPointArray = Symbol(),
+	drawPoint = Symbol(),
+	clearCanvas = Symbol(),
+	getShowFontColorRGBA = Symbol(),
+	animatePoint = Symbol(),
+	clearEmptyPointArray = Symbol(),
+	arrayRowColChange = Symbol(),
+	createMainCanvas = Symbol();
 
 
-class createInputs{
+let animate = require('./lib/fn/jsAnimate');
+
+class numberChange{
 	constructor(opt){
-		this.inputData = opt.inputs || [];
-		this.submitBtn = opt.submitBtn;
-		this.callback = opt.callback || function(){};
+		this.dom = opt.dom;
+		this.bg = opt.bg || 'rgb(255,255,255)';
+		this.fontSize = opt.fontSize || '12';
+		this.fontColor = opt.fontColor || 'rgb(0,0,0)';
+		this.fontR = '';
+		this.fontG = '';
+		this.fontB = '';
+		this.bgR = '';
+		this.bgG = '';
+		this.bgB = '';
+
+		this.scale = window.devicePixelRatio;
+		this.domWidth = parseInt(this.dom.width());
+		this.domHeight = parseInt(this.dom.height());
+		this.canvasWidth = this.domWidth*this.scale;
+		this.canvasHeight = this.domHeight*this.scale;
+		this.nowPoints = [];
 
 
-		this.inputBody = $('<div></div>');
-		this[createInput]();
+		this.canvas = null;
+		this.ctx = null;
 
+		this[getShowFontColorRGBA]();
+		this[createMainCanvas]();
 
-		this.callback(this.inputBody);
 	}
 
-	[createInput](){
-		this.inputData.map(rs=>{
-			let type = rs.type,
-				typeName = type.substr(0,1).toUpperCase()+type.substr(1),
-				fn = Symbol.for('create'+typeName);
+	[getShowFontColorRGBA](){
+		let colors = this.fontColor.match(/(\d+)/ig);
+		this.fontR = parseInt(colors[0]);
+		this.fontG = parseInt(colors[1]);
+		this.fontB = parseInt(colors[2]);
 
-			if(this[fn]){
-				let dom = this[fn](rs);
-				this.inputBody.append(dom);
-			}else{
-				console.log('has no type of fn: '+type);
+		let bg = this.bg.match(/(\d+)/ig);
+		this.bgR = parseInt(bg[0]);
+		this.bgG = parseInt(bg[1]);
+		this.bgB = parseInt(bg[2]);
+	}
+
+	show(str){
+		let imgData = this[textToImageData](str),
+			array = this[getTextPointArray](imgData),
+			endNumber = array.length,
+			startNumber = this.nowPoints.length,
+			startArray,
+			endArray,
+			centerX = parseInt(this.canvasWidth/2),
+			centerY = parseInt(this.canvasHeight/2),
+			_this = this;
+
+		console.log('----------')
+		console.log(array)
+		console.log('----------')
+
+		if(endNumber > startNumber){
+			//增加新的像素点
+			//渐显的初始位置为中心点
+			let add = endNumber - startNumber;
+
+
+			for(let i=0,l=add;i<l;i++){
+				this.nowPoints.push({
+					x:centerX,
+					y:centerY,
+					r:this.fontR,
+					g:this.fontG,
+					b:this.fontB,
+					a:0
+				});
 			}
+
+		}else{
+			//现在的图形像素点大于之前显示的像素点,渐隐多余的 之前图像后面的像素点
+			//渐隐的位置为中心点
+			let cut = startNumber - endNumber;
+
+			for(let i=0,l=cut;i<l;i++){
+				let point = this.nowPoints[startNumber-1-i];
+				array.push({
+					x:centerX,
+					y:centerY,
+					r:point.r,
+					g:point.g,
+					b:point.b,
+					a:0
+				})
+			}
+		}
+
+		startArray = this.nowPoints;
+		endArray = array;
+
+
+		// console.log(startArray,endArray)
+		this[animatePoint](startArray,endArray,500,function(){
+			_this.nowPoints = endArray;
 		});
 
+
+		// this[drawPoint](array);
+
 	}
 
-	[createNumber](rs){
-		return $(
-			'<input ' +
-				'type="number" ' +
-				'placeholder="'+rs.placeholder+'" ' +
-				'value="'+rs.val+'" ' +
-				'id="'+rs.name+'" ' +
-				'name="'+rs.name+'" ' +
-				'data-rule="'+rs.rule+'"' +
-			'>' +
-		'');
+
+	[animatePoint](startArray,endArray,time,callback){
+		let _this = this;
+		var a = new animate({
+			start:0,                  //@param:number   初始位置
+			end:1,                    //@param:number   结束位置
+			time:time,                 //@param:number   动画执行时间  ms
+			type:"Cubic",             //@param:str      tween动画类别,默认：Linear 详见函数内tween函数
+			class:"easeIn",           //@param:str      tween动画方式,默认：easeIn 详见函数内tween函数
+			stepFn:function(per){     //@param:fn       每步执行函数,返回当前属性值
+				let newArray = [];
+				for(let i=0,l=startArray.length;i<l;i++){
+					let SP = startArray[i],
+						EP = endArray[i];
+
+					newArray.push({
+						x:SP.x+(EP.x-SP.x)*per,
+						y:SP.y+(EP.y-SP.y)*per,
+						r:SP.r+(EP.r-SP.r)*per,
+						g:SP.g+(EP.g-SP.g)*per,
+						b:SP.b+(EP.b-SP.b)*per,
+						a:SP.a+(EP.a-SP.a)*per
+					})
+				}
+
+				_this[drawPoint](newArray);
+			},
+			endFn:function(){         //@param:fn       动画结束执行
+				callback();
+			},
+			alternate:false,          //@param:boolean  动画结束时是否反向运行，默认：false
+			infinite:false            //@param:boolean  动画是否循环执行，默认：false
+			// 设置该参数endFn将失效
+		});
+
+		a.play();
+		// a.stop();
 	}
 
-	[createText](rs){
-		return $(
-			'<input ' +
-			'type="text" ' +
-			'placeholder="'+rs.placeholder+'" ' +
-			'value="'+rs.val+'" ' +
-			'id="'+rs.name+'" ' +
-			'name="'+rs.name+'" ' +
-			'data-rule="'+rs.rule+'"' +
-			'>' +
-			'');
+	[drawPoint](array){
+		this[clearCanvas]();
+		array.map(rs=>{
+			this.ctx.fillStyle = 'rgba('+rs.r+','+rs.g+','+rs.b+','+rs.a+')';
+			this.ctx.fillRect(rs.x,rs.y,1,1);
+		});
 	}
 
-	[createHideInput](rs){
-		return $(
-			'<input ' +
-			'type="hidden" ' +
-			'value="'+rs.val+'" ' +
-			'id="'+rs.name+'" ' +
-			'name="'+rs.name+'" ' +
-			'data-rule="'+rs.rule+'"' +
-			'>' +
-			'');
+	[clearCanvas](){
+		this.ctx.fillStyle = this.bg;
+		this.ctx.fillRect(0,0,this.canvasWidth,this.canvasHeight);
 	}
 
-	[createSelect](rs){
-		let div = $('<div><span></span></div>'),
-			hideInput = this[Symbol.for('createHideInput')](rs);
+	// show(str){
+	// 	let data = this[textToImageData](str),
+	// 		array = this[getTextPointArray](data);
+	//
+	// 	array = this[clearEmptyPointArray](array);
+	//
+	// 	if(array.length == 0 ){return;}
+	// 	let _width = this.domWidth/array[0].length,
+	// 		_height = this.domHeight/array.length,
+	// 		_r = (_width>_height)? _height : _width,
+	// 		__r = _r*4/5;
+	//
+	//
+	//
+	//
+	//
+	// 	this.ctx.fillStyle = '#fff';
+	// 	for(let y=0,yl=array.length;y<yl;y++){
+	// 		for(let x=0,xl=array[y].length;x<xl;x++){
+	// 			if(array[y][x] != 0){
+	// 				let center_x = x*_r,
+	// 					center_y = y*_r;
+	//
+	//
+	// 				// this.ctx.beginPath();
+	// 				// console.log(center_x,center_y,_r/2,0,2*Math.PI)
+	// 				// this.ctx.arc(center_x,center_y,_r/2,0,2*Math.PI,true);
+	// 				// this.ctx.closePath();
+	// 				// this.ctx.fill();
+	// 				// this.ctx.stroke();
+	// 				this.ctx.fillRect(center_x,center_y,__r,__r);
+	// 			}
+	// 		}
+	// 	}
+	//
+	//
+	//
+	// 	console.log(array);
+	// }
 
-		let selectKeyToVal = function(vals){
-			let backText = [];
-			vals.map(val=>{
-				let nowText = '';
-				rs.data.map(data=>{
-					if(data.key == val){
-						nowText = data.val;
-					}
-				});
-				backText.push(nowText);
-			});
+	//创建画布
+	[createCanvas](){
+		let canvas = document.createElement('canvas'),
+			ctx = canvas.getContext('2d');
 
-			return backText.join(',');
-		};
+		return {canvas,ctx};
+	}
 
-		div.append(hideInput);
-		div.find('span').text(rs.placeholder);
-		if(rs.val){
-			div.find('span').text(selectKeyToVal(rs.val.split(',')));
-		}
+	//文字写入画布,在获取画布的imageData
+	[textToImageData](str){
+		let {canvas,ctx} = this[createCanvas]();
 
-		$$(div).myclickok(function(){
-			let selectedVal = div.find('input').val();
-			selectedVal = selectedVal.split(',');
+		canvas.width = this.canvasWidth;
+		canvas.height = this.canvasHeight;
+		ctx.fillStyle = this.bg;
+		ctx.fillRect(0,0,this.canvasWidth,this.canvasHeight);
 
-			new selectObj({
-				titleText:rs.title,       //@param:str             标题  默认：请选择
-				data:rs.data,
-				selected:selectedVal,             //@param:array(必填)    选中的key
-				radio:!rs.multiple,                  //@param:boolean          单选还是多选   默认true
-				viewPort:750,                //@param:number 设置psd的大小，布局需要使用rem 默认：750
-				success:function(vv){
-					//返回选择的对象
-					//json数组，  传入的格式
-					let keys=[],vals=[];
+		ctx.fillStyle = this.fontColor;
+		let size = this.fontSize * this.scale;
+		ctx.font = size+'px sans-serif';
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText(str,this.canvasWidth/2,this.canvasHeight/2);
 
-					vv.map(v=>{
-						keys.push(v.key);
-						vals.push(v.val);
+		return ctx.getImageData(0,0,this.canvasWidth,this.canvasHeight);
+	}
+
+	// //imageData转成文字的点的2维数组
+	[getTextPointArray](data){
+		let imgData = data.data,
+			width = data.width,
+			height = data.height,
+			newData = [];
+
+		for(let y=0,yl=height;y<yl;y++){
+			for(let x=0,xl=width;x<xl;x++){
+				let n = (y*width+x)*4,
+					r = imgData[n],
+					g = imgData[n+1],
+					b = imgData[n+2],
+					a = imgData[n+3];
+
+				if(r!=this.bgR || g!=this.bgG || b!=this.bgB){
+					newData.push({
+						x:x,
+						y:y,
+						r:r,
+						g:g,
+						b:b,
+						a:a
 					});
-
-					div.find('span').text(vals.join(','));
-					div.find('input').val(keys.join(','));
-				},
-				error:function(){
-					//取消选择
 				}
-			})
-		}).myclickdown(function(){}).myclickup(function(){});
-
-		return div;
-	}
-
-	[createTextArea](rs){
-		return $('<textarea ' +
-			'placeholder="'+rs.placeholder+'" ' +
-			'id="'+rs.name+'" ' +
-			'name="'+rs.name+'" ' +
-			'data-rule="'+rs.rule+'"' +
-			'>' +rs.val+
-		'</textarea>')
-	}
-
-	[createDate](rs){
-		let div = $('<div><span></span></div>'),
-			hideInput = this[Symbol.for('createHideInput')](rs);
-
-		div.append(hideInput);
-		div.find('span').text(rs.placeholder);
-		if(rs.val){
-			div.find('span').text(rs.val);
+			}
 		}
 
-		$$(div).myclickok(function(){
-			let selectVal = hideInput.val();
-			new dateObj({
-				titleText:rs.title,       //@param:str    标题
-				selected:selectVal,      //@param:str    初始显示的日期， 默认：当前日期
-				minDate:rs.minDate,         //@param:str    最小显示时间 默认：1950-1-1
-				maxDate:rs.maxDate,       //@param:str    最大显示时间 默认：2050-12-12
-				isShowDay:true,               //@param:bool   是否显示日,默认：true
-				viewPort:750,                //@param:number 设置psd的大小，布局需要使用rem 默认：750
-				success:function(rs){
-					//rs返回选择的年月日   yyyy-mm-dd
-					div.find('span').text(rs);
-					hideInput.val(rs);
-				},
-				error:function(){
-					//取消选择
-				}
-			})
-		}).myclickdown(function(){}).myclickup(function(){});
-
-
-		return div;
+		return newData;
 	}
 
-	[createCascade](rs){
-		let div = $('<div><span></span></div>'),
-			hideInput = this[Symbol.for('createHideInput')](rs);
+	// //清除空的点的行和列
+	// [clearEmptyPointArray](data){
+	// 	let newData = [];
+	// 	//清除行
+	// 	data.map(rs=>{
+	// 		if(rs.indexOf(1)>-1){
+	// 			newData.push(rs);
+	// 		}
+	// 	});
+	//
+	//
+	// 	//数组行列转换
+	// 	newData = this[arrayRowColChange](newData);
+	// 	let backData = [];
+	// 	//清除列
+	//
+	// 	newData.map(rs=>{
+	// 		if(rs.indexOf(1)>-1){
+	// 			backData.push(rs);
+	// 		}
+	// 	});
+	//
+	// 	//反转数组后返回
+	// 	return this[arrayRowColChange](backData);
+	//
+	// }
+	//
+	// //2维数组行列转换
+	// [arrayRowColChange](data){
+	// 	if(data.length == 0){return [];}
+	//
+	// 	let x = data[0].length,
+	// 		y = data.length,
+	// 		backData = [];
+	//
+	// 	for(let i =0,l=x;i<l;i++){
+	// 		backData.push(new Array(y));
+	// 	}
+	//
+	//
+	// 	for(let yy=0,yl=y;yy<yl;yy++){
+	// 		for(let xx=0,xl=x;xx<xl;xx++){
+	// 			backData[xx][yy] = data[yy][xx];
+	// 		}
+	// 	}
+	//
+	// 	return backData;
+	// }
 
-		let getStartVal = function(vals){
-			let text = [];
-			vals.split(',').map(val=>{
-				let findtext = '';
-				rs.data.map(obj=>{
-					if(obj.key == val){
-						findtext = obj.val;
-					}
-				});
-				text.push(findtext);
-			});
+	//创建主canvas
+	[createMainCanvas](){
+		let {canvas,ctx} = this[createCanvas]();
+		this.canvas = canvas;
+		this.ctx = ctx;
 
-			return text.join('').replace(/\s/ig,'');
-		};
+		this.canvas.width = this.canvasWidth;
+		this.canvas.height = this.canvasHeight;
 
-		div.append(hideInput);
-		div.find('span').text(rs.placeholder);
-		if(rs.val){
-			div.find('span').text(getStartVal(rs.val));
-		}
+		this.ctx.fillStyle = this.bg;
+		this.ctx.fillRect(0,0,this.canvasWidth,this.canvasHeight);
 
-		$$(div).myclickok(function(){
-			let selectVal = hideInput.val().split(',');
-			new cascadeObj({
-				titleText:rs.title,       //标题名称
-				areaData:rs.data,          //菜单数据 参见 /lib/code/areaCode.es6
-				areaSelected:selectVal,    //已选中的数据
-				startParentId:1,            //初始第一层搜索数据中的parent=1的生成列表
-				viewPort:750,              //设置psd的大小，布局需要使用rem 默认：750
-				success:function(dd){
-					// console.log(rs);        //选择完成返回数组，数组中对象格式和传入一样
-					let keys=[],vals=[];
-					dd.map(r=>{
-						keys.push(r.key);
-						vals.push(r.val);
-					});
+		$(this.canvas).css({
+			'transform-origin':'left top',
+			'-webkit-transform-origin':'left top',
+			transform:'scale('+1/this.scale+')',
+			'-webkit-transform':'scale('+1/this.scale+')'
+		});
 
-					div.find('span').text(vals.join('').replace(/\s/ig,''));
-					hideInput.val(keys.join(','));
-				},
-				error:function(){
-					//取消选择
-				}
-			});
-
-		}).myclickdown(function(){}).myclickup(function(){});
-
-
-		return div;
+		this.dom.append(this.canvas);
 	}
 
-	checkForm(){
-		return new Promise((success,error)=>{
-			this.inputBody.checkFrom(function(err,data){
-				if(err.length==0){
-					success(data);
-				}else{
-					error(err);
-				}
-			})
-		})
-	}
 }
+
+
+
+
+
+
