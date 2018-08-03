@@ -5,11 +5,12 @@ let app = require("./app"),
 	text = require("./textAnimate"),
 	group = require("./spriteGroup"),
 	device = require('../device'),
+	param = (device.passiveSupported)? {passive:false} : false,
 	//阻止窗口滚动
 	preventScroll = ()=> {
 		window.addEventListener(device.MOVE_EV, (e) => {
 			e.preventDefault();
-		}, false);
+		}, param);
 	};
 
 
