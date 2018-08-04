@@ -20,14 +20,15 @@ class bg{
 		this.y = opt.y || 0;
 		this.time = opt.time;
 		this.style = opt.style;
+		this.groupBeforeRenderFn = opt.groupBeforeRenderFn || function(){};
 
 
 		this.g = null;
 		this[create]();
-		this.animate({
-			time:this.time,
-			style:this.style
-		});
+		// this.animate({
+		// 	time:this.time,
+		// 	style:this.style
+		// });
 
 		return this.g;
 	}
@@ -53,7 +54,8 @@ class bg{
 			width:this.width,
 			height:this.height*2,
 			x:this.x,
-			y:this.y
+			y:this.y,
+			groupBeforeRenderFn:this.groupBeforeRenderFn
 		});
 
 		g.append("bg",bg).append("bg1",bg1);

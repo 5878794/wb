@@ -107,9 +107,17 @@ var mainScene = {
 		this.scene.append(this.mainLayer);
 
 		this.createPlain();
-		setInterval(()=>{
-			this.createZD();
-		},100);
+
+		let _this =this;
+		PAGE.game.addFn(function(){
+			if(PAGE.game.isFrame(10)){
+				_this.createZD();
+			}
+		});
+
+		// setInterval(()=>{
+		// 	this.createZD();
+		// },100);
 
 
 
@@ -145,14 +153,20 @@ var mainScene = {
 			height:height,
 			x:x,
 			y:y,
-			res:PAGE.res.zd
-		});
-		zd.animate({
-			time:1500,
-			style:{
-				y:endY
+			res:PAGE.res.zd,
+			data:{
+				spd:6
+			},
+			beforeRenderFn:function(){
+				this.y = this.y - this.data.spd
 			}
 		});
+		// zd.animate({
+		// 	time:1500,
+		// 	style:{
+		// 		y:endY
+		// 	}
+		// });
 
 		this.zds.push(zd);
 		this.mainLayer.append(zd);
@@ -171,9 +185,15 @@ var mainScene = {
 			height:device.rem2Px(320,5.68),
 			x:0,
 			y:0,
-			time:32000,
-			style:{
-				y:PAGE.res.bg.height
+			// time:32000,
+			// style:{
+			// 	y:PAGE.res.bg.height
+			// }
+			groupBeforeRenderFn:function(){
+				this.y = this.y + 10.5;
+				if(this.y >= this.height/2){
+					this.y = 0;
+				}
 			}
 		});
 

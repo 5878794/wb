@@ -14,7 +14,8 @@ let device = require("./../device"),
 	testFrameDiv = Symbol(),
 	getFrame = Symbol(),
 	isShowFrame = false,
-	frameTest = 0;
+	frameTest = 0,
+	otherFn = Symbol();
 
 
 class app{
@@ -32,6 +33,10 @@ class app{
 
 		this[setBody]();
 		this[createTestFrame]();
+
+		this[otherFn] = [];
+
+		this.step = 0;
 	}
 
 	//设置容器样式
@@ -59,6 +64,18 @@ class app{
 		}
 	}
 
+	isFrame(n){
+		return (this.step%n == 0);
+	}
+
+	addFn(fn){
+		this[otherFn].push(fn);
+	}
+	delFn(fn){
+		let n = this[otherFn].indexOf(fn);
+		this[otherFn].splice(n,1);
+	}
+
 	//渲染所有场景
 	[eachRun](){
 		this[scenes].map((scene)=>{
@@ -78,6 +95,14 @@ class app{
 			}
 
 			if(isShow && this[isRunning]){
+				this.step++;
+				if(this.step >= 100000){
+					this.step = 0;
+				}
+
+				this[otherFn].map(rs=>{
+					rs();
+				});
 				this[eachRun]();
 			}
 

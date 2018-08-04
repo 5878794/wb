@@ -12,6 +12,7 @@ class spriteGroup extends sprite{
 		super(opt);
 
 		this[children] = new Map();
+		this.groupBeforeRenderFn = opt.groupBeforeRenderFn || function(){};
 
 	}
 
@@ -58,6 +59,7 @@ class spriteGroup extends sprite{
 
 
 	render(){
+		this.groupBeforeRenderFn.call(this);
 		[...this[children].values()].map((obj)=>{
 			let {param,sprite} = obj;
 			this[setSpriteParam](param,sprite);

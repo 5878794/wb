@@ -33,6 +33,10 @@ class Sprite{
 		this.flipHorizontal = $.isBoolean(opt.flipHorizontal)? opt.flipHorizontal : false;
 		//垂直翻转
 		this.flipVertical = $.isBoolean(opt.flipVertical)? opt.flipVertical : false;
+		//渲染前的计算函数
+		this.beforeRenderFn = opt.beforeRenderFn || function () {};
+
+
 
 		this[canvas] = null;
 		this.ctx = null;
@@ -102,7 +106,7 @@ class Sprite{
 	//渲染
 	render(){
 		let {x,y} = this.setCtx();
-
+		this.beforeRenderFn.call(this);
 
 		//判断是图片还是颜色
 		if($.isObject(this.res)){
