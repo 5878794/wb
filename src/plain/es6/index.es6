@@ -92,6 +92,7 @@ var mainScene = {
 
 		this.createBg();
 		this.createMain();
+		this.addEvent();
 
 
 
@@ -135,10 +136,43 @@ var mainScene = {
 			height:height,
 			x:x,
 			y:y,
-			res:PAGE.res.plain
+			res:PAGE.res.plain,
+			data:{
+				spd:4
+			}
 		});
 
 		this.mainLayer.append(this.plain);
+	},
+	addEvent(){
+		let x=0,y=0,isTouch = false,_this = this;
+		window.addEventListener(device.START_EV,function(e){
+			isTouch = true;
+			e = (e.touches && e.touches[0])? e.touches[0] : e;
+			x = e.screenX;
+			y = e.screenY;
+		},false);
+		window.addEventListener(device.MOVE_EV,function(e){
+			if(!isTouch){return;}
+			e = (e.touches && e.touches[0])? e.touches[0] : e;
+			let _x = e.screenX,
+				_y = e.screenY,
+				plain = _this.plain;
+				// dx = (_x>x)? 1 : -1,
+				// dy = (_y>y)? 1 : -1;
+
+			// plain.x += (Math.abs(_x-x)>plain.data.spd)? plain.data.spd*dx : _x-x;
+			// plain.y += (Math.abs(_y-y)>plain.data.spd)? plain.data.spd*dy : _y-y;
+			plain.x += _x-x;
+			plain.y += _y-y;
+
+			x = _x;
+			y = _y;
+
+		},false);
+		window.addEventListener(device.END_EV,function(e){
+			isTouch = false;
+		},false);
 	},
 	createZD(){
 		let width = device.rem2Px(320,0.06),

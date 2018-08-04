@@ -64,6 +64,8 @@ class app{
 		}
 	}
 
+
+
 	isFrame(n){
 		return (this.step%n == 0);
 	}
