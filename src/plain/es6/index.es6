@@ -86,6 +86,7 @@ var mainScene = {
 	mainLayer:null,
 	bgLayer:null,
 	zds:[],
+	djs:[],
 	init(mainScene){
 		this.scene = mainScene;
 
@@ -114,15 +115,15 @@ var mainScene = {
 			if(PAGE.game.isFrame(10)){
 				_this.createZD();
 			}
+
+
+			let n = parseInt(Math.random()*60),
+				isCreate = false;
+			if(PAGE.game.isFrame(n) && !isCreate){
+				isCreate = true;
+				_this.createDJ();
+			}
 		});
-
-		// setInterval(()=>{
-		// 	this.createZD();
-		// },100);
-
-
-
-
 	},
 	createPlain(){
 		let width = device.rem2Px(320,0.46),
@@ -143,6 +144,43 @@ var mainScene = {
 		});
 
 		this.mainLayer.append(this.plain);
+	},
+	createDJ(){
+		let width = device.rem2Px(320,0.34),
+			height = device.rem2Px(320,0.24),
+			x = Math.random()*this.mainLayer.width-width,
+			y = -height,
+			_this = this;
+
+		let dj = new game.sprite({
+			width:width,
+			height:height,
+			x:x,
+			y:y,
+			res:PAGE.res.dr,
+			data:{
+				spd:4
+			},
+			beforeRenderFn:function(){
+				this.y += this.data.spd;
+				this.y1 = this.y + this.height;
+
+
+				let x = this.x,
+					y = this.y,
+					x1 = this.x1,
+					y1 = this.y1;
+
+				_this.zds.map(rs=>{
+					if(rs.x<=x1 && rs.x>=x && rs.y>=y && rs.y<=y1){
+						this.res = '#000';
+					}
+				});
+			}
+		});
+
+		this.djs.push(dj);
+		this.mainLayer.append(dj);
 	},
 	addEvent(){
 		let x=0,y=0,isTouch = false,_this = this;
@@ -165,6 +203,8 @@ var mainScene = {
 			// plain.y += (Math.abs(_y-y)>plain.data.spd)? plain.data.spd*dy : _y-y;
 			plain.x += _x-x;
 			plain.y += _y-y;
+			plain.x1 = plain.x + plain.width;
+			plain.y1 = plain.y + plain.height;
 
 			x = _x;
 			y = _y;
@@ -192,7 +232,8 @@ var mainScene = {
 				spd:6
 			},
 			beforeRenderFn:function(){
-				this.y = this.y - this.data.spd
+				this.y = this.y - this.data.spd;
+				this.y1 = this.y + this.height;
 			}
 		});
 		// zd.animate({
@@ -237,3 +278,4 @@ var mainScene = {
 
 
 window.page = PAGE;
+window.main = mainScene;
