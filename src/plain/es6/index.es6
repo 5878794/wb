@@ -239,7 +239,7 @@ var mainScene = {
 			y:y,
 			res:PAGE.res.zd,
 			data:{
-				spd:6
+				spd:10
 			},
 			beforeRenderFn:function(){
 				this.y = this.y - this.data.spd;
