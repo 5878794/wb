@@ -112,17 +112,27 @@ var mainScene = {
 
 		let _this =this;
 		PAGE.game.addFn(function(){
+			//创建子弹对象
 			if(PAGE.game.isFrame(10)){
 				_this.createZD();
 			}
 
-
-			let n = parseInt(Math.random()*60),
-				isCreate = false;
-			if(PAGE.game.isFrame(n) && !isCreate){
-				isCreate = true;
+			//创建敌机
+			let n = parseInt(Math.random()*60);
+			if(PAGE.game.isFrame(n)){
 				_this.createDJ();
 			}
+
+			//清除不用的对象
+			if(PAGE.game.isFrame(1)){
+				_this.zds = _this.zds.filter(rs=>{
+					return (!rs.data.del);
+				});
+				_this.djs = _this.djs.filter(rs=>{
+					return (!rs.data.del);
+				});
+			}
+
 		});
 	},
 	createPlain(){
@@ -229,7 +239,7 @@ var mainScene = {
 			y:y,
 			res:PAGE.res.zd,
 			data:{
-				spd:6
+				spd:10
 			},
 			beforeRenderFn:function(){
 				this.y = this.y - this.data.spd;
