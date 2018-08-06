@@ -25,10 +25,7 @@ class bg{
 
 		this.g = null;
 		this[create]();
-		// this.animate({
-		// 	time:this.time,
-		// 	style:this.style
-		// });
+
 
 		return this.g;
 	}
@@ -64,13 +61,7 @@ class bg{
 
 	}
 
-	animate(opt={}){
-		this.g.animate({
-			time:opt.time,
-			infinite:true,
-			style:opt.style
-		})
-	}
+
 
 
 
