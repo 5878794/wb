@@ -11,7 +11,8 @@ let viewport = require('./lib/ui/setViewport'),
 	bgScene = require('./fn/bg'),
 	loadScene = require('./fn/load'),
 	plainSprite = require('./fn/plain'),
-	bulletSprite = require('./fn/bullet');
+	bulletSprite = require('./fn/bullet'),
+	enemySprite = require('./fn/enemy');
 
 
 
@@ -111,22 +112,28 @@ var PAGE = {
 
 
 		let _this = this;
+
 		this.game.addFn(function(){
 			//创建子弹
 			if(_this.game.isFrame(setting.bulletInterval)){
-				let bullet = bulletSprite.init(_this.plain,_this.mainLayer,_this.res);
+				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
 				_this.bullets.push(bullet);
 			}
 
+			//创建敌机
+			let tempInterval = setting.getEnemyInterVal();
+			if(_this.game.isFrame(tempInterval)){
+				let type = setting.getEnemyType();
+				let enemy = enemySprite(type,_this.mainScene,_this.mainLayer,_this.res);
+				_this.enemys.push(enemy);
+			}
+
+
+			//碰撞检测
+			if(_this.game.isFrame(1)){
+
+			}
 		});
-
-
-
-
-		//创建敌机
-
-
-		//碰撞检测
 
 
 		//记分
