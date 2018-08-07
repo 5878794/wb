@@ -3,11 +3,13 @@ let viewport = require('./lib/ui/setViewport'),
 	device = require('./lib/device'),
 	game = require('./lib/canvas/canvas'),
 	r2p = function(val){
+		val = val/100;
 		return device.rem2Px(750,val)
 	},
 	resLoader = require('./lib/resLoader/resLoader').image,
 	bgScene = require('./fn/bg'),
-	loadScene = require('./fn/load');
+	loadScene = require('./fn/load'),
+	plainSprite = require('./fn/plain');
 
 
 
@@ -57,6 +59,11 @@ var PAGE = {
 	game:null,
 	bgScene:null,
 	loadScene:null,
+	mainScene:null,
+	mainLayer:null,
+	plain:null,
+	bullets:[],
+	enemys:[],
 	async init(){
 		//创建游戏
 		this.game = new game.app();
@@ -85,6 +92,31 @@ var PAGE = {
 		//点击开始游戏后
 		this.game.del(this.loadScene);
 
+
+		//创建游戏场景
+		this.mainScene = new game.scene();
+		this.game.append(this.mainScene);
+
+		this.mainLayer = new game.layer({
+			width:this.mainScene.width,
+			height:this.mainScene.height,
+			zIndex:2
+		});
+		this.mainScene.append(this.mainLayer);
+
+		//创建飞机
+		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res);
+
+		//创建子弹
+
+
+		//创建敌机
+
+
+		//碰撞检测
+
+
+		//记分
 	}
 };
 
