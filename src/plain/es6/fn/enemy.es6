@@ -13,7 +13,10 @@ let enemy = function(type,scene,layer,res){
 		height = r2p(thisRes.height),
 		x = Math.random()*(scene.width-width),
 		y = -height,
-		spd = setting.getEnemySpd();
+		spd = setting.getEnemySpd(type),
+		blood = setting.blood[type],
+		hitRes = setting.getHitRes(res,type),
+		boomRes = setting.getBoomRes(res,type);
 
 	let _enemy = new game.sprite({
 		width:width,
@@ -26,8 +29,14 @@ let enemy = function(type,scene,layer,res){
 			this.y1 = this.y + this.height;
 		},
 		data:{
+			res:thisRes,
+			blood:blood,
+			hitRes:hitRes,
+			boomRes:boomRes,
+			boomN:0,
 			type:type,
 			spd:spd,
+			isBoom:false,
 			isDel:false
 		}
 	});

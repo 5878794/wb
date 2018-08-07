@@ -12,7 +12,8 @@ let viewport = require('./lib/ui/setViewport'),
 	loadScene = require('./fn/load'),
 	plainSprite = require('./fn/plain'),
 	bulletSprite = require('./fn/bullet'),
-	enemySprite = require('./fn/enemy');
+	enemySprite = require('./fn/enemy'),
+	checkFn = require('./fn/checkFn');
 
 
 
@@ -26,6 +27,7 @@ let res = {
 	enemy1:'./image/enemy1.png',
 	enemy2:'./image/enemy2.png',
 	enemy3:'./image/enemy3.png',
+	enemy1_hit:'./image/enemy1.png',
 	enemy2_hit:'./image/enemy2_hit.png',
 	enemy3_hit:'./image/enemy3_hit.png',
 	enemy1_boom1:'./image/enemy1_boom1.png',
@@ -131,8 +133,19 @@ var PAGE = {
 
 			//碰撞检测
 			if(_this.game.isFrame(1)){
+				checkFn.init(_this.plain,_this.bullets,_this.enemys);
 
+				//清除删除的对象
+				_this.bullets = _this.bullets.filter(rs=>{
+					return (!rs.data.del && rs.y1>0);
+				});
+				_this.enemys = _this.enemys.filter(rs=>{
+					return (!rs.data.del);
+				});
 			}
+
+
+
 		});
 
 
