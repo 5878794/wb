@@ -71,14 +71,19 @@ var PAGE = {
 				preLoadImg[key] = val;
 			}
 		}
-		this.res = await bgScene.init(this.bgScene,this.res,preLoadImg);
+		this.res = await bgScene.init(this.bgScene,preLoadImg);
 
 		this.game.run();
 
 		//创建加载页面
 		this.loadScene = new game.scene();
 		this.game.append(this.loadScene);
-		await loadScene.init(this.loadScene,this.res);
+		this.res = await loadScene.init(this.loadScene,this.res,res);
+
+
+		//点击开始游戏后
+		this.game.del(this.loadScene);
+
 	}
 };
 

@@ -15,13 +15,13 @@ let bg = {
 	bgImage:null,
 	scene:null,
 	layer:null,
-	init(scene,imgCatch,loadImg){
+	init(scene,loadImg){
 		this.scene = scene;
 		return new Promise(async success=>{
-			this.loadImg = await this.loadBgImage(loadImg);
-			this.bgImage = this.loadImg.bg;
+			let nowLoadImg = await this.loadBgImage(loadImg);
+			this.bgImage = nowLoadImg.bg;
 			this.createBg();
-			success(this.loadImg);
+			success(nowLoadImg);
 		});
 	},
 	//加载背景图片

@@ -61,6 +61,7 @@ class app{
 		let n = this[scenes].indexOf(scene);
 		if(n>-1){
 			this[scenes].splice(n,1);
+			scene.dom.remove();
 		}
 	}
 
