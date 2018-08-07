@@ -109,15 +109,17 @@ let load = {
 		}
 	},
 	createStartBtn(){
-		this.btn = new game.text({
-			text:setting.startBtnText,
-			fontSize:r2p(40),
-			color:'#fff',
-			textAlign:'center',
-			x:0,
-			y:this.scene.height-r2p(400),
-			width:this.scene.width,
-			height:r2p(60)
+		let width = r2p(this.res.startBtn.width),
+			height = r2p(this.res.startBtn.height),
+			x = (this.scene.width-width)/2,
+			y = this.scene.height-r2p(200)-height;
+
+		this.btn = new game.sprite({
+			x:x,
+			y:y,
+			width:width,
+			height:height,
+			res:this.res.startBtn
 		});
 		this.btn.animate({
 			time:700,

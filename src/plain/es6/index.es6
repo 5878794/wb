@@ -13,8 +13,9 @@ let viewport = require('./lib/ui/setViewport'),
 
 
 let res = {
-	logo:'./image/plain.png',
-	bg:'./image/bg.png',
+	logo:'./image/logo.png',
+	bg:'./image/bg.jpeg',
+	startBtn:'./image/start.png',
 	bullet:'./image/bullet.png',
 	plain:'./image/plain.png',
 	enemy1:'./image/enemy1.png',
@@ -35,7 +36,7 @@ let res = {
 	enemy3_boom5:'./image/enemy3_boom5.png',
 
 };
-let preLoadRes = ['bg','logo'];
+let preLoadRes = ['bg','logo','startBtn'];
 
 
 
