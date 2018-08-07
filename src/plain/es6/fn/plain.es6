@@ -36,7 +36,6 @@ let plain = {
 			y:y,
 			res:this.res.plain,
 			data:{
-				spd:4,
 				maxX:maxX,
 				maxY:maxY
 			}

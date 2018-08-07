@@ -7,9 +7,11 @@ let viewport = require('./lib/ui/setViewport'),
 		return device.rem2Px(750,val)
 	},
 	resLoader = require('./lib/resLoader/resLoader').image,
+	setting = require('./fn/setting'),
 	bgScene = require('./fn/bg'),
 	loadScene = require('./fn/load'),
-	plainSprite = require('./fn/plain');
+	plainSprite = require('./fn/plain'),
+	bulletSprite = require('./fn/bullet');
 
 
 
@@ -107,7 +109,18 @@ var PAGE = {
 		//创建飞机
 		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res);
 
-		//创建子弹
+
+		let _this = this;
+		this.game.addFn(function(){
+			//创建子弹
+			if(_this.game.isFrame(setting.bulletInterval)){
+				let bullet = bulletSprite.init(_this.plain,_this.mainLayer,_this.res);
+				_this.bullets.push(bullet);
+			}
+
+		});
+
+
 
 
 		//创建敌机
