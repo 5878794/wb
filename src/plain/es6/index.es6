@@ -13,6 +13,7 @@ let viewport = require('./lib/ui/setViewport'),
 
 
 let res = {
+	logo:'./image/plain.png',
 	bg:'./image/bg.png',
 	bullet:'./image/bullet.png',
 	plain:'./image/plain.png',
@@ -34,6 +35,7 @@ let res = {
 	enemy3_boom5:'./image/enemy3_boom5.png',
 
 };
+let preLoadRes = ['bg','logo'];
 
 
 
@@ -50,6 +52,7 @@ $(document).ready(function(){
 
 
 var PAGE = {
+	res:{},
 	game:null,
 	bgScene:null,
 	loadScene:null,
@@ -61,16 +64,23 @@ var PAGE = {
 		//创建背景
 		this.bgScene = new game.scene();
 		this.game.append(this.bgScene);
-		await bgScene.init(this.bgScene);
+		//获取需要提前加载的图片
+		let preLoadImg = {};
+		for(let [key,val] of Object.entries(res)){
+			if(preLoadRes.indexOf(key)>-1){
+				preLoadImg[key] = val;
+			}
+		}
+		this.res = await bgScene.init(this.bgScene,this.res,preLoadImg);
 
 		this.game.run();
 
 		//创建加载页面
 		this.loadScene = new game.scene();
 		this.game.append(this.loadScene);
-		await loadScene.init(this.loadScene);
+		await loadScene.init(this.loadScene,this.res);
 	}
 };
 
 
-
+window.page = PAGE;

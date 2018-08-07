@@ -8,8 +8,9 @@ let resLoader = require('../lib/resLoader/resLoader').image,
 let load = {
 	scene:null,
 	layer:null,
-	init(scene){
+	init(scene,res){
 		this.scene = scene;
+		this.res = res;
 		return new Promise(async success=>{
 			this.createLayer();
 			this.createLogo();
