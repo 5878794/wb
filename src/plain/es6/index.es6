@@ -13,7 +13,8 @@ let viewport = require('./lib/ui/setViewport'),
 	plainSprite = require('./fn/plain'),
 	bulletSprite = require('./fn/bullet'),
 	enemySprite = require('./fn/enemy'),
-	checkFn = require('./fn/checkFn');
+	checkFn = require('./fn/checkFn'),
+	scoreAreaFn = require('./fn/scoreArea');
 
 
 
@@ -67,8 +68,10 @@ var PAGE = {
 	mainScene:null,
 	mainLayer:null,
 	plain:null,
+	scoreArea:null,
 	bullets:[],
 	enemys:[],
+	score:0,
 	async init(){
 		//创建游戏
 		this.game = new game.app();
@@ -112,6 +115,8 @@ var PAGE = {
 		//创建飞机
 		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res,this.game);
 
+		//创建积分显示区
+		this.scoreArea = scoreAreaFn(this.mainScene,this.mainLayer,this);
 
 		let _this = this;
 
@@ -126,7 +131,7 @@ var PAGE = {
 			let tempInterval = setting.getEnemyInterVal();
 			if(_this.game.isFrame(tempInterval)){
 				let type = setting.getEnemyType();
-				let enemy = enemySprite(type,_this.mainScene,_this.mainLayer,_this.res);
+				let enemy = enemySprite(type,_this.mainScene,_this.mainLayer,_this.res,_this);
 				_this.enemys.push(enemy);
 
 			}
@@ -152,13 +157,10 @@ var PAGE = {
 					}
 				});
 			}
-
-
-
 		});
 
 
-		//记分
+
 	}
 };
 

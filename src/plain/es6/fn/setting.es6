@@ -13,6 +13,12 @@ module.exports = {
 		2:3,
 		3:10
 	},
+	//分
+	score:{
+		1:1,
+		2:3,
+		3:10
+	},
 	//获取被击中时的图片
 	getHitRes:function(res,type){
 		let resName = 'enemy'+type+"_hit";

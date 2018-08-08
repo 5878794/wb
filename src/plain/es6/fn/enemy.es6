@@ -8,7 +8,7 @@ let device = require('../lib/device'),
 
 
 
-let enemy = function(type,scene,layer,res){
+let enemy = function(type,scene,layer,res,obj){
 	let thisRes = res['enemy'+type],
 		width = r2p(thisRes.width),
 		height = r2p(thisRes.height),
@@ -17,7 +17,8 @@ let enemy = function(type,scene,layer,res){
 		spd = setting.getEnemySpd(type),
 		blood = setting.blood[type],
 		hitRes = setting.getHitRes(res,type),
-		boomRes = setting.getBoomRes(res,type);
+		boomRes = setting.getBoomRes(res,type),
+		score = setting.score[type] || 1;
 
 
 	let _enemy = new game.sprite({
@@ -39,6 +40,7 @@ let enemy = function(type,scene,layer,res){
 				if(this.data.blood == 0){
 					this.data.spd = 0;
 					this.data.isBoom = true;
+					obj.score += this.data.score;
 					this.setResAnimateList({
 						resList:this.data.boomRes,     //播放资源,最后一张同原始资源
 						canStopResPointer:[],   //资源切换时能停止的资源序号点
@@ -67,6 +69,7 @@ let enemy = function(type,scene,layer,res){
 
 		},
 		data:{
+			score:score,
 			isHit:false,
 			res:thisRes,
 			blood:blood,
