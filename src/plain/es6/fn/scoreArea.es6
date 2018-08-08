@@ -24,8 +24,10 @@ module.exports = function(scene,layer,obj){
 		fontSize:fontSize,
 		color:'#fff',
 		beforeRenderFn:function(){
-			this.text = '得分:'+obj.score;
-			this.refresh();
+			if(this.text.split(':')[1] != obj.score){
+				this.text = '得分:'+obj.score;
+				this.refresh();
+			}
 		}
 	});
 	layer.append(textArea);
