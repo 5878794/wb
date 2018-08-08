@@ -72,14 +72,36 @@ var PAGE = {
 	bullets:[],
 	enemys:[],
 	score:0,
+	stepFn:null,
 	async init(){
 		//创建游戏
 		this.game = new game.app();
 		this.game.showFrame();
 
+		this.createBg();
+		await this.getRes();
+
+		this.game.run();
+
+		await this.createLoadPage();
+
+
+		//点击开始游戏后
+		this.game.del(this.loadScene);
+
+
+
+		this.createMain();
+		this.addFrameFn();
+
+
+	},
+	createBg(){
 		//创建背景
 		this.bgScene = new game.scene();
 		this.game.append(this.bgScene);
+	},
+	async getRes(){
 		//获取需要提前加载的图片
 		let preLoadImg = {};
 		for(let [key,val] of Object.entries(res)){
@@ -88,19 +110,14 @@ var PAGE = {
 			}
 		}
 		this.res = await bgScene.init(this.bgScene,preLoadImg);
-
-		this.game.run();
-
+	},
+	async createLoadPage(){
 		//创建加载页面
 		this.loadScene = new game.scene();
 		this.game.append(this.loadScene);
 		this.res = await loadScene.init(this.loadScene,this.res,res);
-
-
-		//点击开始游戏后
-		this.game.del(this.loadScene);
-
-
+	},
+	createMain(){
 		//创建游戏场景
 		this.mainScene = new game.scene();
 		this.game.append(this.mainScene);
@@ -113,14 +130,15 @@ var PAGE = {
 		this.mainScene.append(this.mainLayer);
 
 		//创建飞机
-		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res,this.game);
+		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res,this.game,this);
 
 		//创建积分显示区
 		this.scoreArea = scoreAreaFn(this.mainScene,this.mainLayer,this);
-
+	},
+	addFrameFn(){
 		let _this = this;
 
-		this.game.addFn(function(){
+		this.game.addFn(this.stepFn = function(){
 			//创建子弹
 			if(_this.game.isFrame(setting.bulletInterval)){
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
@@ -158,9 +176,27 @@ var PAGE = {
 				});
 			}
 		});
+	},
 
 
+	replay(){
+		this.game.delFn(this.stepFn);
+		this.game.del(this.mainScene);
+		this.game.step = 0;
+		this.game.resume();
+		this.bullets = [];
+		this.enemys = [];
+		this.score = 0;
 
+		this.createMain();
+		this.addFrameFn();
+	},
+
+
+	endPlay(){
+		this.game.pause();
+		alert('得分:'+this.score);
+		this.replay();
 	}
 };
 

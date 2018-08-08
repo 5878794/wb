@@ -61,9 +61,9 @@ module.exports = {
 	getEnemySpd:function(type,step){
 		let min = 1,
 			max = 4;
-		if(step>100){min=2;}
-		if(step>200){min=3;}
-		if(step>300){min=4;}
+		if(step>400){min=2;}
+		if(step>800){min=3;}
+		if(step>1600){min=4;}
 
 		return  min + parseInt(Math.random()*(max-min)) + (3-type)*1.2;
 	},
@@ -75,12 +75,12 @@ module.exports = {
 			return a[parseInt(Math.random()*10)];
 		}
 		//4 4 2
-		if(step>150){
+		if(step>600){
 			let a = [1,1,1,1,2,2,2,2,3,3];
 			return a[parseInt(Math.random()*10)];
 		}
 		//2 5 3
-		if(step>300){
+		if(step>1200){
 			let a = [1,1,2,2,2,2,2,3,3,3];
 			return a[parseInt(Math.random()*10)];
 		}

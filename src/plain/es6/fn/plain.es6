@@ -8,19 +8,26 @@ let device = require('../lib/device'),
 
 
 let plain = {
+	hasEventBind:false,
 	layer:null,
 	plain:null,
 	scene:null,
 	res:null,
 	game:null,
-	init(scene,layer,res,game){
+	obj:null,
+	init(scene,layer,res,game,obj){
 		this.scene = scene;
 		this.layer = layer;
 		this.res = res;
 		this.game = game;
+		this.obj = obj;
 
 		this.createPlain();
-		this.addEvent();
+		if(!this.hasEventBind){
+			this.addEvent();
+			this.hasEventBind = true;
+		}
+
 
 		return this.plain;
 	},
@@ -45,7 +52,7 @@ let plain = {
 			},
 			beforeRenderFn(){
 				if(this.data.isHit){
-					_this.game.pause();
+					_this.obj.endPlay();
 				}
 			}
 		});

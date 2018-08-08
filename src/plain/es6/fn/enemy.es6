@@ -9,7 +9,6 @@ let device = require('../lib/device'),
 
 
 let enemy = function(type,scene,layer,res,obj){
-	console.log(type)
 	let thisRes = res['enemy'+type],
 		width = r2p(thisRes.width),
 		height = r2p(thisRes.height),
