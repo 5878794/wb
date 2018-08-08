@@ -24,7 +24,6 @@ module.exports = function(scene,layer,obj){
 		fontSize:fontSize,
 		color:'#fff',
 		beforeRenderFn:function(){
-			console.log(obj.score)
 			this.text = '得分:'+obj.score;
 			this.refresh();
 		}
