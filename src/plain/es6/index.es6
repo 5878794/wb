@@ -128,6 +128,7 @@ var PAGE = {
 				let type = setting.getEnemyType();
 				let enemy = enemySprite(type,_this.mainScene,_this.mainLayer,_this.res);
 				_this.enemys.push(enemy);
+
 			}
 
 
@@ -137,10 +138,10 @@ var PAGE = {
 
 				//清除删除的对象
 				_this.bullets = _this.bullets.filter(rs=>{
-					return (!rs.data.del && rs.y1>0);
+					return (!rs.data.isDel && rs.y1>0);
 				});
 				_this.enemys = _this.enemys.filter(rs=>{
-					return (!rs.data.del);
+					return (!rs.data.isDel);
 				});
 			}
 

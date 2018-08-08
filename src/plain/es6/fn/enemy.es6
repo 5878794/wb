@@ -7,6 +7,7 @@ let device = require('../lib/device'),
 	};
 
 
+
 let enemy = function(type,scene,layer,res){
 	let thisRes = res['enemy'+type],
 		width = r2p(thisRes.width),
@@ -18,6 +19,7 @@ let enemy = function(type,scene,layer,res){
 		hitRes = setting.getHitRes(res,type),
 		boomRes = setting.getBoomRes(res,type);
 
+
 	let _enemy = new game.sprite({
 		width:width,
 		height:height,
@@ -25,10 +27,47 @@ let enemy = function(type,scene,layer,res){
 		y:y,
 		res:thisRes,
 		beforeRenderFn:function(){
+			let _this = this;
+
 			this.y = this.y + this.data.spd;
 			this.y1 = this.y + this.height;
+
+			//被击中
+			if(this.data.isHit){
+				this.data.blood = this.data.blood - 1;
+
+				if(this.data.blood == 0){
+					this.data.spd = 0;
+					this.data.isBoom = true;
+					this.setResAnimateList({
+						resList:this.data.boomRes,     //播放资源,最后一张同原始资源
+						canStopResPointer:[],   //资源切换时能停止的资源序号点
+						frame:3,           //动画间隔几帧播放下一张资源图,正常情况下一秒60帧
+						infinite:false,           //循环播放资源队列,true时回调不执行
+						callback:function(){
+							_this.data.isDel = true;
+							_this.alpha = 0;
+						}
+					});
+					this.resAnimatePlay();
+
+				}else{
+					//显示被击中动画
+					this.setResAnimateList({
+						resList:[this.data.hitRes,this.data.res],     //播放资源,最后一张同原始资源
+						canStopResPointer:[],   //资源切换时能停止的资源序号点
+						frame:3,           //动画间隔几帧播放下一张资源图,正常情况下一秒60帧
+						infinite:false           //循环播放资源队列,true时回调不执行
+					});
+					this.resAnimatePlay();
+				}
+
+				this.data.isHit = false;
+			}
+
 		},
 		data:{
+			isHit:false,
 			res:thisRes,
 			blood:blood,
 			hitRes:hitRes,
