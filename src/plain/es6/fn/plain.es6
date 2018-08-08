@@ -11,10 +11,13 @@ let plain = {
 	layer:null,
 	plain:null,
 	scene:null,
-	init(scene,layer,res){
+	res:null,
+	game:null,
+	init(scene,layer,res,game){
 		this.scene = scene;
 		this.layer = layer;
 		this.res = res;
+		this.game = game;
 
 		this.createPlain();
 		this.addEvent();
@@ -27,7 +30,8 @@ let plain = {
 			maxX = this.scene.width - width,
 			maxY = this.scene.height - height,
 			x = (this.scene.width - width)/2,
-			y = (this.scene.height - height);
+			y = (this.scene.height - height),
+			_this = this;
 
 		this.plain = new game.sprite({
 			width:width,
@@ -38,6 +42,11 @@ let plain = {
 			data:{
 				maxX:maxX,
 				maxY:maxY
+			},
+			beforeRenderFn(){
+				if(this.data.isHit){
+					_this.game.pause();
+				}
 			}
 		});
 

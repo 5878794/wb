@@ -110,7 +110,7 @@ var PAGE = {
 		this.mainScene.append(this.mainLayer);
 
 		//创建飞机
-		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res);
+		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res,this.game);
 
 
 		let _this = this;
@@ -138,10 +138,18 @@ var PAGE = {
 
 				//清除删除的对象
 				_this.bullets = _this.bullets.filter(rs=>{
-					return (!rs.data.isDel && rs.y1>0);
+					if(!rs.data.isDel && rs.y1>0){
+						return rs;
+					}else{
+						_this.mainLayer.del(rs);
+					}
 				});
 				_this.enemys = _this.enemys.filter(rs=>{
-					return (!rs.data.isDel);
+					if(!rs.data.isDel){
+						return rs;
+					}else{
+						_this.mainLayer.del(rs);
+					}
 				});
 			}
 
