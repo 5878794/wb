@@ -11,13 +11,13 @@ module.exports = {
 	blood:{
 		1:1,
 		2:3,
-		3:10
+		3:8
 	},
 	//分
 	score:{
-		1:1,
-		2:3,
-		3:10
+		1:100,
+		2:300,
+		3:1000
 	},
 	//获取被击中时的图片
 	getHitRes:function(res,type){
@@ -49,20 +49,40 @@ module.exports = {
 		}
 	},
 	// 敌机的出现速度 **帧
-	getEnemyInterVal:function(){
+	getEnemyInterVal:function(step){
 		let min = 30,
-			max = 120;
+			max = 90 - parseInt(step/20);
+
+		max = (max<=min)? min : max;
+
 		return  min + parseInt(Math.random()*(max-min));
 	},
 	//敌机的速度
-	getEnemySpd:function(type){
+	getEnemySpd:function(type,step){
 		let min = 1,
 			max = 4;
+		if(step>100){min=2;}
+		if(step>200){min=3;}
+		if(step>300){min=4;}
+
 		return  min + parseInt(Math.random()*(max-min)) + (3-type)*1.2;
 	},
-
 	//生成敌机的种类
-	getEnemyType:function(){
-		return parseInt(Math.random()*3)+1;
+	getEnemyType:function(step){
+		//6 3 1
+		if(step>=0){
+			let a = [1,1,1,1,1,1,2,2,2,3];
+			return a[parseInt(Math.random()*10)];
+		}
+		//4 4 2
+		if(step>150){
+			let a = [1,1,1,1,2,2,2,2,3,3];
+			return a[parseInt(Math.random()*10)];
+		}
+		//2 5 3
+		if(step>300){
+			let a = [1,1,2,2,2,2,2,3,3,3];
+			return a[parseInt(Math.random()*10)];
+		}
 	}
 };

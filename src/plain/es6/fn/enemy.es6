@@ -9,12 +9,13 @@ let device = require('../lib/device'),
 
 
 let enemy = function(type,scene,layer,res,obj){
+	console.log(type)
 	let thisRes = res['enemy'+type],
 		width = r2p(thisRes.width),
 		height = r2p(thisRes.height),
 		x = Math.random()*(scene.width-width),
 		y = -height,
-		spd = setting.getEnemySpd(type),
+		spd = setting.getEnemySpd(type,obj.game.step),
 		blood = setting.blood[type],
 		hitRes = setting.getHitRes(res,type),
 		boomRes = setting.getBoomRes(res,type),

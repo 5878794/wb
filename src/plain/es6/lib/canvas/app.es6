@@ -99,9 +99,6 @@ class app{
 
 			if(isShow && this[isRunning]){
 				this.step++;
-				if(this.step >= 100000){
-					this.step = 0;
-				}
 
 				this[otherFn].map(rs=>{
 					rs();

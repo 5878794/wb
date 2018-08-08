@@ -128,9 +128,9 @@ var PAGE = {
 			}
 
 			//创建敌机
-			let tempInterval = setting.getEnemyInterVal();
+			let tempInterval = setting.getEnemyInterVal(_this.game.step);
 			if(_this.game.isFrame(tempInterval)){
-				let type = setting.getEnemyType();
+				let type = setting.getEnemyType(_this.game.step);
 				let enemy = enemySprite(type,_this.mainScene,_this.mainLayer,_this.res,_this);
 				_this.enemys.push(enemy);
 
