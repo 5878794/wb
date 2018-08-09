@@ -1,0 +1,40 @@
+CACHE MANIFEST
+#v2
+
+CACHE:
+# 需要缓存的列表
+index.html
+js/index.js
+js/jquery-2.1.1.min.js
+js/polyfill.js
+image/bg.jpeg
+image/bullet.png
+image/enemy1.png
+image/enemy1_boom1.png
+image/enemy1_boom2.png
+image/enemy1_boom3.png
+image/enemy2.png
+image/enemy2_boom1.png
+image/enemy2_boom2.png
+image/enemy2_boom3.png
+image/enemy2_hit.png
+image/enemy3.png
+image/enemy3_boom1.png
+image/enemy3_boom2.png
+image/enemy3_boom3.png
+image/enemy3_boom4.png
+image/enemy3_boom5.png
+image/enemy3_hit.png
+image/logo.png
+image/plain.png
+image/start.png
+
+
+
+
+NETWORK:
+# 不需要缓存的
+*
+
+FALLBACK:
+# 访问缓存失败后，备用访问的资源，第一个是访问源，第二个是替换文件*.html /offline.html
