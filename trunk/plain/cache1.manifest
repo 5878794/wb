@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v3
+#v4
 
 CACHE:
 # 需要缓存的列表
@@ -29,6 +29,9 @@ image/logo.png
 image/plain.png
 image/start.png
 
+mp3/1.mp3
+mp3/2.mp3
+mp3/3.mp3
 
 
 
