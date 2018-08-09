@@ -1,5 +1,6 @@
 let device = require('../lib/device'),
 	game = require('../lib/canvas/canvas'),
+	setting = require('./setting'),
 	r2p = function(val){
 		val = val/100;
 		return device.rem2Px(750,val)
@@ -38,7 +39,14 @@ let plain = {
 			maxY = this.scene.height - height,
 			x = (this.scene.width - width)/2,
 			y = (this.scene.height - height),
+			size = setting.plainSize,
+			newSize = {},
 			_this = this;
+
+		for(let [key,val] of Object.entries(size)){
+			newSize[key] = r2p(val);
+		}
+
 
 		this.plain = new game.sprite({
 			width:width,
@@ -48,7 +56,8 @@ let plain = {
 			res:this.res.plain,
 			data:{
 				maxX:maxX,
-				maxY:maxY
+				maxY:maxY,
+				size:newSize
 			},
 			beforeRenderFn(){
 				if(this.data.isHit){

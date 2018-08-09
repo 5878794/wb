@@ -19,6 +19,21 @@ module.exports = {
 		2:300,
 		3:1000
 	},
+	plainSize:{
+		x:36,y:70,w:61,h:176
+	},
+	//击中范围
+	hitSize:{
+		1:{x:0,y:0,w:62,h:120},
+		2:{x:8,y:106,w:144,h:146},
+		3:{x:30,y:42,w:253,h:253}
+	},
+	//碰撞范围
+	enemySize:{
+		1:{x:6,y:26,w:51,h:72},
+		2:{x:17,y:106,w:125,h:110},
+		3:{x:68,y:48,w:176,h:192}
+	},
 	//获取被击中时的图片
 	getHitRes:function(res,type){
 		let resName = 'enemy'+type+"_hit";

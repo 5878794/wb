@@ -18,7 +18,18 @@ let enemy = function(type,scene,layer,res,obj){
 		blood = setting.blood[type],
 		hitRes = setting.getHitRes(res,type),
 		boomRes = setting.getBoomRes(res,type),
-		score = setting.score[type] || 1;
+		score = setting.score[type] || 1,
+		hitSize = setting.hitSize[type],
+		enemySize = setting.enemySize[type],
+		newHitSize = {},
+		newEnemySize = {};
+
+	for(let [key,val] of Object.entries(hitSize)){
+		newHitSize[key] = r2p(val);
+	}
+	for(let [key,val] of Object.entries(enemySize)){
+		newEnemySize[key] = r2p(val);
+	}
 
 
 	let _enemy = new game.sprite({
@@ -69,6 +80,8 @@ let enemy = function(type,scene,layer,res,obj){
 
 		},
 		data:{
+			hitSize:newHitSize,
+			enemySize:newEnemySize,
 			score:score,
 			isHit:false,
 			res:thisRes,
