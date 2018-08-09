@@ -44,6 +44,11 @@ let res = {
 	enemy3_boom5:'./image/enemy3_boom5.png',
 
 };
+let mp3 = {
+	bg:'./mp3/2.mp3',
+	shot:'./mp3/1.mp3',
+	boom:'./mp3/3.mp3'
+};
 let preLoadRes = ['bg','logo','startBtn'];
 
 
@@ -62,6 +67,7 @@ $(document).ready(function(){
 
 var PAGE = {
 	res:{},
+	music:{},
 	game:null,
 	bgScene:null,
 	loadScene:null,
@@ -74,8 +80,20 @@ var PAGE = {
 	score:0,
 	stepFn:null,
 	async init(){
+		let _this = this;
 		//创建游戏
-		this.game = new game.app();
+		this.game = new game.app({
+			// pauseFn:function(){
+			// 	if(_this.music.bg){
+			// 		_this.music.bg.pause();
+			// 	}
+			// },
+			// resumeFn:function(){
+			// 	if(_this.music.bg){
+			// 		_this.music.bg.play();
+			// 	}
+			// }
+		});
 		this.game.showFrame();
 
 		this.createBg();
@@ -88,7 +106,7 @@ var PAGE = {
 
 		//点击开始游戏后
 		this.game.del(this.loadScene);
-
+		this.music.bg.play();
 
 
 		this.createMain();
@@ -115,7 +133,10 @@ var PAGE = {
 		//创建加载页面
 		this.loadScene = new game.scene();
 		this.game.append(this.loadScene);
-		this.res = await loadScene.init(this.loadScene,this.res,res);
+		let obj = await loadScene.init(this.loadScene,this.res,res,mp3);
+
+		this.res = obj.res;
+		this.music = obj.mp3;
 	},
 	createMain(){
 		//创建游戏场景
@@ -143,6 +164,8 @@ var PAGE = {
 			if(_this.game.isFrame(setting.bulletInterval)){
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
 				_this.bullets.push(bullet);
+				_this.music.shot.volume(0.2);
+				_this.music.shot.play();
 			}
 
 			//创建敌机

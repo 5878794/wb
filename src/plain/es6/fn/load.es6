@@ -14,7 +14,9 @@ let load = {
 	loadBg:null,
 	loading:null,
 	btn:null,
-	init(scene,catchRes,loadRes){
+	total:0,
+	init(scene,catchRes,loadRes,loadMp3){
+		this.total = [...Object.values(loadRes)].length + [...Object.values(loadMp3)].length;
 		this.scene = scene;
 		this.res = catchRes;
 		return new Promise(async success=>{
@@ -22,14 +24,14 @@ let load = {
 			this.createLogo();
 			this.createLoading();
 			let res = await this.loadRes(loadRes);
+			let mp3 = await this.loadMusic(loadMp3);
 			this.layer.del(this.loadBg);
 			this.layer.del(this.loading);
 			this.createStartBtn();
 			await this.clickEvent();
 
-
 			this.btn.animatePause();
-			success(res);
+			success({res,mp3});
 		});
 	},
 	createLayer(){
@@ -91,7 +93,8 @@ let load = {
 	async loadRes(res){
 		let _this = this,
 			imgObj = await new resLoader(res,function(loaded,total){
-				let per = loaded/total,
+				_this.loaded = loaded;
+				let per = loaded/_this.total,
 					width = r2p(400*per);
 				_this.loading.width = width;
 
@@ -107,6 +110,35 @@ let load = {
 			throw(imgObj.msg);
 			// console.log(imgObj.msg)
 		}
+	},
+	async loadMusic(mp3){
+		let backObj = {};
+		for(let [key,val] of Object.entries(mp3)){
+			backObj[key] = await this.loadMp3(val);
+
+			this.loaded++;
+			let per = this.loaded/this.total,
+				width = r2p(400*per);
+			this.loading.width = width;
+		}
+
+		await device.sleep(0.5);
+
+		return backObj;
+	},
+	loadMp3(src){
+		let loop = (src.indexOf('bg')>-1);
+
+		return new Promise(success=>{
+			let sound;
+			sound = new Howl({
+				src: [src],
+				loop:loop,
+				onload:function(){
+					success(sound);
+				}
+			});
+		});
 	},
 	createStartBtn(){
 		let width = r2p(this.res.startBtn.width),
@@ -134,7 +166,7 @@ let load = {
 	},
 	clickEvent(){
 		return new Promise(success=>{
-			this.scene.dom.get(0).addEventListener('click',function(){
+			this.scene.dom.get(0).addEventListener(device.START_EV,function(){
 				success();
 			},false);
 		})

@@ -22,6 +22,9 @@ class app{
 	constructor(opt = {}){
 		//app容器
 		this[body] = opt.body || $("body");
+		this.pauseFn = opt.pauseFn || function(){};
+		this.resumeFn = opt.resumeFn || function(){};
+
 		//app是否运行中
 		this[isRunning] = false;
 		//app包含的场景
@@ -115,11 +118,13 @@ class app{
 
 	//暂停
 	pause(){
+		this.pauseFn();
 		this[isRunning] = false;
 	}
 
 	//恢复
 	resume(){
+		this.resumeFn();
 		this[isRunning] = true;
 	}
 
