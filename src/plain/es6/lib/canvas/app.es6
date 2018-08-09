@@ -183,7 +183,6 @@ class app{
 	});
 	window.addEventListener("blur",()=>{
 		isShow = false;
-		console.log(1111)
 		pauseFn();
 	});
 })();

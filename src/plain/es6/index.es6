@@ -46,7 +46,7 @@ let res = {
 };
 let mp3 = {
 	bg:'./mp3/2.mp3',
-	shot:'./mp3/1.mp3',
+	shot:'./mp3/3.mp3',
 	boom:'./mp3/3.mp3'
 };
 let preLoadRes = ['bg','logo','startBtn'];
@@ -106,7 +106,10 @@ var PAGE = {
 
 		//点击开始游戏后
 		this.game.del(this.loadScene);
-		this.music.bg.play();
+		if(this.music.bg){
+			this.music.bg.play();
+		}
+
 
 
 		this.createMain();
@@ -165,7 +168,9 @@ var PAGE = {
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
 				_this.bullets.push(bullet);
 				_this.music.shot.volume(0.2);
-				_this.music.shot.play();
+				if(_this.music.shot){
+					_this.music.shot.play();
+				}
 			}
 
 			//创建敌机

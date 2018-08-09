@@ -134,8 +134,14 @@ let load = {
 			sound = new Howl({
 				src: [src],
 				loop:loop,
+				preload:true,
 				onload:function(){
+					console.log(sound)
 					success(sound);
+				},
+				onloaderror:function(a,b){
+					console.log(a,b)
+					success();
 				}
 			});
 		});

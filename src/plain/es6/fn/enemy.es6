@@ -50,8 +50,12 @@ let enemy = function(type,scene,layer,res,obj){
 
 				if(this.data.blood == 0){
 					this.data.spd = 0;
-					obj.music.shot.stop();
-					obj.music.boom.play();
+					if(obj.music.shot){
+						obj.music.shot.stop();
+					}
+					if(obj.music.boom){
+						obj.music.boom.play();
+					}
 					this.data.isBoom = true;
 					obj.score += this.data.score;
 					this.setResAnimateList({
