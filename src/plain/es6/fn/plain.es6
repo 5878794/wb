@@ -70,6 +70,10 @@ let plain = {
 				}
 				if(this.data.isBoom && !showBoom){
 					showBoom = true;
+					_thisObj.obj.isGameOver = true;
+					_thisObj.obj.music.shot.stop();
+					_thisObj.obj.music.bg.stop();
+					_thisObj.obj.music.boom.play();
 					this.setResAnimateList({
 						resList:this.data.boomRes,     //播放资源,最后一张同原始资源
 						canStopResPointer:[],   //资源切换时能停止的资源序号点

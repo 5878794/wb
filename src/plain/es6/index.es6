@@ -70,6 +70,7 @@ $(document).ready(function(){
 
 
 var PAGE = {
+	isGameOver:true,
 	res:{},
 	music:{},
 	game:null,
@@ -88,12 +89,12 @@ var PAGE = {
 		//创建游戏
 		this.game = new game.app({
 			pauseFn:function(){
-				if(_this.music.bg){
+				if(_this.music.bg && !_this.isGameOver){
 					_this.music.bg.pause();
 				}
 			},
 			resumeFn:function(){
-				if(_this.music.bg){
+				if(_this.music.bg && !_this.isGameOver){
 					_this.music.bg.play();
 				}
 			}
@@ -146,6 +147,7 @@ var PAGE = {
 		this.music = obj.mp3;
 	},
 	createMain(){
+		this.isGameOver = false;
 		//创建游戏场景
 		this.mainScene = new game.scene();
 		this.game.append(this.mainScene);
