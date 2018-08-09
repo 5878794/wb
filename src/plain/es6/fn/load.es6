@@ -11,6 +11,8 @@ let load = {
 	scene:null,
 	layer:null,
 	logo:null,
+	prize_list:null,
+	prize_btn:null,
 	loadBg:null,
 	loading:null,
 	btn:null,
@@ -22,6 +24,7 @@ let load = {
 		return new Promise(async success=>{
 			this.createLayer();
 			this.createLogo();
+			this.createPrizeList();
 			this.createLoading();
 			let res = await this.loadRes(loadRes);
 			let mp3 = await this.loadMusic(loadMp3);
@@ -47,7 +50,7 @@ let load = {
 		let width = r2p(this.res.logo.width),
 			height = r2p(this.res.logo.height),
 			x = (this.scene.width - width)/2,
-			y = r2p(100);
+			y = r2p(60);
 
 		this.logo = new game.sprite({
 			width:width,
@@ -58,6 +61,22 @@ let load = {
 		});
 
 		this.layer.append(this.logo);
+	},
+	createPrizeList(){
+		let width = r2p(this.res.prize_list.width),
+			height = r2p(this.res.prize_list.height),
+			x = (this.scene.width - width)/2,
+			y = r2p(120)+r2p(this.res.logo.height);
+
+		this.prize_list = new game.sprite({
+			width:width,
+			height:height,
+			x:x,
+			y:y,
+			res:this.res.prize_list
+		});
+
+		this.layer.append(this.prize_list);
 	},
 	createLoading(){
 		let width = r2p(404),

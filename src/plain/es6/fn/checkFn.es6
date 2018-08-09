@@ -19,8 +19,13 @@ module.exports = {
 					y1 = y + enemy.data.hitSize.h;
 
 				bullets.map(rs=>{
-					if(rs.y>=y && rs.y<=y1){
-						if( (rs.x<=x1 && rs.x>=x) || (rs.x1<=x1 && rs.x1>=x)){
+					let b_x = rs.x,
+						b_x1 = rs.x1,
+						b_y = rs.y,
+						b_y1 = rs.y1;
+
+					if(!(y1<b_y || y>b_y1)){
+						if(!(x1<b_x || x>b_x1)){
 							//飞机被击中
 							enemy.data.isHit = true;
 
@@ -51,8 +56,8 @@ module.exports = {
 					e_x1 = e_x + rs.data.enemySize.w,
 					e_y1 = e_y + rs.data.enemySize.h;
 
-				if( (e_y>=y && e_y<=y1) || (e_y1>=y && e_y1<=y1)){
-					if( (e_x<=x1 && e_x>=x) || (e_x1<=x1 && e_x1>=x)){
+				if(!(y1<e_y || y>e_y1)){
+					if(!(x1<e_x || x>e_x1)){
 						//飞机被击中
 						plain.data.isHit = true;
 					}

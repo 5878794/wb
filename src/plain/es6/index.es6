@@ -53,7 +53,7 @@ let mp3 = {
 	shot:'./mp3/1.mp3',
 	boom:'./mp3/3.mp3'
 };
-let preLoadRes = ['bg','logo','startBtn'];
+let preLoadRes = ['bg','logo','startBtn','prize_list','prize_rule_btn'];
 
 
 
