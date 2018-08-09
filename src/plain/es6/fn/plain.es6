@@ -80,8 +80,9 @@ let plain = {
 						frame:3,           //动画间隔几帧播放下一张资源图,正常情况下一秒60帧
 						infinite:false,           //循环播放资源队列,true时回调不执行
 						callback:function(){
-							_this.data.isDel = true;
-							_this.alpha = 0;
+							// _this.data.isDel = true;
+							// _this.alpha = 0;
+							_this.res = _this.data.boomRes[_this.data.boomRes.length-1];
 							_thisObj.obj.endPlay();
 						}
 					});
@@ -95,12 +96,14 @@ let plain = {
 	addEvent(){
 		let x=0,y=0,isTouch = false,_this = this;
 		window.addEventListener(device.START_EV,function(e){
+			if(_this.obj.isGameOver){return;}
 			isTouch = true;
 			e = (e.touches && e.touches[0])? e.touches[0] : e;
 			x = e.screenX;
 			y = e.screenY;
 		},false);
 		window.addEventListener(device.MOVE_EV,function(e){
+			if(_this.obj.isGameOver){return;}
 			if(!isTouch){return;}
 			e = (e.touches && e.touches[0])? e.touches[0] : e;
 			let _x = e.screenX,
@@ -123,6 +126,7 @@ let plain = {
 
 		},false);
 		window.addEventListener(device.END_EV,function(e){
+			if(_this.obj.isGameOver){return;}
 			isTouch = false;
 		},false);
 	}

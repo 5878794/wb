@@ -229,8 +229,8 @@ var PAGE = {
 
 	endPlay(){
 		this.game.pause();
-		alert('得分:'+this.score);
-		this.replay();
+		// alert('得分:'+this.score);
+		// this.replay();
 	}
 };
 
