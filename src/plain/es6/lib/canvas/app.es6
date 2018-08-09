@@ -18,10 +18,18 @@ let device = require("./../device"),
 	otherFn = Symbol();
 
 
+let pauseFn,resumeFn;
+
 class app{
 	constructor(opt = {}){
 		//app容器
 		this[body] = opt.body || $("body");
+		this.pauseFn = opt.pauseFn || function(){};
+		this.resumeFn = opt.resumeFn || function(){};
+
+		pauseFn = this.pauseFn;
+		resumeFn = this.resumeFn;
+
 		//app是否运行中
 		this[isRunning] = false;
 		//app包含的场景
@@ -99,9 +107,6 @@ class app{
 
 			if(isShow && this[isRunning]){
 				this.step++;
-				if(this.step >= 100000){
-					this.step = 0;
-				}
 
 				this[otherFn].map(rs=>{
 					rs();
@@ -118,11 +123,13 @@ class app{
 
 	//暂停
 	pause(){
+		this.pauseFn();
 		this[isRunning] = false;
 	}
 
 	//恢复
 	resume(){
+		this.resumeFn();
 		this[isRunning] = true;
 	}
 
@@ -172,9 +179,11 @@ class app{
 	//监听浏览器窗口是否显示或在顶层
 	window.addEventListener("focus",()=>{
 		isShow = true;
+		resumeFn();
 	});
 	window.addEventListener("blur",()=>{
 		isShow = false;
+		pauseFn();
 	});
 })();
 

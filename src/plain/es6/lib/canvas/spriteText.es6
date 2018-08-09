@@ -26,6 +26,7 @@ class spriteText extends  sprite{
 
 		this.ctxTextBaseline = "middle";
 		this.ctxTextAlign = "left";
+		this.beforeRenderFn = opt.beforeRenderFn || function(){};
 		this[handlerText] = [];
 
 		this[autoBreakWord]();
@@ -80,6 +81,8 @@ class spriteText extends  sprite{
 
 	render(){
 		let {x,y} = this.setCtx();
+		this.beforeRenderFn.call(this);
+
 		//根据对齐方式转换为文字实际绘画的坐标
 		if(this.textAlign == "center"){
 			x = x + this.width*this.scale/2;

@@ -13,7 +13,8 @@ let viewport = require('./lib/ui/setViewport'),
 	plainSprite = require('./fn/plain'),
 	bulletSprite = require('./fn/bullet'),
 	enemySprite = require('./fn/enemy'),
-	checkFn = require('./fn/checkFn');
+	checkFn = require('./fn/checkFn'),
+	scoreAreaFn = require('./fn/scoreArea');
 
 
 
@@ -43,6 +44,11 @@ let res = {
 	enemy3_boom5:'./image/enemy3_boom5.png',
 
 };
+let mp3 = {
+	bg:'./mp3/2.mp3',
+	shot:'./mp3/1.mp3',
+	boom:'./mp3/3.mp3'
+};
 let preLoadRes = ['bg','logo','startBtn'];
 
 
@@ -61,22 +67,62 @@ $(document).ready(function(){
 
 var PAGE = {
 	res:{},
+	music:{},
 	game:null,
 	bgScene:null,
 	loadScene:null,
 	mainScene:null,
 	mainLayer:null,
 	plain:null,
+	scoreArea:null,
 	bullets:[],
 	enemys:[],
+	score:0,
+	stepFn:null,
 	async init(){
+		let _this = this;
 		//创建游戏
-		this.game = new game.app();
+		this.game = new game.app({
+			pauseFn:function(){
+				if(_this.music.bg){
+					_this.music.bg.pause();
+				}
+			},
+			resumeFn:function(){
+				if(_this.music.bg){
+					_this.music.bg.play();
+				}
+			}
+		});
 		this.game.showFrame();
 
+		this.createBg();
+		await this.getRes();
+
+		this.game.run();
+
+		await this.createLoadPage();
+
+
+		//点击开始游戏后
+		this.game.del(this.loadScene);
+		if(this.music.bg){
+			this.music.bg.play();
+		}
+
+
+
+		this.createMain();
+		this.addFrameFn();
+
+
+	},
+	createBg(){
 		//创建背景
 		this.bgScene = new game.scene();
 		this.game.append(this.bgScene);
+	},
+	async getRes(){
 		//获取需要提前加载的图片
 		let preLoadImg = {};
 		for(let [key,val] of Object.entries(res)){
@@ -85,19 +131,17 @@ var PAGE = {
 			}
 		}
 		this.res = await bgScene.init(this.bgScene,preLoadImg);
-
-		this.game.run();
-
+	},
+	async createLoadPage(){
 		//创建加载页面
 		this.loadScene = new game.scene();
 		this.game.append(this.loadScene);
-		this.res = await loadScene.init(this.loadScene,this.res,res);
+		let obj = await loadScene.init(this.loadScene,this.res,res,mp3);
 
-
-		//点击开始游戏后
-		this.game.del(this.loadScene);
-
-
+		this.res = obj.res;
+		this.music = obj.mp3;
+	},
+	createMain(){
 		//创建游戏场景
 		this.mainScene = new game.scene();
 		this.game.append(this.mainScene);
@@ -110,24 +154,32 @@ var PAGE = {
 		this.mainScene.append(this.mainLayer);
 
 		//创建飞机
-		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res);
+		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res,this.game,this);
 
-
+		//创建积分显示区
+		this.scoreArea = scoreAreaFn(this.mainScene,this.mainLayer,this);
+	},
+	addFrameFn(){
 		let _this = this;
 
-		this.game.addFn(function(){
+		this.game.addFn(this.stepFn = function(){
 			//创建子弹
 			if(_this.game.isFrame(setting.bulletInterval)){
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
 				_this.bullets.push(bullet);
+				if(_this.music.shot){
+					_this.music.shot.volume(0.2);
+					_this.music.shot.play();
+				}
 			}
 
 			//创建敌机
-			let tempInterval = setting.getEnemyInterVal();
+			let tempInterval = setting.getEnemyInterVal(_this.game.step);
 			if(_this.game.isFrame(tempInterval)){
-				let type = setting.getEnemyType();
-				let enemy = enemySprite(type,_this.mainScene,_this.mainLayer,_this.res);
+				let type = setting.getEnemyType(_this.game.step);
+				let enemy = enemySprite(type,_this.mainScene,_this.mainLayer,_this.res,_this);
 				_this.enemys.push(enemy);
+
 			}
 
 
@@ -137,19 +189,42 @@ var PAGE = {
 
 				//清除删除的对象
 				_this.bullets = _this.bullets.filter(rs=>{
-					return (!rs.data.del && rs.y1>0);
+					if(!rs.data.isDel && rs.y1>0){
+						return rs;
+					}else{
+						_this.mainLayer.del(rs);
+					}
 				});
 				_this.enemys = _this.enemys.filter(rs=>{
-					return (!rs.data.del);
+					if(!rs.data.isDel){
+						return rs;
+					}else{
+						_this.mainLayer.del(rs);
+					}
 				});
 			}
-
-
-
 		});
+	},
 
 
-		//记分
+	replay(){
+		this.game.delFn(this.stepFn);
+		this.game.del(this.mainScene);
+		this.game.step = 0;
+		this.game.resume();
+		this.bullets = [];
+		this.enemys = [];
+		this.score = 0;
+
+		this.createMain();
+		this.addFrameFn();
+	},
+
+
+	endPlay(){
+		this.game.pause();
+		alert('得分:'+this.score);
+		this.replay();
 	}
 };
 

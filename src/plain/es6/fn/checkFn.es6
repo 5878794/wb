@@ -4,68 +4,61 @@
 module.exports = {
 	init(plain,bullets,enemys){
 		this.checkEnemys(enemys,bullets);
-
-		console.log(enemys)
+		this.checkPlain(plain,enemys);
 	},
 	checkEnemys(enemys,bullets){
 		enemys.map(enemy=>{
 			if(enemy.data.isBoom){
 				//已爆炸
-				this.setBoomRes(enemy);
+
 			}else{
 				//未爆炸
-				let x = enemy.x,
-					y = enemy.y,
-					x1 = enemy.x1,
-					y1 = enemy.y1;
+				let x = enemy.x + enemy.data.hitSize.x,
+					y = enemy.y +enemy.data.hitSize.y,
+					x1 = x + enemy.data.hitSize.w,
+					y1 = y + enemy.data.hitSize.h;
 
 				bullets.map(rs=>{
-					if(rs.x<=x1 && rs.x>=x && rs.y>=y && rs.y<=y1){
-						//飞机被击中
-						this.enemyHasHit(enemy);
+					if(rs.y>=y && rs.y<=y1){
+						if( (rs.x<=x1 && rs.x>=x) || (rs.x1<=x1 && rs.x1>=x)){
+							//飞机被击中
+							enemy.data.isHit = true;
 
-						//子弹做删除标识
-						this.delSprite(rs);
-					}else{
-						//飞机未击中
-						this.enemyHasNoHit(enemy);
-
+							//子弹做删除标识
+							this.delSprite(rs);
+						}
 					}
 				});
 			}
 		});
-	},
-	//设置爆炸的资源图
-	setBoomRes(enemy){
-		enemy.data.boomN++;
-		let res = enemy.data.boomRes[enemy.data.boomN];
-		if(res){
-			enemy.res = res;
-		}else{
-			this.delSprite(enemy);
-		}
 	},
 	//设置删除标识
 	delSprite(sprite){
 		sprite.data.isDel = true;
 		sprite.alpha = 0;
 	},
-	//敌机被击中
-	enemyHasHit(enemy){
-		//判断飞机血
-		enemy.data.blood = enemy.data.blood - 1;
-		console.log('---------')
-		console.log(enemy.data.blood)
-		if(enemy.data.blood == 0){
-			enemy.data.isBoom = true;
-			enemy.data.spd = 0;
-			enemy.res = enemy.data.boomRes[enemy.data.boomN];
-		}else{
-			enemy.res = enemy.data.hitRes;
-		}
-	},
-	enemyHasNoHit(enemy){
-		enemy.res = enemy.data.res;
+	//检查自己飞机
+	checkPlain(plain,enemys){
+		let x = plain.x + plain.data.size.x,
+			y = plain.y + plain.data.size.y,
+			x1 = x + plain.data.size.w,
+			y1 = y + plain.data.size.h;
+
+		enemys.map(rs=>{
+			if(!rs.data.isBoom){
+				let e_x = rs.x + rs.data.enemySize.x,
+					e_y = rs.y +rs.data.enemySize.y,
+					e_x1 = e_x + rs.data.enemySize.w,
+					e_y1 = e_y + rs.data.enemySize.h;
+
+				if( (e_y>=y && e_y<=y1) || (e_y1>=y && e_y1<=y1)){
+					if( (e_x<=x1 && e_x>=x) || (e_x1<=x1 && e_x1>=x)){
+						//飞机被击中
+						plain.data.isHit = true;
+					}
+				}
+			}
+		})
 	}
 };
 
