@@ -167,8 +167,8 @@ var PAGE = {
 			if(_this.game.isFrame(setting.bulletInterval)){
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
 				_this.bullets.push(bullet);
-				_this.music.shot.volume(0.2);
 				if(_this.music.shot){
+					_this.music.shot.volume(0.2);
 					_this.music.shot.play();
 				}
 			}
