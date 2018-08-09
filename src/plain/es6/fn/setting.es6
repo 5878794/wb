@@ -84,9 +84,9 @@ module.exports = {
 	},
 	//生成敌机的种类
 	getEnemyType:function(step){
-		//6 3 1
-		if(step>=0){
-			let a = [1,1,1,1,1,1,2,2,2,3];
+		//2 5 3
+		if(step>1200){
+			let a = [1,1,2,2,2,2,2,3,3,3];
 			return a[parseInt(Math.random()*10)];
 		}
 		//4 4 2
@@ -94,9 +94,9 @@ module.exports = {
 			let a = [1,1,1,1,2,2,2,2,3,3];
 			return a[parseInt(Math.random()*10)];
 		}
-		//2 5 3
-		if(step>1200){
-			let a = [1,1,2,2,2,2,2,3,3,3];
+		//6 3 1
+		if(step>=0){
+			let a = [1,1,1,1,1,1,2,2,2,3];
 			return a[parseInt(Math.random()*10)];
 		}
 	}
