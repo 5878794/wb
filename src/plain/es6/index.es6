@@ -83,16 +83,16 @@ var PAGE = {
 		let _this = this;
 		//创建游戏
 		this.game = new game.app({
-			// pauseFn:function(){
-			// 	if(_this.music.bg){
-			// 		_this.music.bg.pause();
-			// 	}
-			// },
-			// resumeFn:function(){
-			// 	if(_this.music.bg){
-			// 		_this.music.bg.play();
-			// 	}
-			// }
+			pauseFn:function(){
+				if(_this.music.bg){
+					_this.music.bg.pause();
+				}
+			},
+			resumeFn:function(){
+				if(_this.music.bg){
+					_this.music.bg.play();
+				}
+			}
 		});
 		this.game.showFrame();
 
