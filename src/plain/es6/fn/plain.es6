@@ -41,7 +41,9 @@ let plain = {
 			y = (this.scene.height - height),
 			size = setting.plainSize,
 			newSize = {},
-			_this = this;
+			boomRes = setting.getPlainBoomRes(this.res),
+			_thisObj = this,
+			showBoom = false;
 
 		for(let [key,val] of Object.entries(size)){
 			newSize[key] = r2p(val);
@@ -55,13 +57,31 @@ let plain = {
 			y:y,
 			res:this.res.plain,
 			data:{
+				isBoom:false,
+				boomRes:boomRes,
 				maxX:maxX,
 				maxY:maxY,
 				size:newSize
 			},
 			beforeRenderFn(){
+				let _this = this;
 				if(this.data.isHit){
-					_this.obj.endPlay();
+					this.data.isBoom = true;
+				}
+				if(this.data.isBoom && !showBoom){
+					showBoom = true;
+					this.setResAnimateList({
+						resList:this.data.boomRes,     //播放资源,最后一张同原始资源
+						canStopResPointer:[],   //资源切换时能停止的资源序号点
+						frame:3,           //动画间隔几帧播放下一张资源图,正常情况下一秒60帧
+						infinite:false,           //循环播放资源队列,true时回调不执行
+						callback:function(){
+							_this.data.isDel = true;
+							_this.alpha = 0;
+							_thisObj.obj.endPlay();
+						}
+					});
+					this.resAnimatePlay();
 				}
 			}
 		});

@@ -20,24 +20,31 @@ module.exports = {
 		3:1000
 	},
 	plainSize:{
-		x:36,y:70,w:61,h:176
+		x:45,y:86,w:72,h:146
 	},
 	//击中范围
 	hitSize:{
-		1:{x:0,y:0,w:62,h:120},
-		2:{x:8,y:106,w:144,h:146},
-		3:{x:30,y:42,w:253,h:253}
+		1:{x:20,y:24,w:58,h:96},
+		2:{x:10,y:100,w:140,h:140},
+		3:{x:12,y:45,w:250,h:250}
 	},
 	//碰撞范围
 	enemySize:{
-		1:{x:6,y:26,w:51,h:72},
-		2:{x:17,y:106,w:125,h:110},
-		3:{x:68,y:48,w:176,h:192}
+		1:{x:30,y:26,w:40,h:82},
+		2:{x:20,y:97,w:122,h:122},
+		3:{x:24,y:55,w:234,h:208}
 	},
 	//获取被击中时的图片
 	getHitRes:function(res,type){
 		let resName = 'enemy'+type+"_hit";
 		return res[resName];
+	},
+	//获取飞机爆炸的资源图
+	getPlainBoomRes:function(res){
+		return [
+			res.plain_boom1,
+			res.plain_boom2
+		];
 	},
 	//获取爆炸的图片
 	getBoomRes:function(res,type){
