@@ -3,7 +3,8 @@ let device = require('../lib/device'),
 		val = val/100;
 		return device.rem2Px(750,val)
 	},
-	$$ = require('../lib/event/$$');
+	$$ = require('../lib/event/$$'),
+	rotateToEnd = require('../lib/fn/rotateToDeg');
 
 require('../lib/jq/extend');
 
@@ -101,7 +102,6 @@ module.exports = {
 	addEvent(){
 		let _this = this;
 		$$(this.startBtn).myclickok(async function(){
-			_this.parentObj.loading.show('loading...');
 			_this.startRote();
 			_this.getData().then(rs=>{
 				rs = 1;
@@ -119,9 +119,18 @@ module.exports = {
 		})
 	},
 	startRote(){
+		let dom = this.pan;
+
+		this.a = new rotateToEnd({
+			stepFn:function(aa){
+				dom.css({
+					transform:'rotate('+aa+'deg)'
+				});
+			}
+		});
 
 	},
 	stopRote(n=0){
-
+		this.a.stopRotate(30)
 	}
 };
