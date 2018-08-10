@@ -17,7 +17,8 @@ let load = {
 	loading:null,
 	btn:null,
 	total:0,
-	init(scene,catchRes,loadRes,loadMp3){
+	init(scene,catchRes,loadRes,loadMp3,parentObj){
+		this.parentObj = parentObj;
 		this.total = [...Object.values(loadRes)].length + [...Object.values(loadMp3)].length;
 		this.scene = scene;
 		this.res = catchRes;
@@ -30,10 +31,13 @@ let load = {
 			let mp3 = await this.loadMusic(loadMp3);
 			this.layer.del(this.loadBg);
 			this.layer.del(this.loading);
-			this.createStartBtn();
-			await this.clickEvent();
 
-			this.btn.animatePause();
+			//增加事件监听
+			this.scene.addEvent();
+
+			this.createPrizeBtn();
+			this.createStartBtn();
+
 			success({res,mp3});
 		});
 	},
@@ -165,11 +169,39 @@ let load = {
 			});
 		});
 	},
+	createPrizeBtn(){
+		let width = r2p(this.res.prize_rule_btn.width),
+			height = r2p(this.res.prize_rule_btn.height),
+			x = (this.scene.width/2-width)/2,
+			y = this.scene.height-r2p(100)-height,
+			_this = this;
+
+		this.prize_btn = new game.sprite({
+			x:x,
+			y:y,
+			width:width,
+			height:height,
+			res:this.res.prize_rule_btn
+		});
+
+		this.prize_btn.myclickok(function(){
+			_this.parentObj.showPrizeRulePage();
+		});
+		this.prize_btn.myclickdown(function(){
+			_this.prize_btn.alpha = 50;
+		});
+		this.prize_btn.myclickup(function(){
+			_this.prize_btn.alpha = 100;
+		});
+		this.layer.append(this.prize_btn);
+
+	},
 	createStartBtn(){
 		let width = r2p(this.res.startBtn.width),
 			height = r2p(this.res.startBtn.height),
-			x = (this.scene.width-width)/2,
-			y = this.scene.height-r2p(200)-height;
+			x = (this.scene.width/2-width)/2+this.scene.width/2-r2p(25),
+			y = this.scene.height-r2p(96)-height,
+			_this = this;
 
 		this.btn = new game.sprite({
 			x:x,
@@ -178,23 +210,18 @@ let load = {
 			height:height,
 			res:this.res.startBtn
 		});
-		this.btn.animate({
-			time:700,
-			infinite:true,
-			flip:true,
-			style:{
-				alpha:0
-			}
-		});
 
 		this.layer.append(this.btn);
-	},
-	clickEvent(){
-		return new Promise(success=>{
-			this.scene.dom.get(0).addEventListener(device.START_EV,function(){
-				success();
-			},false);
-		})
+
+		this.btn.myclickdown(function(){
+			_this.btn.alpha = 50;
+		});
+		this.btn.myclickup(function(){
+			_this.btn.alpha = 100;
+		});
+		this.btn.myclickok(function(){
+			_this.parentObj.showLoginPage();
+		});
 	}
 };
 

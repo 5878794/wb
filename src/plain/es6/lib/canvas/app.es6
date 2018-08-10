@@ -73,6 +73,25 @@ class app{
 		}
 	}
 
+	//隐藏场景
+	hidden(scene){
+		let n = this[scenes].indexOf(scene);
+		if(n>-1){
+			this[scenes].splice(n,1);
+			scene.dom.css({
+				display:'none'
+			})
+		}
+	}
+	//显示
+	show(scene){
+		this.append(scene);
+		scene.dom.css({
+			display:'block'
+		})
+	}
+
+
 
 
 	isFrame(n){

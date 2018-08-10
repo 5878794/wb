@@ -14,38 +14,50 @@ let viewport = require('./lib/ui/setViewport'),
 	bulletSprite = require('./fn/bullet'),
 	enemySprite = require('./fn/enemy'),
 	checkFn = require('./fn/checkFn'),
-	scoreAreaFn = require('./fn/scoreArea');
+	scoreAreaFn = require('./fn/scoreArea'),
+	showPrizeRule = require('./fn/showPrizeRule');
 
 
 
 
 let res = {
 	logo:'./image/logo.png',
-	prize_list:'./image/prize_list.png',
-	prize_rule_btn:'./image/prize_rule_btn.png',
 	bg:'./image/bg.jpeg',
+
+	prize_list:'./image/prize_list.png',
+	prize_rule_text:'./image/prize_rule_text.png',
+
 	startBtn:'./image/start.png',
+	home_btn:'./image/home_btn.png',
+	prize_rule_btn:'./image/prize_rule_btn.png',
+
 	bullet:'./image/bullet.png',
+
 	plain:'./image/plain.png',
 	plain_boom1:'./image/plain_boom1.png',
 	plain_boom2:'./image/plain_boom2.png',
+
 	enemy1:'./image/enemy1.png',
 	enemy2:'./image/enemy2.png',
 	enemy3:'./image/enemy3.png',
+
 	enemy1_hit:'./image/enemy1.png',
 	enemy2_hit:'./image/enemy2_hit.png',
 	enemy3_hit:'./image/enemy3_hit.png',
+
 	enemy1_boom1:'./image/enemy1_boom1.png',
 	enemy1_boom2:'./image/enemy1_boom2.png',
 	enemy1_boom3:'./image/enemy1_boom3.png',
+
 	enemy2_boom1:'./image/enemy2_boom1.png',
 	enemy2_boom2:'./image/enemy2_boom2.png',
 	enemy2_boom3:'./image/enemy2_boom3.png',
+
 	enemy3_boom1:'./image/enemy3_boom1.png',
 	enemy3_boom2:'./image/enemy3_boom2.png',
 	enemy3_boom3:'./image/enemy3_boom3.png',
 	enemy3_boom4:'./image/enemy3_boom4.png',
-	enemy3_boom5:'./image/enemy3_boom5.png',
+	enemy3_boom5:'./image/enemy3_boom5.png'
 
 };
 let mp3 = {
@@ -108,25 +120,27 @@ var PAGE = {
 
 		await this.createLoadPage();
 
-
+		//TODO
 		//点击开始游戏后
-		this.game.del(this.loadScene);
-		if(this.music.bg){
-			this.music.bg.play();
-		}
-
-
-
-		this.createMain();
-		this.addFrameFn();
+		// this.game.del(this.loadScene);
+		// if(this.music.bg){
+		// 	this.music.bg.play();
+		// }
+		//
+		//
+		//
+		// this.createMain();
+		// this.addFrameFn();
 
 
 	},
+	//创建背景层
 	createBg(){
 		//创建背景
 		this.bgScene = new game.scene();
 		this.game.append(this.bgScene);
 	},
+	//获取要提前加载的图片
 	async getRes(){
 		//获取需要提前加载的图片
 		let preLoadImg = {};
@@ -137,15 +151,29 @@ var PAGE = {
 		}
 		this.res = await bgScene.init(this.bgScene,preLoadImg);
 	},
+	//创建加载页面
 	async createLoadPage(){
 		//创建加载页面
 		this.loadScene = new game.scene();
 		this.game.append(this.loadScene);
-		let obj = await loadScene.init(this.loadScene,this.res,res,mp3);
+		let obj = await loadScene.init(this.loadScene,this.res,res,mp3,this);
 
 		this.res = obj.res;
 		this.music = obj.mp3;
 	},
+	//显示规则页面
+	async showPrizeRulePage(){
+		this.game.hidden(this.loadScene);
+		await showPrizeRule.init(this);
+
+		//返回后
+		this.game.show(this.loadScene);
+	},
+	//显示登陆页面
+	showLoginPage(){
+		console.log('login')
+	},
+	//创建主游戏界面
 	createMain(){
 		this.isGameOver = false;
 		//创建游戏场景
@@ -165,6 +193,7 @@ var PAGE = {
 		//创建积分显示区
 		this.scoreArea = scoreAreaFn(this.mainScene,this.mainLayer,this);
 	},
+	//创建每帧的处理事件
 	addFrameFn(){
 		let _this = this;
 
@@ -211,8 +240,7 @@ var PAGE = {
 			}
 		});
 	},
-
-
+	//重玩游戏
 	replay(){
 		this.game.delFn(this.stepFn);
 		this.game.del(this.mainScene);
@@ -225,8 +253,7 @@ var PAGE = {
 		this.createMain();
 		this.addFrameFn();
 	},
-
-
+	//游戏结束
 	endPlay(){
 		this.game.pause();
 		// alert('得分:'+this.score);
@@ -236,3 +263,4 @@ var PAGE = {
 
 
 window.page = PAGE;
+window.r2p = r2p;
