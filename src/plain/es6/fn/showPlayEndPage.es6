@@ -115,8 +115,19 @@ module.exports = {
 	},
 	addEvent(){
 		let _this = this;
-		$$(this.replayBtn).myclickok(function(){
+		$$(this.replayBtn).myclickok(async function(){
+			_this.parentObj.loading.show('loading...');
+			await _this.getToken().then(rs=>{
+				_this.parentObj.loading.hide();
+				//赋值token到parentObj TODO
+
+			}).catch(rs=>{
+				_this.parentObj.loading.hide();
+				_this.parentObj.info.show(rs);
+			});
+
 			_this.hidePage();
+			_this.parentObj.replay();
 		});
 
 		$$(this.indexBtn).myclickok(function(){
@@ -136,5 +147,13 @@ module.exports = {
 	},
 	hidePage(){
 		this.main.addClass('hidden');
+	},
+	getToken(){
+		return new Promise((success,error)=>{
+			setTimeout(function(){
+				success();
+			},1000)
+		})
+
 	}
 };
