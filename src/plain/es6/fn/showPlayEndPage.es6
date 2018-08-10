@@ -114,19 +114,26 @@ module.exports = {
 		});
 	},
 	addEvent(){
+		let _this = this;
 		$$(this.replayBtn).myclickok(function(){
-
+			_this.hidePage();
 		});
 
 		$$(this.indexBtn).myclickok(function(){
-
+			_this.hidePage();
 		});
 
 		$$(this.prizeBtn).myclickok(function(){
-
+			_this.hidePage();
 		});
 	},
 	removePage(){
 		$$(this.replayBtn).unbind(true);
+		$$(this.indexBtn).unbind(true);
+		$$(this.prizeBtn).unbind(true);
+		this.main.remove();
+	},
+	hidePage(){
+		this.main.css({display:'none'});
 	}
 };
