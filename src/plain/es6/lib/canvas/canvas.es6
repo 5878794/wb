@@ -8,9 +8,9 @@ let app = require("./app"),
 	param = (device.passiveSupported)? {passive:false} : false,
 	//阻止窗口滚动
 	preventScroll = ()=> {
-		window.addEventListener(device.START_EV, (e) => {
-			e.preventDefault();
-		}, param);
+		// window.addEventListener(device.START_EV, (e) => {
+		// 	e.preventDefault();
+		// }, param);
 		window.addEventListener(device.MOVE_EV, (e) => {
 			e.preventDefault();
 		}, param);

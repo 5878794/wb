@@ -2,6 +2,8 @@
 let viewport = require('./lib/ui/setViewport'),
 	device = require('./lib/device'),
 	game = require('./lib/canvas/canvas'),
+	loadFn = require('./lib/ui/loading_old'),
+	info = require('./lib/ui/info'),
 	r2p = function(val){
 		val = val/100;
 		return device.rem2Px(750,val)
@@ -15,7 +17,8 @@ let viewport = require('./lib/ui/setViewport'),
 	enemySprite = require('./fn/enemy'),
 	checkFn = require('./fn/checkFn'),
 	scoreAreaFn = require('./fn/scoreArea'),
-	showPrizeRule = require('./fn/showPrizeRule');
+	showPrizeRule = require('./fn/showPrizeRule'),
+	showLogin = require('./fn/showLogin');
 
 
 
@@ -30,6 +33,7 @@ let res = {
 	startBtn:'./image/start.png',
 	home_btn:'./image/home_btn.png',
 	prize_rule_btn:'./image/prize_rule_btn.png',
+	goBtn:'./image/go.png',
 
 	bullet:'./image/bullet.png',
 
@@ -82,6 +86,8 @@ $(document).ready(function(){
 
 
 var PAGE = {
+	loading:null,
+	info:null,
 	isGameOver:true,
 	res:{},
 	music:{},
@@ -98,6 +104,10 @@ var PAGE = {
 	stepFn:null,
 	async init(){
 		let _this = this;
+
+		this.loading = new loadFn();
+		this.info = info;
+
 		//创建游戏
 		this.game = new game.app({
 			pauseFn:function(){
@@ -170,8 +180,12 @@ var PAGE = {
 		this.game.show(this.loadScene);
 	},
 	//显示登陆页面
-	showLoginPage(){
-		console.log('login')
+	async showLoginPage(){
+		this.game.hidden(this.loadScene);
+		await showLogin.init(this);
+
+		//点击开始后
+		console.log('play')
 	},
 	//创建主游戏界面
 	createMain(){

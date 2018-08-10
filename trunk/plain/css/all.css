@@ -36,10 +36,10 @@ input,button,select,textarea{
 
 /*placeholder颜色设置*/
 input::-webkit-input-placeholder {
-    color:    #999;
+    color:    #fff;
 }
 input:-moz-placeholder {
-    color:    #999;
+    color:    #fff;
 }
 
 
