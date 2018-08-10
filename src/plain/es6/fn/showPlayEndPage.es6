@@ -126,7 +126,7 @@ module.exports = {
 				_this.parentObj.info.show(rs);
 			});
 
-			_this.hidePage();
+			_this.removePage();
 			_this.parentObj.replay();
 		});
 
@@ -136,7 +136,8 @@ module.exports = {
 		});
 
 		$$(this.prizeBtn).myclickok(function(){
-			_this.hidePage();
+			_this.removePage();
+			_this.parentObj.showPrizePage(_this.main);
 		});
 	},
 	removePage(){

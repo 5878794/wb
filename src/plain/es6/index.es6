@@ -21,6 +21,7 @@ let viewport = require('./lib/ui/setViewport'),
 	showLogin = require('./fn/showLogin'),
 	showPlayEndPage = require('./fn/showPlayEndPage'),
 	showIndexListPage = require('./fn/showIndexPage'),
+	showPrizePage = require('./fn/showPrizePage'),
 	{res,mp3} = require('./fn/resList');
 require('./lib/jq/cssAnimate');
 
@@ -238,6 +239,9 @@ var PAGE = {
 		await showIndexListPage.init(this);
 
 		parentPage.removeClass('hidden');
+	},
+	showPrizePage(parentPage){
+		showPrizePage.init(this);
 	}
 };
 

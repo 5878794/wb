@@ -21,6 +21,22 @@ module.exports = {
 		backBtn:'./image/back_btn.png',
 		indexListTitle:'./image/index_list.png',
 
+		//抽奖页面
+		prizePageBtn:'./image/prize_page_btn.png',
+		prizePageGet:'./image/prize_page_get.png',
+		prizePageNothing:'./image/prize_page_nothing.png',
+		prizePageObj1:'./image/prize_page_obj1.png',
+		prizePageObj2:'./image/prize_page_obj2.png',
+		prizePageObj3:'./image/prize_page_obj3.png',
+		prizePageObj4:'./image/prize_page_obj4.png',
+		prizePageObj5:'./image/prize_page_obj5.png',
+		prizePageReplay:'./image/prize_page_replay.png',
+		prizePageText:'./image/prize_page_text.png',
+		prizePan:'./image/prize_pan.png',
+		prizeZhen:'./image/prize_zhen.png',
+
+
+
 		bullet:'./image/bullet.png',
 
 		plain:'./image/plain.png',
