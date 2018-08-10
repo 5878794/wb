@@ -121,6 +121,7 @@ module.exports = {
 
 		$$(this.indexBtn).myclickok(function(){
 			_this.hidePage();
+			_this.parentObj.showIndexListPage(_this.main);
 		});
 
 		$$(this.prizeBtn).myclickok(function(){
@@ -134,6 +135,6 @@ module.exports = {
 		this.main.remove();
 	},
 	hidePage(){
-		this.main.css({display:'none'});
+		this.main.addClass('hidden');
 	}
 };

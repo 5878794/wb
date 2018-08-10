@@ -87,6 +87,9 @@ a:active{
     -ms-border-radius:5rem;
 }
 
+
+
+
 .position_center{
     position: absolute;
     left: 0;
@@ -389,6 +392,11 @@ a:active{
     -ms-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
+}
+
+
+.hidden{
+    display: none;
 }
 
 

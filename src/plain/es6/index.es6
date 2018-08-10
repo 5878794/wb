@@ -20,6 +20,7 @@ let viewport = require('./lib/ui/setViewport'),
 	showPrizeRule = require('./fn/showPrizeRule'),
 	showLogin = require('./fn/showLogin'),
 	showPlayEndPage = require('./fn/showPlayEndPage'),
+	showIndexListPage = require('./fn/showIndexPage'),
 	{res,mp3} = require('./fn/resList');
 require('./lib/jq/cssAnimate');
 
@@ -232,11 +233,11 @@ var PAGE = {
 
 			showPlayEndPage.init(_this);
 		});
+	},
+	async showIndexListPage(parentPage){
+		await showIndexListPage.init(this);
 
-
-
-		// alert('得分:'+this.score);
-		// this.replay();
+		parentPage.removeClass('hidden');
 	}
 };
 

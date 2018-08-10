@@ -17,6 +17,10 @@ module.exports = {
 		replayBtn:'./image/replay_btn.png',
 		scoreTitle:'./image/score_title.png',
 
+		//排行页面
+		backBtn:'./image/back_btn.png',
+		indexListTitle:'./image/index_list.png',
+
 		bullet:'./image/bullet.png',
 
 		plain:'./image/plain.png',
