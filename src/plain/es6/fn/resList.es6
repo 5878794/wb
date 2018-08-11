@@ -35,7 +35,8 @@ module.exports = {
 		prizePan:'./image/prize_pan.png',
 		prizeZhen:'./image/prize_zhen.png',
 
-
+		//地址页面
+		addressSubmitBtn:'./image/address_submit_btn.png',
 
 		bullet:'./image/bullet.png',
 

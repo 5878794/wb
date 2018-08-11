@@ -22,6 +22,7 @@ let viewport = require('./lib/ui/setViewport'),
 	showPlayEndPage = require('./fn/showPlayEndPage'),
 	showIndexListPage = require('./fn/showIndexPage'),
 	showPrizePage = require('./fn/showPrizePage'),
+	showAddressPage = require('./fn/showAddressPage'),
 	{res,mp3} = require('./fn/resList');
 require('./lib/jq/cssAnimate');
 
@@ -135,6 +136,11 @@ var PAGE = {
 			this.music.bg.play();
 		}
 
+
+		this.bullets = [];
+		this.enemys = [];
+		this.score = 0;
+		this.game.step = 0;
 		this.createMain();
 		this.addFrameFn();
 	},
@@ -163,6 +169,8 @@ var PAGE = {
 		let _this = this;
 
 		this.game.addFn(this.stepFn = function(){
+			console.log(_this.game.step)
+
 			//创建子弹
 			if(_this.game.isFrame(setting.bulletInterval)){
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
@@ -209,7 +217,6 @@ var PAGE = {
 	delMainScene(){
 		this.game.delFn(this.stepFn);
 		this.game.del(this.mainScene);
-		this.game.step = 0;
 		this.game.resume();
 	},
 	//重玩游戏
@@ -219,6 +226,7 @@ var PAGE = {
 		this.enemys = [];
 		this.score = 0;
 
+		this.game.step = 0;
 		this.createMain();
 		this.addFrameFn();
 	},
@@ -244,7 +252,7 @@ var PAGE = {
 		showPrizePage.init(this);
 	},
 	showAddressPage(){
-		console.log(123)
+		showAddressPage.init(this);
 	}
 };
 
