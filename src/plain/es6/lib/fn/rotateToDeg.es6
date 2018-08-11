@@ -16,19 +16,14 @@ class rotateToDeg{
 		this.startDeg = opt.startDeg || 0;
 		//旋转速度  每帧多少度    一秒60帧
 		this.rotateSpd = opt.rotateSpd || 10;
-		//每一帧的角度
+		//每一帧的 角度返回给回调
 		this.stepFn = opt.stepFn || function(){};
-		//指定角度 减速度时间为5秒
-		this.stopTime = opt.stopTime || 5000;
 
 
-		//减速需要多少步才能停止
-		this.stopStep = this.stopTime*60/1000;
 
 		this.nowDeg = this.startDeg;
 		this.startLessDeg = null;
 		this.animateFn = null;
-		this.lessSpd = 0;
 		this.isStartLess = false;
 
 		this.startRotate();
@@ -41,9 +36,10 @@ class rotateToDeg{
 		var __step__ = function(){
 			let deg;
 
-			if(_this.startLessDeg && !_this.isStartLess){
+			if(_this.startLessDeg != null && !_this.isStartLess){
 				if(_this.nowDeg == _this.startLessDeg){
 					_this.isStartLess = true;
+					_this.nowDeg += _this.rotateSpd/2;
 				}
 			}
 
@@ -51,6 +47,7 @@ class rotateToDeg{
 			if(_this.isStartLess){
 				_this.rotateSpd -= _this.lessSpd;
 				deg =_this.nowDeg + _this.rotateSpd;
+
 			}else{
 				deg =_this.nowDeg + _this.rotateSpd;
 			}
@@ -72,13 +69,15 @@ class rotateToDeg{
 	}
 
 	stopRotate(deg=0){
-			//到停止需要走多少度
-		let allDeg = (this.rotateSpd/2)*this.stopStep,
-			//减速度
-			lessSpd = this.rotateSpd/this.stopStep,
+
+		let //到停止需要走多少度
+			allDeg = 360*3+deg,
+			//时间
+			time = allDeg/(this.rotateSpd/2),
+			lessSpd = this.rotateSpd/time,
+
 			//开始添加减速度度角度
-			startLessDeg = (deg-allDeg)%360;
-		startLessDeg = (startLessDeg<0)? 360 + startLessDeg : startLessDeg;
+			startLessDeg = 0;
 
 		this.lessSpd = lessSpd;
 		this.startLessDeg = startLessDeg;

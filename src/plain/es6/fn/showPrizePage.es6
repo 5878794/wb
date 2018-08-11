@@ -10,11 +10,11 @@ require('../lib/jq/extend');
 
 
 let rote = {
-	0:240,
-	1:300,
-	2:120,
+	0:120,
+	1:60,
+	2:240,
 	3:180,
-	4:60,
+	4:300,
 	5:0
 };
 
@@ -131,6 +131,6 @@ module.exports = {
 
 	},
 	stopRote(n=0){
-		this.a.stopRotate(30)
+		this.a.stopRotate(60)
 	}
 };
