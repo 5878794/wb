@@ -18,6 +18,7 @@ class rotateToDeg{
 		this.rotateSpd = opt.rotateSpd || 10;
 		//每一帧的 角度返回给回调
 		this.stepFn = opt.stepFn || function(){};
+		this.callback = opt.callback || function(){};
 
 
 
@@ -60,6 +61,7 @@ class rotateToDeg{
 			if(_this.rotateSpd<=0){
 				_this.stepFn(_this.endDeg);
 				cancelFrame(_this.animateFn);
+				_this.callback();
 			}else{
 				_this.animateFn = nextFrame(__step__);
 			}

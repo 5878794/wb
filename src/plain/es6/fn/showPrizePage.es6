@@ -9,7 +9,7 @@ let device = require('../lib/device'),
 require('../lib/jq/extend');
 
 
-let rote = {
+let roteObj = {
 	0:120,
 	1:60,
 	2:240,
@@ -25,6 +25,7 @@ module.exports = {
 	main:null,
 	reStartBtn:null,
 	pan:null,
+	startDeg:0,
 	init(parentObj){
 		this.parentObj = parentObj;
 		this.createMain();
@@ -102,12 +103,22 @@ module.exports = {
 	addEvent(){
 		let _this = this;
 		$$(this.startBtn).myclickok(async function(){
-			_this.startRote();
-			_this.getData().then(rs=>{
-				rs = 1;
-				_this.stopRote(rs);
-			}).catch(rs=>{
-				_this.stopRote();
+			$$(this).unbind(true);
+			_this.prizeStart(_this.startDeg);
+		});
+	},
+	prizeStart(startDeg){
+		let _this = this;
+
+		_this.startRote(startDeg);
+		_this.getData().then(rs=>{
+			rs = 3;
+			_this.stopRote(rs,function(){
+				_this.showResult(rs);
+			});
+		}).catch(rs=>{
+			_this.stopRote('',function(){
+				_this.showResult();
 			});
 		});
 	},
@@ -118,10 +129,11 @@ module.exports = {
 			},1000)
 		})
 	},
-	startRote(){
+	startRote(startDeg){
 		let dom = this.pan;
 
 		this.a = new rotateToEnd({
+			startDeg:startDeg,
 			stepFn:function(aa){
 				dom.css({
 					transform:'rotate('+aa+'deg)'
@@ -131,6 +143,12 @@ module.exports = {
 
 	},
 	stopRote(n=0){
-		this.a.stopRotate(60)
+		this.startDeg = roteObj[n];
+		this.a.stopRotate(this.startDeg)
+	},
+
+
+	showResult(rs=0){
+
 	}
 };
