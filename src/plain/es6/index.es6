@@ -242,6 +242,9 @@ var PAGE = {
 	},
 	showPrizePage(parentPage){
 		showPrizePage.init(this);
+	},
+	showAddressPage(){
+		console.log(123)
 	}
 };
 

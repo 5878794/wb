@@ -25,6 +25,7 @@ module.exports = {
 	main:null,
 	reStartBtn:null,
 	pan:null,
+	resultMain:null,
 	startDeg:0,
 	init(parentObj){
 		this.parentObj = parentObj;
@@ -41,7 +42,8 @@ module.exports = {
 			pan = $(res.prizePan),
 			zhen = $(res.prizeZhen),
 			startBtn = $(res.prizePageBtn),
-			text = $(res.prizePageText);
+			text = $(res.prizePageText),
+			resultDiv = $('<div class="box_hcb"></div>');
 
 		main.css({
 			position:'absolute',
@@ -89,14 +91,22 @@ module.exports = {
 			width:r2p(res.prizePageText.width)+'px',
 			height:r2p(res.prizePageText.height)+'px',
 		});
+		resultDiv.css({
+			position:'absolute',
+			left:0,top:-r2p(60)+'px',
+			width:r2p(625)+'px',
+			height:r2p(595)+'px',
+			'z-index':4
+		}).addClass('hidden');
 
-		body.append(pan).append(zhen).append(startBtn);
+		body.append(pan).append(zhen).append(startBtn).append(resultDiv);
 		main.append(body).append(text);
 
 
 		this.startBtn = startBtn;
 		this.main = main;
 		this.pan = pan;
+		this.resultMain = resultDiv;
 
 
 	},
@@ -112,14 +122,10 @@ module.exports = {
 
 		_this.startRote(startDeg);
 		_this.getData().then(rs=>{
-			rs = 3;
-			_this.stopRote(rs,function(){
-				_this.showResult(rs);
-			});
+			rs = 1;
+			_this.stopRote(rs);
 		}).catch(rs=>{
-			_this.stopRote('',function(){
-				_this.showResult();
-			});
+			_this.stopRote('');
 		});
 	},
 	getData(){
@@ -143,12 +149,77 @@ module.exports = {
 
 	},
 	stopRote(n=0){
+		let _this = this;
+
 		this.startDeg = roteObj[n];
-		this.a.stopRotate(this.startDeg)
+		this.a.stopRotate(this.startDeg,function(){
+			_this.showResult(n);
+		})
 	},
 
 
 	showResult(rs=0){
+		let body = this.resultMain,
+			bg,btn,
+			_this = this;
 
+		if(rs == 0){
+			bg = this.parentObj.res.prizePageNothing;
+			btn = this.parentObj.res.prizePageReplay;
+		}else{
+			bg =this.parentObj.res['prizePageObj'+rs];
+			btn = this.parentObj.res.prizePageGet;
+		}
+
+		let img = $(bg),
+			button = $(btn);
+
+		img.css({
+			width:r2p(bg.width)+'px',
+			height:r2p(bg.height)+'px',
+			display:'block'
+		});
+		button.css({
+			display:'block',
+			position:'absolute',
+			width:r2p(btn.width)+'px',
+			height:r2p(btn.height)+'px',
+			left:'50%',
+			'margin-left':-r2p(btn.width/2),
+			bottom:r2p(50)
+		});
+
+		body.append(img).append(button);
+		body.removeClass('hidden');
+
+
+		let removeResultPage = function(){
+			$$(button).unbind(true);
+			body.addClass('hidden');
+			body.html('');
+		};
+
+
+		if(rs == 0){
+			//未中奖  在玩一次
+			$$(button).myclickok(function(){
+				removeResultPage();
+				_this.prizeStart(_this.startDeg);
+			});
+		}else{
+			//中奖
+			$$(button).myclickok(function(){
+				removeResultPage();
+				_this.delPage();
+				_this.parentObj.showAddressPage();
+			});
+		}
+
+
+	},
+
+	delPage(){
+		this.a = null;
+		this.main.remove();
 	}
 };
