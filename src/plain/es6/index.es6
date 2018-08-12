@@ -23,6 +23,8 @@ let viewport = require('./lib/ui/setViewport'),
 	showIndexListPage = require('./fn/showIndexPage'),
 	showPrizePage = require('./fn/showPrizePage'),
 	showAddressPage = require('./fn/showAddressPage'),
+	ts = require('./fn/ts'),
+	localData = require('./lib/h5/localData'),
 	{res,mp3} = require('./fn/resList');
 require('./lib/jq/cssAnimate');
 
@@ -61,6 +63,9 @@ var PAGE = {
 	bullets:[],
 	enemys:[],
 	score:0,
+	showTs:false,
+	ts:null,
+	showTsStep:0,
 	stepFn:null,
 	async init(){
 		let _this = this;
@@ -161,8 +166,32 @@ var PAGE = {
 		//创建飞机
 		this.plain = plainSprite.init(this.mainScene,this.mainLayer,this.res,this.game,this);
 
+		//显示游戏提示
+		this.showTsFn();
+
 		//创建积分显示区
 		this.scoreArea = scoreAreaFn(this.mainScene,this.mainLayer,this);
+	},
+	//是否显示提示
+	showTsFn(){
+		let showTs = localData.getItem('ts1') || '';
+		this.showTs = (showTs)? false : true;
+		localData.setItem('ts1','1');
+
+		if(this.showTs){
+			this.ts = ts(this);
+			this.showTsStep = this.game.step+2;
+
+			let fn = null,
+				_this = this;
+			window.addEventListener(device.START_EV,fn=function(){
+				_this.showTs = false;
+				_this.game.step = 0;
+				_this.game.resume();
+				_this.mainLayer.del(_this.ts);
+				window.removeEventListener(device.START_EV,fn,false);
+			},false)
+		}
 	},
 	//创建每帧的处理事件
 	addFrameFn(){
@@ -170,6 +199,14 @@ var PAGE = {
 
 		this.game.addFn(this.stepFn = function(){
 			console.log(_this.game.step)
+
+			//是否显示ts
+			if(_this.showTs){
+				if(_this.game.isFrame(_this.showTsStep)){
+					_this.game.pause();
+				}
+			}
+
 
 			//创建子弹
 			if(_this.game.isFrame(setting.bulletInterval)){

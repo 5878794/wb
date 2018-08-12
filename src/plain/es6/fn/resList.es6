@@ -43,6 +43,12 @@ module.exports = {
 		plain:'./image/plain.png',
 		plain_boom1:'./image/plain_boom1.png',
 		plain_boom2:'./image/plain_boom2.png',
+		plain_blur:'./image/plant_blur.png',
+		plain_yellow:'./image/plant_yellow.png',
+		plain_ts:'./image/plant_ts.png',
+
+		blur_box:'./image/blur_box.png',
+		yellow_box:'./image/yellow_box.png',
 
 		enemy1:'./image/enemy1.png',
 		enemy2:'./image/enemy2.png',
