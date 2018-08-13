@@ -216,8 +216,9 @@ var PAGE = {
 
 
 			//创建子弹
-			if(_this.game.isFrame(setting.bulletInterval)){
+			if(_this.game.isFrame(setting.nowBulletParam.interval)){
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
+				console.log(JSON.stringify(bullet.data))
 				_this.bullets.push(bullet);
 				if(_this.music.shot){
 					_this.music.shot.volume(0.2);

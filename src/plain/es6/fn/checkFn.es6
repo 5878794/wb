@@ -53,6 +53,7 @@ module.exports = {
 					if(this.checkPZ(obj1,obj2)){
 						//飞机被击中
 						enemy.data.isHit = true;
+						enemy.data.blood = enemy.data.blood - rs.data.power;
 
 						//子弹做删除标识
 						this.delSprite(rs);
@@ -143,6 +144,7 @@ module.exports = {
 				rs.data.isDel = true;
 
 				//更改飞机参数
+				plain.data.getPowerType = type;
 				console.log('get:'+type);
 			}
 		});

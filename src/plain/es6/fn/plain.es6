@@ -16,6 +16,8 @@ let plain = {
 	res:null,
 	game:null,
 	obj:null,
+	powerTime:0,
+	powerIsUse:0,
 	init(scene,layer,res,game,obj){
 		this.scene = scene;
 		this.layer = layer;
@@ -43,7 +45,12 @@ let plain = {
 			newSize = {},
 			boomRes = setting.getPlainBoomRes(this.res),
 			_thisObj = this,
-			showBoom = false;
+			showBoom = false,
+			plainBlur = this.res.plain_blur,
+			plainYellow = this.res.plain_yellow;
+
+		this.powerTime = setting.powerTime;
+		this.powerIsUse = 0;
 
 		for(let [key,val] of Object.entries(size)){
 			newSize[key] = r2p(val);
@@ -61,10 +68,20 @@ let plain = {
 				boomRes:boomRes,
 				maxX:maxX,
 				maxY:maxY,
-				size:newSize
+				size:newSize,
+				getPowerType:null,
+				blurRes:plainBlur,
+				yellowRes:plainYellow,
+				res:this.res.plain
 			},
 			beforeRenderFn(){
 				let _this = this;
+
+				if(!this.data.isHit){
+					_thisObj.setPower(this);
+				}
+
+
 				if(this.data.isHit){
 					this.data.isBoom = true;
 				}
@@ -129,6 +146,30 @@ let plain = {
 			if(_this.obj.isGameOver){return;}
 			isTouch = false;
 		},false);
+	},
+
+	setPower(plain){
+		// type == 1 blur  type == 0 yellow
+		if(plain.data.getPowerType == 0){
+			plain.res = plain.data.yellowRes;
+			this.powerIsUse = 0;
+			setting.nowBulletParam.interval = setting.nowBulletParam.interval/2;
+		}
+		if(plain.data.getPowerType == 1){
+			plain.res = plain.data.blurRes;
+			this.powerIsUse = 0;
+			setting.nowBulletParam.power = setting.nowBulletParam.power*2;
+		}
+		plain.data.getPowerType = null;
+
+		this.powerIsUse++;
+		if(this.powerIsUse > this.powerTime){
+			//还原飞机及子弹参数
+			plain.res = plain.data.res;
+			setting.nowBulletParam.spd = setting.bulletSpd;
+			setting.nowBulletParam.power = setting.bulletPower;
+			setting.nowBulletParam.interval = setting.bulletInterval;
+		}
 	}
 };
 

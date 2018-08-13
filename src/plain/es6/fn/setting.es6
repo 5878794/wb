@@ -6,12 +6,21 @@ module.exports = {
 	//子弹发送间隔 **帧
 	bulletInterval:10,
 	//子弹的速度
-	bulletSpd:10,
+	bulletSpd:8,
+	bulletPower:1,
+	//当前子弹的属性
+	nowBulletParam:{
+		spd:8,
+		power:1,
+		interval:10
+	},
 	//能量球出现帧数
-	powerBox:60,  //30秒*60
+	powerBox:60*30,  //30秒*60
 	//能量球的x、y的最高速度
 	powerMaxSpd:4,
 	powerSpd:2,  //初始速度
+	//能量的使用时间
+	powerTime:60*15,
 	//敌机血
 	blood:{
 		1:1,

@@ -24,7 +24,9 @@ let bullet = function(plain,layer,res) {
 			this.y1 = this.y + this.height;
 		},
 		data:{
-			spd:setting.bulletSpd,
+			spd:setting.nowBulletParam.spd,
+			power:setting.nowBulletParam.power,
+			interval:setting.nowBulletParam.interval,
 			isDel:false
 		}
 	});

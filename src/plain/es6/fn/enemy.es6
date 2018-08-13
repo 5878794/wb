@@ -46,9 +46,9 @@ let enemy = function(type,scene,layer,res,obj){
 
 			//被击中
 			if(this.data.isHit){
-				this.data.blood = this.data.blood - 1;
+				// this.data.blood = this.data.blood - 1;
 
-				if(this.data.blood == 0){
+				if(this.data.blood <= 0){
 					this.data.spd = 0;
 					if(obj.music.shot){
 						obj.music.shot.stop();
