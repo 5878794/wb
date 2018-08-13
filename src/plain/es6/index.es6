@@ -24,6 +24,7 @@ let viewport = require('./lib/ui/setViewport'),
 	showPrizePage = require('./fn/showPrizePage'),
 	showAddressPage = require('./fn/showAddressPage'),
 	ts = require('./fn/ts'),
+	powerBox = require('./fn/powerBox'),
 	localData = require('./lib/h5/localData'),
 	{res,mp3} = require('./fn/resList');
 require('./lib/jq/cssAnimate');
@@ -62,6 +63,7 @@ var PAGE = {
 	scoreArea:null,
 	bullets:[],
 	enemys:[],
+	powerBoxs:[],
 	score:0,
 	showTs:false,
 	ts:null,
@@ -207,6 +209,11 @@ var PAGE = {
 				}
 			}
 
+			//增加能量球
+			if(_this.game.isFrame(setting.powerBox)){
+				_this.powerBoxs.push(powerBox.init(_this));
+			}
+
 
 			//创建子弹
 			if(_this.game.isFrame(setting.bulletInterval)){
@@ -228,9 +235,10 @@ var PAGE = {
 			}
 
 
-			//碰撞检测
+
 			if(_this.game.isFrame(1)){
-				checkFn.init(_this.plain,_this.bullets,_this.enemys);
+				//碰撞检测
+				checkFn.init(_this.plain,_this.bullets,_this.enemys,_this.powerBoxs);
 
 				//清除删除的对象
 				_this.bullets = _this.bullets.filter(rs=>{
@@ -241,6 +249,14 @@ var PAGE = {
 					}
 				});
 				_this.enemys = _this.enemys.filter(rs=>{
+					if(!rs.data.isDel){
+						return rs;
+					}else{
+						_this.mainLayer.del(rs);
+					}
+				});
+
+				_this.powerBoxs = _this.powerBoxs.filter(rs=>{
 					if(!rs.data.isDel){
 						return rs;
 					}else{

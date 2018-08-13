@@ -7,6 +7,11 @@ module.exports = {
 	bulletInterval:10,
 	//子弹的速度
 	bulletSpd:10,
+	//能量球出现帧数
+	powerBox:60,  //30秒*60
+	//能量球的x、y的最高速度
+	powerMaxSpd:4,
+	powerSpd:2,  //初始速度
 	//敌机血
 	blood:{
 		1:1,

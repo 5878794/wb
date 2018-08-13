@@ -2,9 +2,10 @@
 
 
 module.exports = {
-	init(plain,bullets,enemys){
+	init(plain,bullets,enemys,powerBoxs){
 		this.checkEnemys(enemys,bullets);
 		this.checkPlain(plain,enemys);
+		this.checkPowerBox(plain,powerBoxs);
 	},
 	//方块的碰撞检测
 	checkPZ(obj1,obj2){
@@ -17,6 +18,8 @@ module.exports = {
 
 		return check;
 	},
+
+	//判断敌机是否被击中
 	checkEnemys(enemys,bullets){
 		enemys.map(enemy=>{
 			if(enemy.data.isBoom){
@@ -112,6 +115,39 @@ module.exports = {
 				// }
 			}
 		})
+	},
+	//检查是否吃到能量球
+	checkPowerBox(plain,powerBoxs){
+		let x = plain.x + plain.data.size.x,
+			y = plain.y + plain.data.size.y,
+			x1 = x + plain.data.size.w,
+			y1 = y + plain.data.size.h,
+			obj1 = {
+				x:x,
+				y:y,
+				x1:x1,
+				y1:y1
+			};
+
+		powerBoxs.map(rs=>{
+			let x = rs.x,y=rs.y,x1=rs.x1,y1=rs.y1,
+				obj2 = {x,y,x1,y1};
+
+
+			if(this.checkPZ(obj1,obj2)){
+				//飞机吃到能量球
+				//type == 1 blur  type == 0 yellow
+				let type = rs.data.type;
+
+				//删除能量球
+				rs.data.isDel = true;
+
+				//更改飞机参数
+				console.log('get:'+type);
+			}
+		});
+
+
 	}
 };
 
