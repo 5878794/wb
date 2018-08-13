@@ -95,29 +95,29 @@ module.exports = {
 	},
 	//敌机的速度
 	getEnemySpd:function(type,step){
-		let min = 1,
-			max = 4;
-		if(step>400){min=2;}
-		if(step>800){min=3;}
-		if(step>1600){min=4;}
+		let min = 2,
+			max = 6;
+		if(step>0){min=3;}
+		if(step>900){min=4;}
+		if(step>2700){min=5;}
 
 		return  min + parseInt(Math.random()*(max-min)) + (3-type)*1.2;
 	},
 	//生成敌机的种类
 	getEnemyType:function(step){
 		//2 5 3
-		if(step>1200){
-			let a = [1,1,2,2,2,2,2,3,3,3];
+		if(step>3600){
+			let a = [1,2,2,2,2,2,3,3,3,3];
 			return a[parseInt(Math.random()*10)];
 		}
 		//4 4 2
-		if(step>600){
-			let a = [1,1,1,1,2,2,2,2,3,3];
+		if(step>1800){
+			let a = [1,1,2,2,2,2,2,3,3,3];
 			return a[parseInt(Math.random()*10)];
 		}
 		//6 3 1
 		if(step>=0){
-			let a = [1,1,1,1,1,1,2,2,2,3];
+			let a = [1,1,1,1,2,2,2,2,3,3];
 			return a[parseInt(Math.random()*10)];
 		}
 	}

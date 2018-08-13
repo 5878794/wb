@@ -101,6 +101,10 @@ let plain = {
 							// _this.alpha = 0;
 							_this.res = _this.data.boomRes[_this.data.boomRes.length-1];
 							_thisObj.obj.endPlay();
+							//还原子弹设置
+							setting.nowBulletParam.spd = setting.bulletSpd;
+							setting.nowBulletParam.power = setting.bulletPower;
+							setting.nowBulletParam.interval = setting.bulletInterval;
 						}
 					});
 					this.resAnimatePlay();
@@ -153,12 +157,16 @@ let plain = {
 		if(plain.data.getPowerType == 0){
 			plain.res = plain.data.yellowRes;
 			this.powerIsUse = 0;
-			setting.nowBulletParam.interval = setting.nowBulletParam.interval/2;
+			setting.nowBulletParam.interval = setting.bulletInterval/2;
+			setting.nowBulletParam.spd = setting.bulletSpd;
+			setting.nowBulletParam.power = setting.bulletPower;
 		}
 		if(plain.data.getPowerType == 1){
 			plain.res = plain.data.blurRes;
 			this.powerIsUse = 0;
-			setting.nowBulletParam.power = setting.nowBulletParam.power*2;
+			setting.nowBulletParam.interval = setting.bulletInterval;
+			setting.nowBulletParam.power = setting.bulletPower*2;
+			setting.nowBulletParam.spd = setting.bulletSpd;
 		}
 		plain.data.getPowerType = null;
 

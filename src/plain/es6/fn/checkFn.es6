@@ -54,7 +54,6 @@ module.exports = {
 						//飞机被击中
 						enemy.data.isHit = true;
 						enemy.data.blood = enemy.data.blood - rs.data.power;
-
 						//子弹做删除标识
 						this.delSprite(rs);
 					}

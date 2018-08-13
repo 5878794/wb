@@ -39,6 +39,9 @@ let preLoadRes = ['bg','logo','startBtn','prize_list','prize_rule_btn'];
 viewport(750);
 
 
+//TODO
+//敌机的血
+//重置参数有问题
 
 
 $(document).ready(function(){
