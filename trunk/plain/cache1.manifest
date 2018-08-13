@@ -1,13 +1,20 @@
 CACHE MANIFEST
-#v5
+#v7
 
 CACHE:
 # 需要缓存的列表
 index.html
 js/index.js
+js/howler.js
 js/jquery-2.1.1.min.js
 js/polyfill.js
+
+css/all.css
+
+image/address_submit_btn.png
+image/back_btn.png
 image/bg.jpeg
+image/blur_box.png
 image/bullet.png
 image/enemy1.png
 image/enemy1_boom1.png
@@ -25,9 +32,37 @@ image/enemy3_boom3.png
 image/enemy3_boom4.png
 image/enemy3_boom5.png
 image/enemy3_hit.png
+image/go.png
+image/home_btn.png
+image/index_btn.png
+image/index_list.png
 image/logo.png
 image/plain.png
+image/plain_boom1.png
+image/plain_boom2.png
+image/plant_blur.png
+image/plant_ts.png
+image/plant_yellow.png
+image/prize_btn.png
+image/prize_list.png
+image/prize_page_btn.png
+image/prize_page_get.png
+image/prize_page_nothing.png
+image/prize_page_obj1.png
+image/prize_page_obj2.png
+image/prize_page_obj3.png
+image/prize_page_obj4.png
+image/prize_page_obj5.png
+image/prize_page_replay.png
+image/prize_page_text.png
+image/prize_pan.png
+image/prize_rule_btn.png
+image/prize_rule_text.png
+image/prize_zhen.png
+image/replay_btn.png
+image/score_title.png
 image/start.png
+image/yellow_box.png
 
 mp3/1.mp3
 mp3/2.mp3
