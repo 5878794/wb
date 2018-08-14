@@ -204,7 +204,6 @@ var PAGE = {
 		let _this = this;
 
 		this.game.addFn(this.stepFn = function(){
-			console.log(_this.game.step)
 
 			//是否显示ts
 			if(_this.showTs){
@@ -222,7 +221,6 @@ var PAGE = {
 			//创建子弹
 			if(_this.game.isFrame(setting.nowBulletParam.interval)){
 				let bullet = bulletSprite(_this.plain,_this.mainLayer,_this.res);
-				console.log(JSON.stringify(bullet.data))
 				_this.bullets.push(bullet);
 				if(_this.music.shot){
 					_this.music.shot.volume(0.2);
@@ -288,6 +286,11 @@ var PAGE = {
 		this.game.step = 0;
 		this.createMain();
 		this.addFrameFn();
+
+		// 点击开始游戏后
+		if(this.music.bg){
+			this.music.bg.play();
+		}
 	},
 	//游戏结束
 	async endPlay(){
