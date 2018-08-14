@@ -149,6 +149,7 @@ var PAGE = {
 
 		this.bullets = [];
 		this.enemys = [];
+		this.powerBoxs = [];
 		this.score = 0;
 		this.game.step = 0;
 		this.createMain();
@@ -281,6 +282,7 @@ var PAGE = {
 		this.delMainScene();
 		this.bullets = [];
 		this.enemys = [];
+		this.powerBoxs = [];
 		this.score = 0;
 
 		this.game.step = 0;
