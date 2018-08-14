@@ -91,7 +91,7 @@ var PAGE = {
 				}
 			}
 		});
-		this.game.showFrame();
+		// this.game.showFrame();
 
 		this.createBg();
 		await this.getRes();
