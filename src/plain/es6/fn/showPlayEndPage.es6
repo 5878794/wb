@@ -17,6 +17,7 @@ module.exports = {
 	replayBtn:null,
 	prizeBtn:null,
 	indexBtn:null,
+	homeBtn:null,
 	init(parentObj){
 
 
@@ -41,7 +42,8 @@ module.exports = {
 			scoreDiv = $('<div>'+this.parentObj.score+'</div>'),
 			indexBtn = $(res.indexBtn),
 			prizeBtn = $(res.prizeBtn),
-			replayBtn = $(res.replayBtn);
+			replayBtn = $(res.replayBtn),
+			homeBtn = $(res.home_btn);
 
 		main.css({
 			position:'absolute',
@@ -50,17 +52,23 @@ module.exports = {
 		});
 		title.css({
 			width:r2p(res.scoreTitle.width)+'px',
-			height:r2p(200)+'px',
+			height:r2p(60)+'px',
 			background:'url('+res.scoreTitle.src+') no-repeat center top',
 			'background-size':'100% '+r2p(res.scoreTitle.height)+'px',
 			'-webkit-background-size':'100% '+r2p(res.scoreTitle.height)+'px',
+			'margin-bottom':r2p(100)+'px'
 		});
 		scoreDiv.css({
-			width:'100%',
+			width:r2p(res.indexBtn.width)+'px',
 			height:r2p(200)+'px',
+			'line-height':r2p(200)+'px',
 			'font-size':r2p(60)+'px',
 			color:'#fff',
-			'text-align':'center'
+			'text-align':'center',
+			background:'rgba(255,255,255,0.2)',
+			border:'1px solid rgba(255,255,255,0.3)',
+			'border-radius':r2p(10)+'px',
+			'margin-bottom':r2p(60)+'px'
 		});
 		indexBtn.css({
 			display:'block',
@@ -80,17 +88,29 @@ module.exports = {
 			height:r2p(res.replayBtn.height)+'px',
 			'margin-bottom':r2p(55)+'px'
 		});
+		homeBtn.css({
+			display:'block',
+			width:r2p(res.home_btn.width)+'px',
+			height:r2p(res.home_btn.height)+'px',
+			'margin-bottom':r2p(55)+'px',
+			position:'absolute',
+			left:'50%',
+			'margin-left':r2p(-res.home_btn.width/2)+'px',
+			bottom:r2p(100)+'px'
+		});
 
 		main.append(title)
 			.append(scoreDiv)
 			.append(indexBtn)
 			.append(prizeBtn)
-			.append(replayBtn);
+			.append(replayBtn)
+			.append(homeBtn);
 
 		this.main = main;
 		this.replayBtn = replayBtn;
 		this.indexBtn = indexBtn;
 		this.prizeBtn = prizeBtn;
+		this.homeBtn = homeBtn;
 
 	},
 	updateData(){
@@ -155,6 +175,11 @@ module.exports = {
 		$$(this.prizeBtn).myclickok(function(){
 			_this.removePage();
 			_this.parentObj.showPrizePage(_this.main);
+		});
+
+		$$(this.homeBtn).myclickok(function(){
+			_this.removePage();
+			_this.parentObj.game.show(_this.parentObj.loadScene);
 		});
 	},
 	removePage(){

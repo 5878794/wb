@@ -45,7 +45,7 @@ module.exports = {
 		});
 		title.css({
 			width:'100%',
-			height:r2p(80)+'px',
+			height:r2p(60)+'px',
 			background:'url('+res.indexListTitle.src+') no-repeat center top',
 			'background-size':r2p(res.indexListTitle.width)+'px '+r2p(res.indexListTitle.height)+'px',
 			'-webkit-background-size':r2p(res.indexListTitle.width)+'px '+r2p(res.indexListTitle.height)+'px',
@@ -54,7 +54,7 @@ module.exports = {
 		body.css({
 			width:r2p(600)+'px',
 			height:r2p(590)+'px',
-			background:'rgba(255,255,255,0.3)',
+			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',
 			'padding':r2p(40)+'px 0'
 		});

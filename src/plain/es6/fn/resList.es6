@@ -7,16 +7,16 @@ module.exports = {
 		logo:'./image/logo.png',
 		startBtn:'./image/start.png',
 		prize_rule_btn:'./image/prize_rule_btn.png',
-		goBtn:'./image/go.png',
+
 
 		//创建游戏账号页面
 		login_title:'./image/login_title.png',
+		goBtn:'./image/go.png',
 
 
+		//游戏说明页面
 		// prize_list:'./image/prize_list.png',
 		prize_rule_text:'./image/prize_rule_text.png',
-
-
 		home_btn:'./image/home_btn.png',
 
 
