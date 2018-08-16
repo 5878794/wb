@@ -19,7 +19,7 @@ let setting = require('./setting');
 let ajax = {
 	//请求函数主体
 	run(type,url, data, success, error){
-		url = setting.serverUrl + url;
+		url = ServerUrl + url;
 
 		$.ajax({
 			type: type,
