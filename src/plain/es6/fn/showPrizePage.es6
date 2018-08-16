@@ -124,6 +124,7 @@ module.exports = {
 		_this.startRote(startDeg);
 		_this.getData().then(rs=>{
 			rs = rs.lotteryResult;
+			rs = 1;
 			_this.stopRote(rs);
 		}).catch(rs=>{
 			_this.stopRote('');

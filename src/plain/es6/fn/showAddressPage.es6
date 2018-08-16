@@ -29,6 +29,7 @@ module.exports = {
 		let res = this.parentObj.res,
 			main = $('<div class="box_scc"></div>'),
 			btn = $(res.addressSubmitBtn),
+			title = $(res.login_title),
 			homeBtn = $(res.home_btn),
 			form = $('<div class="box_scc"></div>'),
 			formText = $('<div>请填写真实的姓名、电话、地址，核实信息后会尽快寄出奖品。</div>'),
@@ -42,6 +43,13 @@ module.exports = {
 			left:0,top:0,right:0,bottom:0,
 			'z-index':100
 		});
+		formText.css({
+			width:'120%',
+			'font-size':r2p(24)+'px',
+			color:'#ccc',
+			transform: 'scale(0.75)',
+			'-webkit-transform':'scale(0.75)'
+		});
 		btn.css({
 			display:'block',
 			width:r2p(res.addressSubmitBtn.width)+'px',
@@ -54,50 +62,51 @@ module.exports = {
 			height:r2p(res.home_btn.height)+'px'
 		});
 		form.css3({
-			position:'relative',
 			width:r2p(614)+'px',
-			height:r2p(345)+'px',
-			background:'rgba(255,255,255,0.25)',
+			// height:r2p(345)+'px',
+			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',
-			'margin-bottom':r2p(70)+'px'
+			'margin-bottom':r2p(300)+'px',
+			border:'1px solid rgba(255,255,255,0.3)'
 		});
-		formText.css({
-			position:'absolute',
-			left:r2p(-20)+'px',bottom:r2p(32)+'px',
-			width:'120%',
-			'font-size':r2p(24)+'px',
-			color:'#fff',
-			transform: 'scale(0.75)',
-			'-webkit-transform':'scale(0.75)'
+		title.css({
+			display:'block',
+			width:r2p(res.login_title.width)+'px',
+			height:r2p(res.login_title.height)+'px',
+			margin:r2p(30)+'px 0'
 		});
 		row.css({
-			width:'100%',
+			width:r2p(450)+'px',
 			height:r2p(50)+'px',
-			'margin-bottom':r2p(10)+'px'
+			'margin-bottom':r2p(10)+'px',
+			border:'1px solid rgba(255,255,255,0.5)',
+			'border-radius':r2p(10)+'px',
+			overflow:'hidden'
 		});
 		left.css({
-			width:r2p(160)+'px',
+			width:r2p(100)+'px',
 			height:r2p(50)+'px',
 			'line-height':r2p(50)+'px',
-			'font-size':r2p(34)+'px',
-			color:'#fff',
+			'font-size':r2p(26)+'px',
+			color:'#ccc',
 			'text-align':'center'
 		});
 		right.css({
-			width:r2p(360)+'px',
+			width:r2p(350)+'px',
 			height:r2p(50)+'px',
-			background:'rgba(255,255,255,0.5)',
-			'border-radius':r2p(25)+'px',
-			'overflow':'hidden'
+			background:'rgba(255,255,255,0.3)',
+			'overflow':'hidden',
 		});
 		input.css({
-			width:r2p(300)+'px',
+			width:r2p(320)+'px',
 			height:r2p(50)+'px',
 			background:'rgba(0,0,0,0)',
 			position:'relative',
 			'z-index':'100',
 			color:'#fff'
 		});
+
+		form.append(title);
 
 		let row1 = row.clone(),
 			left1 = left.clone().text('姓名'),
@@ -123,9 +132,10 @@ module.exports = {
 		row3.append(left3).append(right3);
 		form.append(row3);
 
+		form.append(btn);
 		form.append(formText);
 
-		main.append(form).append(btn).append(homeBtn);
+		main.append(form).append(homeBtn);
 
 		this.main = main;
 		this.btn = btn;

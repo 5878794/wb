@@ -52,7 +52,7 @@ module.exports = {
 		});
 		form.css3({
 			width:r2p(614)+'px',
-			height:r2p(345)+'px',
+			// height:r2p(345)+'px',
 			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',
 			'margin-bottom':r2p(300)+'px',
@@ -77,7 +77,7 @@ module.exports = {
 			height:r2p(50)+'px',
 			'line-height':r2p(50)+'px',
 			'font-size':r2p(26)+'px',
-			color:'#fff',
+			color:'#ccc',
 			'text-align':'center'
 		});
 		right.css({
