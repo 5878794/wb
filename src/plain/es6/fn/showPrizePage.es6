@@ -210,8 +210,21 @@ module.exports = {
 		if(rs == 0){
 			//未中奖  在玩一次
 			$$(button).myclickok(function(){
-				removeResultPage();
-				_this.prizeStart(_this.startDeg);
+				_this.parentObj.loading.show('loading...');
+				_this.getToken().then(rs=>{
+					_this.parentObj.loading.hide();
+					//赋值token到parentObj
+					_this.parentObj.token = rs.token;
+
+					removeResultPage();
+					_this.delPage();
+					_this.parentObj.replay();
+				}).catch(rs=>{
+					_this.parentObj.loading.hide();
+					_this.parentObj.info.show(rs);
+				});
+
+
 			});
 		}else{
 			//中奖
@@ -228,5 +241,16 @@ module.exports = {
 	delPage(){
 		this.a = null;
 		this.main.remove();
+	},
+	async getToken(){
+		let _this = this.parentObj;
+		let data = await ajax.send([
+			api.getToken({
+				phoneNo:_this.phone,
+				nikeName:_this.nickname
+			})
+		]);
+
+		return data[0];
 	}
 };

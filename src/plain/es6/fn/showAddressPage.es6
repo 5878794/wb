@@ -3,6 +3,7 @@ let device = require('../lib/device'),
 		val = val/100;
 		return device.rem2Px(750,val)
 	},
+	{ajax,api} = require('./ajax'),
 	$$ = require('../lib/event/$$');
 
 require('../lib/jq/extend');
@@ -143,12 +144,14 @@ module.exports = {
 				_this.submit(phone,name,address).then(rs=>{
 					_this.parentObj.loading.hide();
 					//提交成功
-					alert('数据提交成功');
+					alert('奖品邮寄信息提交成功');
 					_this.goHome();
 				}).catch(rs=>{
 					_this.parentObj.loading.hide();
 					_this.parentObj.info.show(rs);
 				})
+			}else{
+				_this.parentObj.info.show('输入的信息不合法');
 			}
 		});
 
@@ -158,20 +161,26 @@ module.exports = {
 		});
 
 	},
-	//TODO
 	checkForm(phone,name,address){
+		let phoneReg = /^\d{11,11}$/,
+			nameReg = /^[\u4e00-\u9fa5a-zA-Z]{1,10}$/,
+			addressReg = /^[\u4e00-\u9fa5a-zA-Z0-9-_#]{1,10}$/;
 
+		return (phoneReg.test(phone) && nameReg.test(name) && addressReg.test(address));
 
-		return true;
 	},
-	//TODO
-	submit(phone,name,address){
-		return new Promise((success,error)=>{
-			setTimeout(function(){
-				success();
-				// error({a:1})
-			},1000)
-		})
+	async submit(phone,name,address){
+		let _this = this.parentObj
+		let data = await ajax.send([
+			api.saveMyInfo({
+				name:name,
+				mobiePhone:phone,
+				address:address,
+				token:_this.token
+			})
+		]);
+
+		return data[0];
 	},
 	goHome(){
 		this.removePage();
