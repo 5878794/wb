@@ -3,6 +3,7 @@ let device = require('../lib/device'),
 		val = val/100;
 		return device.rem2Px(750,val)
 	},
+	{ajax,api} = require('./ajax'),
 	$$ = require('../lib/event/$$');
 
 require('../lib/jq/extend');
@@ -104,14 +105,19 @@ module.exports = {
 			}
 		});
 	},
-	//TODO
-	updateScore(){
+	async updateScore(){
+		let score = this.parentObj.score,
+			token = this.parentObj.token;
 
-		return new Promise((success,error)=>{
-			setTimeout(function(){
-				success();
-			},1000)
-		});
+		await ajax.send([
+			api.saveValue({
+				value:score,
+				token:token
+			})
+		]);
+
+		return '';
+
 	},
 	addEvent(){
 		let _this = this;
