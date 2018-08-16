@@ -4,7 +4,8 @@ let device = require('../lib/device'),
 		return device.rem2Px(750,val)
 	},
 	$$ = require('../lib/event/$$'),
-	{ajax,api} = require('./ajax');
+	{ajax,api} = require('./ajax'),
+	localData = require('../lib/h5/localData');
 
 require('../lib/jq/extend');
 
@@ -18,6 +19,8 @@ module.exports = {
 		this.createPage();
 
 		$('body').append(this.main);
+
+		this.getUserInfoFromCatch();
 
 		await this.addEvent();
 
@@ -117,6 +120,7 @@ module.exports = {
 						_this.parentObj.token = rs.token;
 						_this.parentObj.phone = phone;
 						_this.parentObj.nickname = nickname;
+						_this.saveUserInfoToCatch(phone,nickname);
 						success();
 					}).catch(rs=>{
 						_this.parentObj.loading.hide();
@@ -149,5 +153,20 @@ module.exports = {
 	removePage(){
 		$$(this.btn).unbind(true);
 		this.main.remove();
+	},
+	getUserInfoFromCatch(){
+		let phone = localData.getItem('phone'),
+			nickname = localData.getItem('nickname');
+
+		if(phone){
+			$('#phone').val(phone);
+		}
+		if(nickname){
+			$('#nickname').val(nickname);
+		}
+	},
+	saveUserInfoToCatch(phone,nickname){
+		localData.setItem('phone',phone);
+		localData.setItem('nickname',nickname);
 	}
 };
