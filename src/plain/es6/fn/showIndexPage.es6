@@ -15,33 +15,15 @@ module.exports = {
 	body:null,
 	btn:null,
 	row:null,
-	async init(parentObj){
+	data:null,
+	async init(parentObj,data){
 		this.parentObj = parentObj;
+		this.data = data;
 		this.createMain();
 		$('body').append(this.main);
 
-		this.parentObj.loading.show('loading...');
-		await this.getData().catch(rs=>{
-			this.parentObj.loading.hide();
-			this.parentObj.info.show(rs);
-		}).then(rs=>{
-			this.parentObj.loading.hide();
 
-			rs = [
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'},
-				{phone:'1231231312',score:'12312312'}
-			];
-			this.bindData(rs);
-		});
-
+		this.bindData(this.data);
 		await this.addEvent();
 		this.delPage();
 	},
@@ -125,14 +107,6 @@ module.exports = {
 			})
 		})
 	},
-	//TODO
-	getData(){
-		return new Promise((success,error)=>{
-			setTimeout(function(){
-				success();
-			},1000)
-		})
-	},
 	bindData(data){
 		let body = this.body,
 			row = this.row;
@@ -140,9 +114,9 @@ module.exports = {
 		data.map((rs,i)=>{
 			let thisRow = row.clone(),
 				n = i+1;
-			thisRow.find('div').eq(0).text(n+'.');
-			thisRow.find('div').eq(1).text(rs.phone);
-			thisRow.find('div').eq(2).text(rs.score);
+			thisRow.find('div').eq(0).text(rs.index+'.');
+			thisRow.find('div').eq(1).text(rs.nickName);
+			thisRow.find('div').eq(2).text(rs.value);
 			body.append(thisRow);
 		})
 	}

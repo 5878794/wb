@@ -71,6 +71,8 @@ var PAGE = {
 	showTsStep:0,
 	stepFn:null,
 	token:null,
+	phone:null,
+	nickname:null,
 	async init(){
 		let _this = this;
 
@@ -304,8 +306,8 @@ var PAGE = {
 			showPlayEndPage.init(_this);
 		});
 	},
-	async showIndexListPage(parentPage){
-		await showIndexListPage.init(this);
+	async showIndexListPage(parentPage,data){
+		await showIndexListPage.init(this,data);
 
 		parentPage.removeClass('hidden');
 	},

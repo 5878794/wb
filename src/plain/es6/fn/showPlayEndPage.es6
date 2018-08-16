@@ -121,24 +121,35 @@ module.exports = {
 	},
 	addEvent(){
 		let _this = this;
-		$$(this.replayBtn).myclickok(async function(){
+		$$(this.replayBtn).myclickok(function(){
 			_this.parentObj.loading.show('loading...');
-			await _this.getToken().then(rs=>{
+			_this.getToken().then(rs=>{
 				_this.parentObj.loading.hide();
-				//赋值token到parentObj TODO
+				//赋值token到parentObj
+				_this.parentObj.token = rs.token;
 
+				_this.removePage();
+				_this.parentObj.replay();
 			}).catch(rs=>{
 				_this.parentObj.loading.hide();
 				_this.parentObj.info.show(rs);
 			});
 
-			_this.removePage();
-			_this.parentObj.replay();
+
 		});
 
 		$$(this.indexBtn).myclickok(function(){
-			_this.hidePage();
-			_this.parentObj.showIndexListPage(_this.main);
+			_this.parentObj.loading.show('loading...');
+				_this.getList().then(rs=>{
+				_this.parentObj.loading.hide();
+				_this.hidePage();
+				_this.parentObj.showIndexListPage(_this.main,rs);
+			}).catch(rs=>{
+				_this.parentObj.loading.hide();
+				_this.parentObj.info.show(rs);
+			});
+
+
 		});
 
 		$$(this.prizeBtn).myclickok(function(){
@@ -155,12 +166,23 @@ module.exports = {
 	hidePage(){
 		this.main.addClass('hidden');
 	},
-	getToken(){
-		return new Promise((success,error)=>{
-			setTimeout(function(){
-				success();
-			},1000)
-		})
+	async getToken(){
+		let _this = this.parentObj;
+		let data = await ajax.send([
+			api.getToken({
+				phoneNo:_this.phone,
+				nikeName:_this.nickname
+			})
+		]);
 
+		return data[0];
+
+	},
+	async getList(){
+		let data = await ajax.send([
+			api.getRanking({})
+		]);
+
+		return data[0];
 	}
 };

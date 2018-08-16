@@ -115,6 +115,8 @@ module.exports = {
 					await _this.getToken(phone,nickname).then(rs=>{
 						_this.parentObj.loading.hide();
 						_this.parentObj.token = rs.token;
+						_this.parentObj.phone = phone;
+						_this.parentObj.nickname = nickname;
 						success();
 					}).catch(rs=>{
 						_this.parentObj.loading.hide();
