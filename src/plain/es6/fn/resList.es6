@@ -1,15 +1,25 @@
 module.exports = {
 	res:{
-		logo:'./image/logo.png',
+		//背景
 		bg:'./image/bg.jpeg',
 
-		prize_list:'./image/prize_list.png',
-		prize_rule_text:'./image/prize_rule_text.png',
-
+		//首页
+		logo:'./image/logo.png',
 		startBtn:'./image/start.png',
-		home_btn:'./image/home_btn.png',
 		prize_rule_btn:'./image/prize_rule_btn.png',
 		goBtn:'./image/go.png',
+
+		//创建游戏账号页面
+		login_title:'./image/login_title.png',
+
+
+		// prize_list:'./image/prize_list.png',
+		prize_rule_text:'./image/prize_rule_text.png',
+
+
+		home_btn:'./image/home_btn.png',
+
+
 
 		//游戏结束页面
 		indexBtn:'./image/index_btn.png',
@@ -38,6 +48,7 @@ module.exports = {
 		//地址页面
 		addressSubmitBtn:'./image/address_submit_btn.png',
 
+		//游戏场景。。。。
 		bullet:'./image/bullet.png',
 
 		plain:'./image/plain.png',

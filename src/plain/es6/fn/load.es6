@@ -25,7 +25,7 @@ let load = {
 		return new Promise(async success=>{
 			this.createLayer();
 			this.createLogo();
-			this.createPrizeList();
+			// this.createPrizeList();
 			this.createLoading();
 			let res = await this.loadRes(loadRes);
 			let mp3 = await this.loadMusic(loadMp3);
@@ -66,22 +66,22 @@ let load = {
 
 		this.layer.append(this.logo);
 	},
-	createPrizeList(){
-		let width = r2p(this.res.prize_list.width),
-			height = r2p(this.res.prize_list.height),
-			x = (this.scene.width - width)/2,
-			y = r2p(120)+r2p(this.res.logo.height);
-
-		this.prize_list = new game.sprite({
-			width:width,
-			height:height,
-			x:x,
-			y:y,
-			res:this.res.prize_list
-		});
-
-		this.layer.append(this.prize_list);
-	},
+	// createPrizeList(){
+	// 	let width = r2p(this.res.prize_list.width),
+	// 		height = r2p(this.res.prize_list.height),
+	// 		x = (this.scene.width - width)/2,
+	// 		y = r2p(120)+r2p(this.res.logo.height);
+	//
+	// 	this.prize_list = new game.sprite({
+	// 		width:width,
+	// 		height:height,
+	// 		x:x,
+	// 		y:y,
+	// 		res:this.res.prize_list
+	// 	});
+	//
+	// 	this.layer.append(this.prize_list);
+	// },
 	createLoading(){
 		let width = r2p(404),
 			height = r2p(8),
@@ -172,8 +172,8 @@ let load = {
 	createPrizeBtn(){
 		let width = r2p(this.res.prize_rule_btn.width),
 			height = r2p(this.res.prize_rule_btn.height),
-			x = (this.scene.width/2-width)/2,
-			y = this.scene.height-r2p(100)-height,
+			x = (this.scene.width-width)/2,
+			y = r2p(550),
 			_this = this;
 
 		this.prize_btn = new game.sprite({
@@ -199,8 +199,8 @@ let load = {
 	createStartBtn(){
 		let width = r2p(this.res.startBtn.width),
 			height = r2p(this.res.startBtn.height),
-			x = (this.scene.width/2-width)/2+this.scene.width/2-r2p(25),
-			y = this.scene.height-r2p(96)-height,
+			x = (this.scene.width-width)/2,
+			y = r2p(740),
 			_this = this;
 
 		this.btn = new game.sprite({

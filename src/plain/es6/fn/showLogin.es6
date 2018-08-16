@@ -32,6 +32,7 @@ module.exports = {
 	createPage(){
 		let res = this.parentObj.res,
 			main = $('<div class="box_scc"></div>'),
+			title = $(res.login_title),
 			btn = $(res.goBtn),
 			form = $('<div class="box_scc"></div>'),
 			row = $('<div class="box_hcc"></div>'),
@@ -52,32 +53,41 @@ module.exports = {
 		form.css3({
 			width:r2p(614)+'px',
 			height:r2p(345)+'px',
-			background:'rgba(255,255,255,0.25)',
+			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',
-			'margin-bottom':r2p(300)+'px'
+			'margin-bottom':r2p(300)+'px',
+			border:'1px solid rgba(255,255,255,0.3)'
+		});
+		title.css({
+			display:'block',
+			width:r2p(res.login_title.width)+'px',
+			height:r2p(res.login_title.height)+'px',
+			margin:r2p(30)+'px 0'
 		});
 		row.css({
 			width:r2p(450)+'px',
 			height:r2p(50)+'px',
-			'margin-bottom':r2p(10)+'px'
+			'margin-bottom':r2p(10)+'px',
+			border:'1px solid rgba(255,255,255,0.5)',
+			'border-radius':r2p(10)+'px',
+			overflow:'hidden'
 		});
 		left.css({
-			width:r2p(160)+'px',
+			width:r2p(100)+'px',
 			height:r2p(50)+'px',
 			'line-height':r2p(50)+'px',
-			'font-size':r2p(34)+'px',
+			'font-size':r2p(26)+'px',
 			color:'#fff',
 			'text-align':'center'
 		});
 		right.css({
-			width:r2p(280)+'px',
+			width:r2p(350)+'px',
 			height:r2p(50)+'px',
-			background:'rgba(255,255,255,0.5)',
-			'border-radius':r2p(25)+'px',
-			'overflow':'hidden'
+			background:'rgba(255,255,255,0.3)',
+			'overflow':'hidden',
 		});
 		input.css({
-			width:r2p(200)+'px',
+			width:r2p(320)+'px',
 			height:r2p(50)+'px',
 			background:'rgba(0,0,0,0)',
 			position:'relative',
@@ -85,8 +95,10 @@ module.exports = {
 			color:'#fff'
 		});
 
+		form.append(title);
+
 		let row1 = row.clone(),
-			left1 = left.clone().text('创建账号'),
+			left1 = left.clone().text('账号'),
 			right1 = right.clone(),
 			input1 = input.clone().attr({placeholder:'请输入手机号',id:'phone',type:'tel'});
 		right1.append(input1);
@@ -94,14 +106,15 @@ module.exports = {
 		form.append(row1);
 
 		let row2 = row.clone(),
-			left2 = left.clone().text('昵 称'),
+			left2 = left.clone().text('昵称'),
 			right2 = right.clone(),
 			input2 = input.clone().attr({placeholder:'请输入昵称',id:'nickname'});
 		right2.append(input2);
 		row2.append(left2).append(right2);
 		form.append(row2);
 
-		main.append(form).append(btn);
+		form.append(btn);
+		main.append(form);
 
 		this.main = main;
 		this.btn = btn;
