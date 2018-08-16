@@ -26,6 +26,7 @@ let viewport = require('./lib/ui/setViewport'),
 	ts = require('./fn/ts'),
 	powerBox = require('./fn/powerBox'),
 	localData = require('./lib/h5/localData'),
+	{ajax,api} = require('./fn/ajax'),
 	{res,mp3} = require('./fn/resList');
 require('./lib/jq/cssAnimate');
 
@@ -39,9 +40,6 @@ let preLoadRes = ['bg','logo','startBtn','prize_list','prize_rule_btn'];
 viewport(750);
 
 
-//TODO
-//敌机的血
-//重置参数有问题
 
 
 $(document).ready(function(){
@@ -72,6 +70,7 @@ var PAGE = {
 	ts:null,
 	showTsStep:0,
 	stepFn:null,
+	token:null,
 	async init(){
 		let _this = this;
 

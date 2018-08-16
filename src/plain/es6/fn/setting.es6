@@ -1,6 +1,7 @@
 
 
 module.exports = {
+	serverUrl:'http://116.7.242.67:8912/',
 	//背景每一贞滚动的距离 px
 	bgScrollY:0.25,
 	//子弹发送间隔 **帧

@@ -3,7 +3,8 @@ let device = require('../lib/device'),
 		val = val/100;
 		return device.rem2Px(750,val)
 	},
-	$$ = require('../lib/event/$$');
+	$$ = require('../lib/event/$$'),
+	{ajax,api} = require('./ajax');
 
 require('../lib/jq/extend');
 
@@ -113,31 +114,35 @@ module.exports = {
 					_this.parentObj.loading.show('loading');
 					await _this.getToken(phone,nickname).then(rs=>{
 						_this.parentObj.loading.hide();
-						success(rs);
+						_this.parentObj.token = rs.token;
+						success();
 					}).catch(rs=>{
 						_this.parentObj.loading.hide();
 						_this.parentObj.info.show(rs);
 					});
 
+				}else{
+					_this.parentObj.info.show('请输入正确的信息');
 				}
 
 			});
 		})
 	},
-	//TODO
 	checkForm(phone,nickname){
+		let phoneReg = /^\d{11,11}$/,
+			nicknameReg = /^[\u4e00-\u9fa5a-zA-Z0-9_]{1,10}$/;
 
-
-		return true;
+		return (phoneReg.test(phone) && nicknameReg.test(nickname));
 	},
-	//TODO
-	getToken(phone,nickname){
-		return new Promise((success,error)=>{
-			setTimeout(function(){
-				success({token:'123123'});
-				// error({a:1})
-			},1000)
-		})
+	async getToken(phone,nickname){
+		let data = await ajax.send([
+			api.getToken({
+				phoneNo:phone,
+				nikeName:nickname
+			})
+		]);
+
+		return data[0];
 	},
 	removePage(){
 		$$(this.btn).unbind(true);
