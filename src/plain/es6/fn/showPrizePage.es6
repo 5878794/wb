@@ -4,6 +4,7 @@ let device = require('../lib/device'),
 		return device.rem2Px(750,val)
 	},
 	$$ = require('../lib/event/$$'),
+	{ajax,api} = require('./ajax'),
 	rotateToEnd = require('../lib/fn/rotateToDeg');
 
 require('../lib/jq/extend');
@@ -122,18 +123,24 @@ module.exports = {
 
 		_this.startRote(startDeg);
 		_this.getData().then(rs=>{
-			rs = 1;
+			rs = rs.lotteryResult;
 			_this.stopRote(rs);
 		}).catch(rs=>{
 			_this.stopRote('');
 		});
 	},
-	getData(){
-		return new Promise((success,error)=>{
-			setTimeout(function(){
-				success();
-			},1000)
-		})
+	async getData(){
+		let _this = this.parentObj;
+		let data = await ajax.send([
+			api.getLotteryResult({
+				token:_this.token,
+				value:_this.score
+			})
+		]);
+
+		data = data[0];
+		return data;
+
 	},
 	startRote(startDeg){
 		let dom = this.pan;
