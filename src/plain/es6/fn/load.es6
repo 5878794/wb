@@ -54,7 +54,7 @@ let load = {
 		let width = r2p(this.res.logo.width),
 			height = r2p(this.res.logo.height),
 			x = (this.scene.width - width)/2,
-			y = r2p(60);
+			y = r2p(80);
 
 		this.logo = new game.sprite({
 			width:width,
@@ -173,7 +173,7 @@ let load = {
 		let width = r2p(this.res.prize_rule_btn.width),
 			height = r2p(this.res.prize_rule_btn.height),
 			x = (this.scene.width-width)/2,
-			y = r2p(550),
+			y = r2p(640),
 			_this = this;
 
 		this.prize_btn = new game.sprite({
@@ -200,7 +200,7 @@ let load = {
 		let width = r2p(this.res.startBtn.width),
 			height = r2p(this.res.startBtn.height),
 			x = (this.scene.width-width)/2,
-			y = r2p(740),
+			y = r2p(830),
 			_this = this;
 
 		this.btn = new game.sprite({

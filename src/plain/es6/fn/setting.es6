@@ -35,7 +35,7 @@ module.exports = {
 		3:1000
 	},
 	plainSize:{
-		x:45,y:86,w:72,h:146
+		x:30,y:84,w:108,h:140
 	},
 	//击中范围
 	hitSize:{
