@@ -16,8 +16,13 @@ module.exports = {
 
 		//游戏说明页面
 		// prize_list:'./image/prize_list.png',
-		prize_rule_text:'./image/prize_rule_text.png',
 		home_btn:'./image/home_btn.png',
+		game_sm_title:'./image/game_sm.png',
+		prize_rule_text:'./image/prize_rule_text.png',
+		game_sm_banner1:'./image/game_sm_banner1.png',
+		game_sm_banner2:'./image/game_sm_banner2.png',
+		game_sm_banner3:'./image/game_sm_banner3.png',
+		game_sm_banner4:'./image/game_sm_banner4.png',
 
 
 
