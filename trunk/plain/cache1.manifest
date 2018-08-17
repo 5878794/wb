@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v7
+#v11
 
 CACHE:
 # 需要缓存的列表
@@ -32,10 +32,16 @@ image/enemy3_boom3.png
 image/enemy3_boom4.png
 image/enemy3_boom5.png
 image/enemy3_hit.png
+image/game_sm.png
+image/game_sm_banner1.png
+image/game_sm_banner2.png
+image/game_sm_banner3.png
+image/game_sm_banner4.png
 image/go.png
 image/home_btn.png
 image/index_btn.png
 image/index_list.png
+image/login_title.png
 image/logo.png
 image/plain.png
 image/plain_boom1.png

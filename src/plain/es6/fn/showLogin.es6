@@ -58,7 +58,7 @@ module.exports = {
 		});
 		form.css3({
 			width:r2p(490)+'px',
-			// height:r2p(345)+'px',
+			height:r2p(485)+'px',
 			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',
 			'margin-bottom':r2p(200)+'px',

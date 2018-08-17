@@ -140,12 +140,12 @@ a:active{
     flex-basis:auto
 */
 .boxflex1{
-    -webkit-flex:1 1 0%;
-    flex:1 1 0%;
+    -webkit-flex:1 1 0% !important;
+    flex:1 1 0% !important;
 }
 .boxflex2{
-    -webkit-flex:2 1 0%;
-    flex:2 1 0%;
+    -webkit-flex:2 1 0% !important;
+    flex:2 1 0% !important;
 }
 
 
@@ -376,6 +376,26 @@ a:active{
 }
 
 
+.box_slt > *,
+.box_slc > *,
+.box_slb > *,
+.box_sct > *,
+.box_scc > *,
+.box_scb > *,
+.box_srt > *,
+.box_src > *,
+.box_srb > *,
+.box_hlt > *,
+.box_hlc > *,
+.box_hlb > *,
+.box_hct > *,
+.box_hcc > *,
+.box_hcb > *,
+.box_hrt > *,
+.box_hrc > *,
+.box_hrb > *{
+    flex:0 0 auto;
+}
 
 
 
