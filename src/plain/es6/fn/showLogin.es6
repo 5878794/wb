@@ -14,7 +14,8 @@ module.exports = {
 	parentObj:null,
 	main:null,
 	btn:null,
-	async init(parentObj){
+	homeBtn:null,
+	init(parentObj){
 		this.parentObj = parentObj;
 		this.createPage();
 
@@ -22,11 +23,8 @@ module.exports = {
 
 		this.getUserInfoFromCatch();
 
-		await this.addEvent();
+		this.addEvent();
 
-		this.removePage();
-
-		return true;
 
 	},
 	createPage(){
@@ -37,7 +35,8 @@ module.exports = {
 			form = $('<div class="box_scc"></div>'),
 			row = $('<div class="box_hcc"></div>'),
 			left = $('<div></div>'),
-			right = $('<div class="box_hcc"></div>'),
+			right = $('<div class="box_hcc boxflex1"></div>'),
+			homeBtn = $(res.home_btn),
 			input = $('<input type="text">');
 
 		main.css({
@@ -45,17 +44,24 @@ module.exports = {
 			left:0,top:0,right:0,bottom:0,
 			'z-index':100
 		});
+		homeBtn.css({
+			display:'block',
+			width:r2p(res.home_btn.width)+'px',
+			height:r2p(res.home_btn.height)+'px'
+		});
 		btn.css({
 			display:'block',
 			width:r2p(res.goBtn.width)+'px',
-			height:r2p(res.goBtn.height)+'px'
+			height:r2p(res.goBtn.height)+'px',
+			'margin-top':r2p(50)+'px',
+			'margin-bottom':r2p(30)+'px'
 		});
 		form.css3({
-			width:r2p(614)+'px',
+			width:r2p(400)+'px',
 			// height:r2p(345)+'px',
 			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',
-			'margin-bottom':r2p(300)+'px',
+			'margin-bottom':r2p(200)+'px',
 			border:'1px solid rgba(255,255,255,0.3)'
 		});
 		title.css({
@@ -65,15 +71,15 @@ module.exports = {
 			margin:r2p(30)+'px 0'
 		});
 		row.css({
-			width:r2p(450)+'px',
+			width:r2p(370)+'px',
 			height:r2p(50)+'px',
-			'margin-bottom':r2p(10)+'px',
+			'margin-top':r2p(30)+'px',
 			border:'1px solid rgba(255,255,255,0.5)',
 			'border-radius':r2p(10)+'px',
 			overflow:'hidden'
 		});
 		left.css({
-			width:r2p(100)+'px',
+			width:r2p(80)+'px',
 			height:r2p(50)+'px',
 			'line-height':r2p(50)+'px',
 			'font-size':r2p(26)+'px',
@@ -81,13 +87,14 @@ module.exports = {
 			'text-align':'center'
 		});
 		right.css({
-			width:r2p(350)+'px',
 			height:r2p(50)+'px',
 			background:'rgba(255,255,255,0.3)',
 			'overflow':'hidden',
 		});
 		input.css({
-			width:r2p(320)+'px',
+			margin:'a auto',
+			display:'block',
+			width:'94%',
 			height:r2p(50)+'px',
 			background:'rgba(0,0,0,0)',
 			position:'relative',
@@ -114,38 +121,43 @@ module.exports = {
 		form.append(row2);
 
 		form.append(btn);
-		main.append(form);
+		main.append(form).append(homeBtn);
 
 		this.main = main;
 		this.btn = btn;
+		this.homeBtn = homeBtn;
 	},
 	addEvent(){
 		let _this = this;
-		return new Promise(success=>{
-			$$(this.btn).myclickok(async function(){
-				let phone = $.trim($('#phone').val()),
-					nickname = $.trim($('#nickname').val());
-				if(_this.checkForm(phone,nickname)){
+		$$(this.btn).myclickok(async function(){
+			let phone = $.trim($('#phone').val()),
+				nickname = $.trim($('#nickname').val());
+			if(_this.checkForm(phone,nickname)){
 
-					_this.parentObj.loading.show('loading');
-					await _this.getToken(phone,nickname).then(rs=>{
-						_this.parentObj.loading.hide();
-						_this.parentObj.token = rs.token;
-						_this.parentObj.phone = phone;
-						_this.parentObj.nickname = nickname;
-						_this.saveUserInfoToCatch(phone,nickname);
-						success();
-					}).catch(rs=>{
-						_this.parentObj.loading.hide();
-						_this.parentObj.info.show(rs);
-					});
+				_this.parentObj.loading.show('loading');
+				await _this.getToken(phone,nickname).then(rs=>{
+					_this.parentObj.loading.hide();
+					_this.parentObj.token = rs.token;
+					_this.parentObj.phone = phone;
+					_this.parentObj.nickname = nickname;
+					_this.saveUserInfoToCatch(phone,nickname);
+					_this.removePage();
+					_this.parentObj.firstPlay();
+				}).catch(rs=>{
+					_this.parentObj.loading.hide();
+					_this.parentObj.info.show(rs);
+				});
 
-				}else{
-					_this.parentObj.info.show('请输入正确的信息');
-				}
+			}else{
+				_this.parentObj.info.show('请输入正确的信息');
+			}
 
-			});
-		})
+		});
+
+		$$(this.homeBtn).myclickok(function(){
+			_this.removePage();
+			_this.parentObj.game.show(_this.parentObj.loadScene);
+		});
 	},
 	checkForm(phone,nickname){
 		let phoneReg = /^\d{11,11}$/,
@@ -164,6 +176,7 @@ module.exports = {
 		return data[0];
 	},
 	removePage(){
+		$$(this.homeBtn).unbind(true);
 		$$(this.btn).unbind(true);
 		this.main.remove();
 	},

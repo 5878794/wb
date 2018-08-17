@@ -47,12 +47,13 @@ module.exports = {
 			display:'block',
 			width:r2p(res.game_sm_title.width)+'px',
 			height:r2p(res.game_sm_title.height)+'px',
-			'margin-bottom':r2p(100)+'px'
+			'margin-bottom':r2p(20)+'px'
 		});
 		btn.css({
 			display:'block',
 			width:r2p(res.home_btn.width)+'px',
-			height:r2p(res.home_btn.height)+'px'
+			height:r2p(res.home_btn.height)+'px',
+			'margin-top':r2p(100)+'px'
 		});
 		text.css({
 			width:'100%',

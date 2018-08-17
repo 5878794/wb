@@ -138,10 +138,13 @@ var PAGE = {
 		this.game.show(this.loadScene);
 	},
 	//显示登陆页面
-	async showLoginPage(){
+	showLoginPage(){
 		this.game.hidden(this.loadScene);
-		await showLogin.init(this);
+		showLogin.init(this);
 
+
+	},
+	firstPlay(){
 		// 点击开始游戏后
 		if(this.music.bg){
 			this.music.bg.play();
@@ -156,6 +159,7 @@ var PAGE = {
 		this.createMain();
 		this.addFrameFn();
 	},
+
 	//创建主游戏界面
 	createMain(){
 		this.isGameOver = false;
