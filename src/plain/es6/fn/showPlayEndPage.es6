@@ -56,47 +56,42 @@ module.exports = {
 			background:'url('+res.scoreTitle.src+') no-repeat center top',
 			'background-size':'100% '+r2p(res.scoreTitle.height)+'px',
 			'-webkit-background-size':'100% '+r2p(res.scoreTitle.height)+'px',
-			'margin-bottom':r2p(100)+'px'
+			'margin-bottom':r2p(20)+'px'
 		});
 		scoreDiv.css({
 			width:r2p(res.indexBtn.width)+'px',
-			height:r2p(200)+'px',
-			'line-height':r2p(200)+'px',
+			height:r2p(270)+'px',
+			'line-height':r2p(270)+'px',
 			'font-size':r2p(60)+'px',
 			color:'#fff',
 			'text-align':'center',
 			background:'rgba(255,255,255,0.2)',
 			border:'1px solid rgba(255,255,255,0.3)',
 			'border-radius':r2p(10)+'px',
-			'margin-bottom':r2p(60)+'px'
+			'margin-bottom':r2p(30)+'px'
 		});
 		indexBtn.css({
 			display:'block',
 			width:r2p(res.indexBtn.width)+'px',
 			height:r2p(res.indexBtn.height)+'px',
-			'margin-bottom':r2p(55)+'px'
+			'margin-bottom':r2p(27)+'px'
 		});
 		prizeBtn.css({
 			display:'block',
 			width:r2p(res.prizeBtn.width)+'px',
 			height:r2p(res.prizeBtn.height)+'px',
-			'margin-bottom':r2p(55)+'px'
+			'margin-bottom':r2p(27)+'px'
 		});
 		replayBtn.css({
 			display:'block',
 			width:r2p(res.replayBtn.width)+'px',
 			height:r2p(res.replayBtn.height)+'px',
-			'margin-bottom':r2p(55)+'px'
+			'margin-bottom':r2p(250)+'px'
 		});
 		homeBtn.css({
 			display:'block',
 			width:r2p(res.home_btn.width)+'px',
-			height:r2p(res.home_btn.height)+'px',
-			'margin-bottom':r2p(55)+'px',
-			position:'absolute',
-			left:'50%',
-			'margin-left':r2p(-res.home_btn.width/2)+'px',
-			bottom:r2p(100)+'px'
+			height:r2p(res.home_btn.height)+'px'
 		});
 
 		main.append(title)

@@ -13,7 +13,7 @@ let ts = function(parentObj) {
 		height = r2p(res.plain_ts.height),
 		plainW = r2p(res.plain.width),
 		plainH = r2p(res.plain.height),
-		x = parentObj.mainScene.width/2 + plainW/2 - r2p(100),
+		x = parentObj.mainScene.width/2 + plainW/2 - r2p(60),
 		y = parentObj.mainScene.height - plainH - height;
 
 
