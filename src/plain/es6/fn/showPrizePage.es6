@@ -28,6 +28,8 @@ module.exports = {
 	pan:null,
 	resultMain:null,
 	startDeg:0,
+	tempButton:null,
+	homeBtn:null,
 	init(parentObj){
 		this.parentObj = parentObj;
 		this.createMain();
@@ -44,12 +46,19 @@ module.exports = {
 			zhen = $(res.prizeZhen),
 			startBtn = $(res.prizePageBtn),
 			text = $(res.prizePageText),
+			homeBtn = $(res.home_btn),
 			resultDiv = $('<div class="box_hcb"></div>');
 
 		main.css({
 			position:'absolute',
 			left:0,top:0,right:0,bottom:0,
 			'z-index':100
+		});
+		homeBtn.css({
+			display:'block',
+			width:r2p(res.home_btn.width)+'px',
+			height:r2p(res.home_btn.height)+'px',
+			'margin-top':r2p(20)+'px'
 		});
 		body.css({
 			width:r2p(res.prizePan.width)+'px',
@@ -101,13 +110,14 @@ module.exports = {
 		}).addClass('hidden');
 
 		body.append(pan).append(zhen).append(startBtn).append(resultDiv);
-		main.append(body).append(text);
+		main.append(body).append(text).append(homeBtn);
 
 
 		this.startBtn = startBtn;
 		this.main = main;
 		this.pan = pan;
 		this.resultMain = resultDiv;
+		this.homeBtn = homeBtn;
 
 
 	},
@@ -117,6 +127,11 @@ module.exports = {
 			$$(this).unbind(true);
 			_this.prizeStart(_this.startDeg);
 		});
+
+		$$(this.homeBtn).myclickok(function(){
+			_this.delPage();
+			_this.parentObj.game.show(_this.parentObj.loadScene);
+		})
 	},
 	prizeStart(startDeg){
 		let _this = this;
@@ -124,7 +139,6 @@ module.exports = {
 		_this.startRote(startDeg);
 		_this.getData().then(rs=>{
 			rs = rs.lotteryResult;
-			rs = 1;
 			_this.stopRote(rs);
 		}).catch(rs=>{
 			_this.stopRote('');
@@ -200,6 +214,7 @@ module.exports = {
 		body.append(img).append(button);
 		body.removeClass('hidden');
 
+		this.tempButton = button;
 
 		let removeResultPage = function(){
 			$$(button).unbind(true);
@@ -240,6 +255,11 @@ module.exports = {
 	},
 
 	delPage(){
+		if(this.tempButton){
+			$$(this.tempButton).unbind(true);
+		}
+		$$(this.startBtn).unbind(true);
+		$$(this.homeBtn).unbind(true);
 		this.a = null;
 		this.main.remove();
 	},

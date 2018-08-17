@@ -57,7 +57,7 @@ module.exports = {
 			'margin-bottom':r2p(30)+'px'
 		});
 		form.css3({
-			width:r2p(400)+'px',
+			width:r2p(490)+'px',
 			// height:r2p(345)+'px',
 			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',

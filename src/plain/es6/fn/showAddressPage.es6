@@ -35,7 +35,7 @@ module.exports = {
 			formText = $('<div>请填写真实的姓名、电话、地址，核实信息后会尽快寄出奖品。</div>'),
 			row = $('<div class="box_hcc"></div>'),
 			left = $('<div></div>'),
-			right = $('<div class="box_hcc"></div>'),
+			right = $('<div class="box_hcc boxflex1"></div>'),
 			input = $('<input type="text">');
 
 		main.css({
@@ -47,14 +47,16 @@ module.exports = {
 			width:'120%',
 			'font-size':r2p(24)+'px',
 			color:'#ccc',
+			'text-align':'center',
 			transform: 'scale(0.75)',
-			'-webkit-transform':'scale(0.75)'
+			'-webkit-transform':'scale(0.75)',
+			'margin-bottom':r2p(50)+'px'
 		});
 		btn.css({
 			display:'block',
 			width:r2p(res.addressSubmitBtn.width)+'px',
 			height:r2p(res.addressSubmitBtn.height)+'px',
-			'margin-bottom':r2p(135)+'px'
+			'margin-top':r2p(46)+'px'
 		});
 		homeBtn.css({
 			display:'block',
@@ -62,29 +64,29 @@ module.exports = {
 			height:r2p(res.home_btn.height)+'px'
 		});
 		form.css3({
-			width:r2p(614)+'px',
+			width:r2p(490)+'px',
 			// height:r2p(345)+'px',
 			background:'rgba(255,255,255,0.15)',
 			'border-radius':r2p(10)+'px',
-			'margin-bottom':r2p(300)+'px',
+			'margin-bottom':r2p(160)+'px',
 			border:'1px solid rgba(255,255,255,0.3)'
 		});
 		title.css({
 			display:'block',
 			width:r2p(res.login_title.width)+'px',
 			height:r2p(res.login_title.height)+'px',
-			margin:r2p(30)+'px 0'
+			'margin-top':r2p(30)+'px'
 		});
 		row.css({
-			width:r2p(450)+'px',
+			width:r2p(370)+'px',
 			height:r2p(50)+'px',
-			'margin-bottom':r2p(10)+'px',
+			'margin-top':r2p(30)+'px',
 			border:'1px solid rgba(255,255,255,0.5)',
 			'border-radius':r2p(10)+'px',
 			overflow:'hidden'
 		});
 		left.css({
-			width:r2p(100)+'px',
+			width:r2p(80)+'px',
 			height:r2p(50)+'px',
 			'line-height':r2p(50)+'px',
 			'font-size':r2p(26)+'px',
@@ -92,13 +94,14 @@ module.exports = {
 			'text-align':'center'
 		});
 		right.css({
-			width:r2p(350)+'px',
 			height:r2p(50)+'px',
 			background:'rgba(255,255,255,0.3)',
 			'overflow':'hidden',
 		});
 		input.css({
-			width:r2p(320)+'px',
+			margin:'a auto',
+			display:'block',
+			width:'94%',
 			height:r2p(50)+'px',
 			background:'rgba(0,0,0,0)',
 			position:'relative',
