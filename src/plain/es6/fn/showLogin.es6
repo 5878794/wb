@@ -133,7 +133,9 @@ module.exports = {
 			let phone = $.trim($('#phone').val()),
 				nickname = $.trim($('#nickname').val());
 			if(_this.checkForm(phone,nickname)){
-
+				$('#phone').blur();
+				$('#nickname').blur();
+				$(this).focus();
 				_this.parentObj.loading.show('loading');
 				_this.getToken(phone,nickname).then(rs=>{
 					_this.parentObj.loading.hide();
@@ -141,8 +143,10 @@ module.exports = {
 					_this.parentObj.phone = phone;
 					_this.parentObj.nickname = nickname;
 					_this.saveUserInfoToCatch(phone,nickname);
-					_this.removePage();
-					_this.parentObj.firstPlay();
+					setTimeout(function(){
+						_this.removePage();
+						_this.parentObj.firstPlay();
+					},500);
 				}).catch(rs=>{
 					_this.parentObj.loading.hide();
 					_this.parentObj.info.show(rs);
