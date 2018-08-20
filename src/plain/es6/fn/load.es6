@@ -29,7 +29,7 @@ let load = {
 			this.createLogo();
 			// this.createPrizeList();
 			this.createLoading();
-			await this.manifestLoad();
+			// await this.manifestLoad();
 			let res = await this.loadRes(loadRes);
 			let mp3 = await this.loadMusic(loadMp3);
 			this.res = res;
