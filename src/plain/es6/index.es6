@@ -33,7 +33,7 @@ require('./lib/jq/cssAnimate');
 
 
 
-let preLoadRes = ['bg','logo','startBtn','prize_list','prize_rule_btn'];
+let preLoadRes = ['bg','logo'];
 
 
 

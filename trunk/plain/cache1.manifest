@@ -1,8 +1,11 @@
 CACHE MANIFEST
-#v13
+#v17
 
 CACHE:
 # 需要缓存的列表
+image/bg.jpeg
+image/logo.png
+
 index.html
 js/index.js
 js/howler.js
@@ -13,7 +16,7 @@ css/all.css
 
 image/address_submit_btn.png
 image/back_btn.png
-image/bg.jpeg
+
 image/blur_box.png
 image/bullet.png
 image/enemy1.png
@@ -42,7 +45,6 @@ image/home_btn.png
 image/index_btn.png
 image/index_list.png
 image/login_title.png
-image/logo.png
 image/plain.png
 image/plain_boom1.png
 image/plain_boom2.png
