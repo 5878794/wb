@@ -1,18 +1,12 @@
 CACHE MANIFEST
-#v17
+#v20
 
 CACHE:
 # 需要缓存的列表
 image/bg.jpeg
 image/logo.png
 
-index.html
-js/index.js
-js/howler.js
-js/jquery-2.1.1.min.js
-js/polyfill.js
 
-css/all.css
 
 image/address_submit_btn.png
 image/back_btn.png

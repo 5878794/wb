@@ -48,9 +48,9 @@ let param = {
 	// 	// "news/js/info":"./src/es6/news/info.es6",
 	// 	// "healthTest/js/index":"./src/es6/healthTest/index.es6"
 	// },
-	// devtool:false,
+	devtool:false,
 	//wx不支持调试模式  缺少eval函数
-	devtool:'eval-source-map',
+	// devtool:'eval-source-map',
 	//入口文件输出配置
 	output: {
 		path: path.join(__dirname,'../'),

@@ -72,47 +72,56 @@ let load = {
 	},
 	manifestLoad(){
 		let _this = this;
-		return new Promise(success=>{
-			window.applicationCache.addEventListener('checking', function(e) {
-				// body.text("正在检查更新");
-			}, false);
-			window.applicationCache.addEventListener('noupdate', function(e) {
-				// body.remove();
-				success();
-			}, false);
-			window.applicationCache.addEventListener('downloading', function(e) {
-				// body.text("开始下载");
-			}, false);
-			window.applicationCache.addEventListener('progress', function(e) {
-				// body.text("下载"+e.loaded+"/"+e.total);
-				_this.total = _this.mp3AndResTotal + e.total;
-				_this.loaded = e.loaded;
-				let per = e.loaded/_this.total,
-					width = r2p(400*per);
-				_this.loading.width = width;
 
-			}, false);
-			window.applicationCache.addEventListener('updateready', function(e) {
-				if(window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-					// Browser downloaded a new app cache.
-					// Swap it in and reload the page to get the new hotness.
-					window.applicationCache.swapCache();
-					window.location.reload();
-				}
-			}, false);
-			window.applicationCache.addEventListener('cached', function(e) {
-				// body.remove();
+		if(window.location.protocol == 'http:'){
+			return new Promise(success=>{
 				success();
-			}, false);
-			window.applicationCache.addEventListener('obsolete', function(e) {
-				// body.remove();
-				success();
-			}, false);
-			window.applicationCache.addEventListener('error', function(e) {
-				// body.remove();
-				success();
-			}, false);
-		})
+			})
+		}else{
+			return new Promise(success=>{
+				window.applicationCache.addEventListener('checking', function(e) {
+					// body.text("正在检查更新");
+				}, false);
+				window.applicationCache.addEventListener('noupdate', function(e) {
+					// body.remove();
+					success();
+				}, false);
+				window.applicationCache.addEventListener('downloading', function(e) {
+					// body.text("开始下载");
+				}, false);
+				window.applicationCache.addEventListener('progress', function(e) {
+					// body.text("下载"+e.loaded+"/"+e.total);
+					_this.total = _this.mp3AndResTotal + e.total;
+					_this.loaded = e.loaded;
+					let per = e.loaded/_this.total,
+						width = r2p(400*per);
+					_this.loading.width = width;
+
+				}, false);
+				window.applicationCache.addEventListener('updateready', function(e) {
+					if(window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+						// Browser downloaded a new app cache.
+						// Swap it in and reload the page to get the new hotness.
+						window.applicationCache.swapCache();
+						window.location.reload();
+					}
+				}, false);
+				window.applicationCache.addEventListener('cached', function(e) {
+					// body.remove();
+					success();
+				}, false);
+				window.applicationCache.addEventListener('obsolete', function(e) {
+					// body.remove();
+					success();
+				}, false);
+				window.applicationCache.addEventListener('error', function(e) {
+					// body.remove();
+					success();
+				}, false);
+			})
+		}
+
+
 	},
 	// createPrizeList(){
 	// 	let width = r2p(this.res.prize_list.width),
