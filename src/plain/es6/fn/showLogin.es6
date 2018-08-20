@@ -163,7 +163,7 @@ module.exports = {
 		let phoneReg = /^\d{11,11}$/,
 			nicknameReg = /^[\u4e00-\u9fa5a-zA-Z0-9_]{1,10}$/;
 
-		return (phoneReg.test(phone) && nicknameReg.test(nickname));
+		return (phoneReg.test(phone) && (nicknameReg.test(nickname) || nickname==''));
 	},
 	async getToken(phone,nickname){
 		let data = await ajax.send([
