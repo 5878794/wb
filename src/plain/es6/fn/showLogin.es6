@@ -129,13 +129,13 @@ module.exports = {
 	},
 	addEvent(){
 		let _this = this;
-		$$(this.btn).myclickok(async function(){
+		$$(this.btn).myclickok(function(){
 			let phone = $.trim($('#phone').val()),
 				nickname = $.trim($('#nickname').val());
 			if(_this.checkForm(phone,nickname)){
 
 				_this.parentObj.loading.show('loading');
-				await _this.getToken(phone,nickname).then(rs=>{
+				_this.getToken(phone,nickname).then(rs=>{
 					_this.parentObj.loading.hide();
 					_this.parentObj.token = rs.token;
 					_this.parentObj.phone = phone;
