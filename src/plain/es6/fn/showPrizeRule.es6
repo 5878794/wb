@@ -37,6 +37,7 @@ module.exports = {
 			bannerBody = $('<div></div>'),
 			a = $('<a></a>'),
 			img1 = $(res.prize_rule_text),
+			img11 = $(res.prize_rule_text1),
 			img2 = $(res.game_sm_banner1),
 			img3 = $(res.game_sm_banner2),
 			img4 = $(res.game_sm_banner3),
@@ -82,12 +83,14 @@ module.exports = {
 
 
 		let banner1 = a.clone().append(img1),
+			banner11 = a.clone().append(img11),
 			banner2 = a.clone().append(img2),
 			banner3 = a.clone().append(img3),
 			banner4 = a.clone().append(img4),
 			banner5 = a.clone().append(img5);
 
 		bannerBody.append(banner1)
+					.append(banner11)
 					.append(banner2)
 					.append(banner3)
 					.append(banner4)

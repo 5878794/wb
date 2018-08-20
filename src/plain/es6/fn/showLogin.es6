@@ -138,15 +138,15 @@ module.exports = {
 				$(this).focus();
 				_this.parentObj.loading.show('loading');
 				_this.getToken(phone,nickname).then(rs=>{
-					_this.parentObj.loading.hide();
 					_this.parentObj.token = rs.token;
 					_this.parentObj.phone = phone;
 					_this.parentObj.nickname = nickname;
 					_this.saveUserInfoToCatch(phone,nickname);
 					setTimeout(function(){
+						_this.parentObj.loading.hide();
 						_this.removePage();
 						_this.parentObj.firstPlay();
-					},500);
+					},1000);
 				}).catch(rs=>{
 					_this.parentObj.loading.hide();
 					_this.parentObj.info.show(rs);

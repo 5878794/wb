@@ -19,6 +19,7 @@ module.exports = {
 		home_btn:'./image/home_btn.png',
 		game_sm_title:'./image/game_sm.png',
 		prize_rule_text:'./image/prize_rule_text.png',
+		prize_rule_text1:'./image/prize_rule_text1.png',
 		game_sm_banner1:'./image/game_sm_banner1.png',
 		game_sm_banner2:'./image/game_sm_banner2.png',
 		game_sm_banner3:'./image/game_sm_banner3.png',
