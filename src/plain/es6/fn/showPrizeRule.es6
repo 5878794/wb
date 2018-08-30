@@ -4,7 +4,8 @@ let device = require('../lib/device'),
 		return device.rem2Px(750,val)
 	},
 	bannerFn = require('../lib/ui/bannerScroll'),
-	$$ = require('../lib/event/$$');
+	$$ = require('../lib/event/$$'),
+	setting = require('./setting');
 
 require('../lib/jq/extend');
 
@@ -15,7 +16,10 @@ module.exports = {
 	bannerMain:null,
 	bannerBody:null,
 	bannerObj:null,
+	oldBgSpd:0,
 	async init(parentObj){
+		parentObj.game.pause();
+
 		this.parentObj = parentObj;
 		this.createPage();
 		$('body').append(this.main);
@@ -25,6 +29,7 @@ module.exports = {
 
 		this.removePage();
 
+		parentObj.game.resume();
 		return true;
 
 	},
