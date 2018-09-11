@@ -177,7 +177,7 @@ module.exports = {
 	checkForm(phone,name,address){
 		let phoneReg = /^\d{11,11}$/,
 			nameReg = /^[\u4e00-\u9fa5a-zA-Z]{1,10}$/,
-			addressReg = /^[\u4e00-\u9fa5a-zA-Z0-9-_#]{1,10}$/;
+			addressReg = /^[\u4e00-\u9fa5a-zA-Z0-9-_#]{1,255}$/;
 
 		return (phoneReg.test(phone) && nameReg.test(name) && addressReg.test(address));
 
